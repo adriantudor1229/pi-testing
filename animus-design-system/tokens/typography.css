@@ -1,0 +1,89 @@
+/* ============================================================
+   ANIMUS DESIGN SYSTEM — Typography Tokens
+   Typeface: Space Grotesk
+   ============================================================ */
+
+:root {
+  /* ── Font Family ───────────────────────────────────────────── */
+  --animus-font-sans:            'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --animus-font-mono:            'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* ── Type Scale (8 Levels) ─────────────────────────────────── */
+  /*
+   * Level 1 — Display     : Hero headlines, splash screens
+   * Level 2 — Headline    : Page titles
+   * Level 3 — Title       : Section headers
+   * Level 4 — Subtitle    : Subsection headers, card titles
+   * Level 5 — Body Large  : Prominent body text, lead paragraphs
+   * Level 6 — Body        : Default body text, form labels
+   * Level 7 — Caption     : Small labels, metadata, helper text
+   * Level 8 — Overline    : Micro labels, version tags, breadcrumbs
+   */
+
+  /* Level 1 — Display */
+  --animus-text-display-size:       3.5rem;     /* 56px */
+  --animus-text-display-weight:     700;
+  --animus-text-display-line:       1.1;
+  --animus-text-display-tracking:  -0.03em;
+  --animus-text-display:            var(--animus-text-display-weight) var(--animus-text-display-size) / var(--animus-text-display-line) var(--animus-font-sans);
+
+  /* Level 2 — Headline */
+  --animus-text-headline-size:      2.25rem;    /* 36px */
+  --animus-text-headline-weight:    700;
+  --animus-text-headline-line:      1.15;
+  --animus-text-headline-tracking: -0.02em;
+  --animus-text-headline:           var(--animus-text-headline-weight) var(--animus-text-headline-size) / var(--animus-text-headline-line) var(--animus-font-sans);
+
+  /* Level 3 — Title */
+  --animus-text-title-size:         1.5rem;     /* 24px */
+  --animus-text-title-weight:       600;
+  --animus-text-title-line:         1.25;
+  --animus-text-title-tracking:    -0.015em;
+  --animus-text-title:              var(--animus-text-title-weight) var(--animus-text-title-size) / var(--animus-text-title-line) var(--animus-font-sans);
+
+  /* Level 4 — Subtitle */
+  --animus-text-subtitle-size:      1.125rem;   /* 18px */
+  --animus-text-subtitle-weight:    600;
+  --animus-text-subtitle-line:      1.35;
+  --animus-text-subtitle-tracking: -0.01em;
+  --animus-text-subtitle:           var(--animus-text-subtitle-weight) var(--animus-text-subtitle-size) / var(--animus-text-subtitle-line) var(--animus-font-sans);
+
+  /* Level 5 — Body Large */
+  --animus-text-body-lg-size:       1.0625rem;  /* 17px */
+  --animus-text-body-lg-weight:     400;
+  --animus-text-body-lg-line:       1.6;
+  --animus-text-body-lg-tracking:   0em;
+  --animus-text-body-lg:            var(--animus-text-body-lg-weight) var(--animus-text-body-lg-size) / var(--animus-text-body-lg-line) var(--animus-font-sans);
+
+  /* Level 6 — Body */
+  --animus-text-body-size:          0.9375rem;  /* 15px */
+  --animus-text-body-weight:        400;
+  --animus-text-body-line:          1.6;
+  --animus-text-body-tracking:      0.005em;
+  --animus-text-body:               var(--animus-text-body-weight) var(--animus-text-body-size) / var(--animus-text-body-line) var(--animus-font-sans);
+
+  /* Level 7 — Caption */
+  --animus-text-caption-size:       0.8125rem;  /* 13px */
+  --animus-text-caption-weight:     500;
+  --animus-text-caption-line:       1.45;
+  --animus-text-caption-tracking:   0.01em;
+  --animus-text-caption:            var(--animus-text-caption-weight) var(--animus-text-caption-size) / var(--animus-text-caption-line) var(--animus-font-sans);
+
+  /* Level 8 — Overline */
+  --animus-text-overline-size:      0.6875rem;  /* 11px */
+  --animus-text-overline-weight:    600;
+  --animus-text-overline-line:      1.4;
+  --animus-text-overline-tracking:  0.08em;
+  --animus-text-overline-transform: uppercase;
+  --animus-text-overline:           var(--animus-text-overline-weight) var(--animus-text-overline-size) / var(--animus-text-overline-line) var(--animus-font-sans);
+}
+
+/* ── Utility Classes ──────────────────────────────────────────── */
+.animus-display   { font: var(--animus-text-display);   letter-spacing: var(--animus-text-display-tracking); }
+.animus-headline  { font: var(--animus-text-headline);  letter-spacing: var(--animus-text-headline-tracking); }
+.animus-title     { font: var(--animus-text-title);     letter-spacing: var(--animus-text-title-tracking); }
+.animus-subtitle  { font: var(--animus-text-subtitle);  letter-spacing: var(--animus-text-subtitle-tracking); }
+.animus-body-lg   { font: var(--animus-text-body-lg);   letter-spacing: var(--animus-text-body-lg-tracking); }
+.animus-body      { font: var(--animus-text-body);      letter-spacing: var(--animus-text-body-tracking); }
+.animus-caption   { font: var(--animus-text-caption);   letter-spacing: var(--animus-text-caption-tracking); }
+.animus-overline  { font: var(--animus-text-overline);  letter-spacing: var(--animus-text-overline-tracking); text-transform: var(--animus-text-overline-transform); }

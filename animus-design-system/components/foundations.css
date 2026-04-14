@@ -1,0 +1,393 @@
+/* ============================================================
+   ANIMUS DESIGN SYSTEM — Component Foundations
+   Aesthetic: The Neon Architect
+   ============================================================ */
+
+/* ── BUTTONS (5 Variants) ────────────────────────────────────── */
+
+/* Shared base */
+.animus-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--animus-space-2);
+  font: var(--animus-text-body);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  padding: var(--animus-space-2) var(--animus-space-4);
+  border-radius: var(--animus-radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background var(--animus-duration-fast) var(--animus-ease-default),
+    border-color var(--animus-duration-fast) var(--animus-ease-default),
+    box-shadow var(--animus-duration-normal) var(--animus-ease-default),
+    transform var(--animus-duration-fast) var(--animus-ease-default);
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+  height: 2.25rem;
+}
+
+.animus-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--animus-focus-ring);
+}
+
+.animus-btn:active {
+  transform: translateY(1px);
+}
+
+/* Variant 1 — Primary (filled, neon glow on hover) */
+.animus-btn-primary {
+  background: var(--animus-primary);
+  color: var(--animus-text-on-accent);
+  border-color: var(--animus-primary);
+}
+.animus-btn-primary:hover {
+  background: var(--animus-primary-bright);
+  border-color: var(--animus-primary-bright);
+  box-shadow: var(--animus-glow-primary-md);
+}
+.animus-btn-primary:active {
+  background: var(--animus-primary-dim);
+  border-color: var(--animus-primary-dim);
+}
+
+/* Variant 2 — Secondary (subtle fill) */
+.animus-btn-secondary {
+  background: var(--animus-primary-muted);
+  color: var(--animus-primary);
+  border-color: rgba(163, 166, 255, 0.2);
+}
+.animus-btn-secondary:hover {
+  background: rgba(163, 166, 255, 0.22);
+  border-color: rgba(163, 166, 255, 0.35);
+  box-shadow: var(--animus-glow-primary-sm);
+}
+.animus-btn-secondary:active {
+  background: rgba(163, 166, 255, 0.12);
+}
+
+/* Variant 3 — Ghost (transparent → border on hover) */
+.animus-btn-ghost {
+  background: transparent;
+  color: var(--animus-text-secondary);
+  border-color: transparent;
+}
+.animus-btn-ghost:hover {
+  background: var(--animus-surface-raised);
+  color: var(--animus-text-primary);
+  border-color: var(--animus-border-strong);
+}
+.animus-btn-ghost:active {
+  background: var(--animus-surface-base);
+}
+
+/* Variant 4 — Outline (border always visible) */
+.animus-btn-outline {
+  background: transparent;
+  color: var(--animus-text-primary);
+  border-color: var(--animus-border-strong);
+}
+.animus-btn-outline:hover {
+  background: var(--animus-surface-raised);
+  border-color: var(--animus-primary);
+  box-shadow: var(--animus-glow-primary-sm);
+  color: var(--animus-primary);
+}
+.animus-btn-outline:active {
+  background: var(--animus-surface-base);
+}
+
+/* Variant 5 — Destructive */
+.animus-btn-destructive {
+  background: var(--animus-error-muted);
+  color: var(--animus-error);
+  border-color: rgba(248, 113, 113, 0.2);
+}
+.animus-btn-destructive:hover {
+  background: rgba(248, 113, 113, 0.22);
+  border-color: rgba(248, 113, 113, 0.4);
+  box-shadow: var(--animus-glow-error-sm);
+}
+.animus-btn-destructive:active {
+  background: rgba(248, 113, 113, 0.12);
+}
+
+/* Button sizes */
+.animus-btn-sm  { height: 1.75rem; padding: var(--animus-space-1) var(--animus-space-3); font-size: var(--animus-text-caption-size); }
+.animus-btn-lg  { height: 2.75rem; padding: var(--animus-space-3) var(--animus-space-5); font-size: var(--animus-text-subtitle-size); }
+
+/* Disabled */
+.animus-btn[disabled],
+.animus-btn:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+
+/* ── INPUT ───────────────────────────────────────────────────── */
+
+.animus-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--animus-space-1);
+}
+
+.animus-input-label {
+  font: var(--animus-text-caption);
+  color: var(--animus-text-secondary);
+}
+
+.animus-input {
+  font: var(--animus-text-body);
+  color: var(--animus-text-primary);
+  background: var(--animus-bg-inset);
+  border: 1px solid var(--animus-border-default);
+  border-radius: var(--animus-radius-sm);
+  padding: var(--animus-pad-input);
+  height: 2.25rem;
+  transition:
+    border-color var(--animus-duration-fast) var(--animus-ease-default),
+    box-shadow var(--animus-duration-normal) var(--animus-ease-default);
+  width: 100%;
+}
+
+.animus-input::placeholder {
+  color: var(--animus-text-tertiary);
+}
+
+.animus-input:hover {
+  border-color: var(--animus-border-strong);
+}
+
+.animus-input:focus {
+  outline: none;
+  border-color: var(--animus-primary);
+  box-shadow: var(--animus-glow-primary-sm);
+}
+
+/* Input — Error state */
+.animus-input-error {
+  border-color: var(--animus-error);
+  box-shadow: var(--animus-glow-error-sm);
+}
+
+.animus-input-error:focus {
+  border-color: var(--animus-error);
+  box-shadow: var(--animus-glow-error-sm), 0 0 0 2px rgba(248, 113, 113, 0.15);
+}
+
+.animus-input-helper {
+  font: var(--animus-text-caption);
+  color: var(--animus-text-tertiary);
+}
+
+.animus-input-error-text {
+  font: var(--animus-text-caption);
+  color: var(--animus-error);
+}
+
+/* Textarea */
+.animus-textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+
+/* ── CARD ────────────────────────────────────────────────────── */
+
+.animus-card {
+  background: var(--animus-surface-base);
+  border: 1px solid var(--animus-border-default);
+  border-radius: var(--animus-radius-md);
+  padding: var(--animus-pad-card);
+  transition:
+    border-color var(--animus-duration-fast) var(--animus-ease-default),
+    box-shadow var(--animus-duration-normal) var(--animus-ease-default);
+}
+
+.animus-card:hover {
+  border-color: var(--animus-border-strong);
+}
+
+/* Card — Interactive (clickable) */
+.animus-card-interactive {
+  cursor: pointer;
+}
+.animus-card-interactive:hover {
+  border-color: rgba(163, 166, 255, 0.25);
+  box-shadow: var(--animus-glow-primary-sm);
+}
+.animus-card-interactive:active {
+  transform: translateY(1px);
+}
+
+/* Card — Glass variant */
+.animus-card-glass {
+  background: var(--animus-glass-bg);
+  backdrop-filter: blur(var(--animus-glass-blur));
+  -webkit-backdrop-filter: blur(var(--animus-glass-blur));
+  border-color: var(--animus-glass-border);
+}
+
+.animus-card-glass:hover {
+  border-color: var(--animus-glass-border-bright);
+  box-shadow: var(--animus-glow-primary-sm);
+}
+
+/* Card — Elevated */
+.animus-card-elevated {
+  box-shadow: var(--animus-shadow-2);
+}
+
+/* Card sub-elements */
+.animus-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--animus-space-4);
+}
+
+.animus-card-title {
+  font: var(--animus-text-subtitle);
+  color: var(--animus-text-primary);
+}
+
+.animus-card-description {
+  font: var(--animus-text-body);
+  color: var(--animus-text-secondary);
+  line-height: var(--animus-text-body-line);
+}
+
+.animus-card-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--animus-space-2);
+  margin-top: var(--animus-space-5);
+  padding-top: var(--animus-space-4);
+  border-top: 1px solid var(--animus-border-subtle);
+}
+
+
+/* ── BADGE ───────────────────────────────────────────────────── */
+
+.animus-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--animus-space-1);
+  font: var(--animus-text-overline);
+  padding: 0.125rem var(--animus-space-2);
+  border-radius: var(--animus-radius-full);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Badge variants */
+.animus-badge-default {
+  background: var(--animus-surface-raised);
+  color: var(--animus-text-secondary);
+  border: 1px solid var(--animus-border-default);
+}
+
+.animus-badge-primary {
+  background: var(--animus-primary-muted);
+  color: var(--animus-primary);
+  border: 1px solid rgba(163, 166, 255, 0.2);
+}
+
+.animus-badge-secondary {
+  background: var(--animus-secondary-muted);
+  color: var(--animus-secondary);
+  border: 1px solid rgba(162, 142, 252, 0.2);
+}
+
+.animus-badge-success {
+  background: var(--animus-success-muted);
+  color: var(--animus-success);
+  border: 1px solid rgba(110, 231, 183, 0.2);
+}
+
+.animus-badge-warning {
+  background: var(--animus-warning-muted);
+  color: var(--animus-warning);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.animus-badge-error {
+  background: var(--animus-error-muted);
+  color: var(--animus-error);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+/* Badge with dot indicator */
+.animus-badge-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+
+/* ── TOOLTIP ─────────────────────────────────────────────────── */
+
+.animus-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.animus-tooltip {
+  position: absolute;
+  z-index: 50;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.96);
+  font: var(--animus-text-caption);
+  color: var(--animus-text-primary);
+  background: var(--animus-glass-bg-heavy);
+  backdrop-filter: blur(var(--animus-glass-blur));
+  -webkit-backdrop-filter: blur(var(--animus-glass-blur));
+  border: 1px solid var(--animus-glass-border);
+  border-radius: var(--animus-radius-sm);
+  padding: var(--animus-space-1) var(--animus-space-2);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity var(--animus-duration-fast) var(--animus-ease-default),
+    transform var(--animus-duration-fast) var(--animus-ease-spring);
+  box-shadow: var(--animus-shadow-2);
+}
+
+.animus-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--animus-glass-border);
+}
+
+/* Show on hover */
+.animus-tooltip-wrapper:hover .animus-tooltip,
+.animus-tooltip[data-state="open"] {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Bottom placement */
+.animus-tooltip-bottom {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+.animus-tooltip-bottom::after {
+  bottom: 100%;
+  top: auto;
+  border-top-color: transparent;
+  border-bottom-color: var(--animus-glass-border);
+}

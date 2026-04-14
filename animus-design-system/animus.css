@@ -1,0 +1,54 @@
+/* ============================================================
+   ANIMUS DESIGN SYSTEM — Master Token Bundle
+   Import this single file to load all tokens
+   ============================================================ */
+
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/layout.css';
+@import './components/foundations.css';
+
+/* ── Global Reset / Base ──────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%; /* 16px base */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font: var(--animus-text-body);
+  color: var(--animus-text-primary);
+  background: var(--animus-bg-base);
+  min-height: 100vh;
+}
+
+/* Scrollbar (Webkit — dark themed) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--animus-border-strong);
+  border-radius: var(--animus-radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--animus-text-tertiary);
+}
+
+/* Selection */
+::selection {
+  background: var(--animus-primary-muted);
+  color: var(--animus-primary-bright);
+}

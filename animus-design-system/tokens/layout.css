@@ -1,0 +1,84 @@
+/* ============================================================
+   ANIMUS DESIGN SYSTEM — Spacing, Radii & Shadow Tokens
+   ============================================================ */
+
+:root {
+  /* ── Spacing Scale (4px base grid, 8 levels) ──────────────── */
+  --animus-space-1:   0.25rem;   /*  4px */
+  --animus-space-2:   0.5rem;    /*  8px */
+  --animus-space-3:   0.75rem;   /* 12px */
+  --animus-space-4:   1rem;      /* 16px */
+  --animus-space-5:   1.5rem;    /* 24px */
+  --animus-space-6:   2rem;      /* 32px */
+  --animus-space-7:   3rem;      /* 48px */
+  --animus-space-8:   4rem;      /* 64px */
+
+  /* ── Semantic Spacing ──────────────────────────────────────── */
+  --animus-gap-inline:       var(--animus-space-2);   /* 8px  — between inline items */
+  --animus-gap-stack:        var(--animus-space-3);   /* 12px — between stacked items */
+  --animus-pad-input:        var(--animus-space-2) var(--animus-space-3); /* 8px 12px */
+  --animus-pad-card:         var(--animus-space-5);   /* 24px */
+  --animus-pad-section:      var(--animus-space-7);   /* 48px */
+  --animus-pad-page:         var(--animus-space-8);   /* 64px */
+
+  /* ── Border Radii (6 Levels) ───────────────────────────────── */
+  --animus-radius-none:  0;        /* Sharp — dividers, rules */
+  --animus-radius-xs:    0.125rem; /*  2px — tags, small chips */
+  --animus-radius-sm:    0.25rem;  /*  4px — buttons, inputs */
+  --animus-radius-md:    0.5rem;   /*  8px — cards, modals */
+  --animus-radius-lg:    0.75rem;  /* 12px — panels, drawers */
+  --animus-radius-full:  9999px;   /* Pill — avatars, badges, toggles */
+
+  /* ── Shadow System (4 Elevations) ──────────────────────────── */
+
+  /* Elevation 0 — Flush (no shadow) */
+  --animus-shadow-0:  none;
+
+  /* Elevation 1 — Subtle lift (cards resting on bg) */
+  --animus-shadow-1:  0 1px 2px rgba(0, 0, 0, 0.3),
+                      0 1px 3px rgba(0, 0, 0, 0.15);
+
+  /* Elevation 2 — Raised (dropdowns, popovers) */
+  --animus-shadow-2:  0 4px 6px -1px rgba(0, 0, 0, 0.35),
+                      0 2px 4px -2px rgba(0, 0, 0, 0.2);
+
+  /* Elevation 3 — Floating (modals, dialogs) */
+  --animus-shadow-3:  0 10px 15px -3px rgba(0, 0, 0, 0.4),
+                      0  4px  6px -4px rgba(0, 0, 0, 0.25);
+
+  /* Elevation 4 — Lifted (toasts, command palette overlay) */
+  --animus-shadow-4:  0 20px 25px -5px rgba(0, 0, 0, 0.5),
+                      0  8px 10px -6px rgba(0, 0, 0, 0.3);
+
+  /* ── Neon Glow Shadows ─────────────────────────────────────── */
+  --animus-glow-primary-sm:    0 0 8px  rgba(163, 166, 255, 0.3);
+  --animus-glow-primary-md:    0 0 16px rgba(163, 166, 255, 0.25),
+                               0 0 32px rgba(163, 166, 255, 0.1);
+  --animus-glow-primary-lg:    0 0 24px rgba(163, 166, 255, 0.35),
+                               0 0 48px rgba(163, 166, 255, 0.15),
+                               0 0 96px rgba(162, 142, 252, 0.06);
+
+  --animus-glow-secondary-sm:  0 0 8px  rgba(162, 142, 252, 0.3);
+  --animus-glow-secondary-md:  0 0 16px rgba(162, 142, 252, 0.25),
+                               0 0 32px rgba(162, 142, 252, 0.1);
+  --animus-glow-secondary-lg:  0 0 24px rgba(162, 142, 252, 0.35),
+                               0 0 48px rgba(162, 142, 252, 0.15),
+                               0 0 96px rgba(163, 166, 255, 0.06);
+
+  --animus-glow-success-sm:    0 0 8px  rgba(110, 231, 183, 0.25);
+  --animus-glow-error-sm:      0 0 8px  rgba(248, 113, 113, 0.25);
+
+  /* ── Focus Ring ─────────────────────────────────────────────── */
+  --animus-focus-ring:         0 0 0 2px var(--animus-bg-base),
+                               0 0 0 4px var(--animus-primary);
+  --animus-focus-ring-offset:  0 0 0 2px var(--animus-primary);
+
+  /* ── Transitions ───────────────────────────────────────────── */
+  --animus-ease-default:       cubic-bezier(0.4, 0, 0.2, 1);
+  --animus-ease-in:            cubic-bezier(0.4, 0, 1, 1);
+  --animus-ease-out:           cubic-bezier(0, 0, 0.2, 1);
+  --animus-ease-spring:        cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animus-duration-fast:      100ms;
+  --animus-duration-normal:    200ms;
+  --animus-duration-slow:      300ms;
+}

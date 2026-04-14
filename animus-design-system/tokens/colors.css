@@ -1,0 +1,145 @@
+/* ============================================================
+   ANIMUS DESIGN SYSTEM — Color Tokens
+   Aesthetic: The Neon Architect
+   ============================================================ */
+
+:root {
+  /* ── Core Palette ──────────────────────────────────────────── */
+  --animus-primary:              #a3a6ff;
+  --animus-primary-bright:       #c4c6ff;
+  --animus-primary-dim:          #7a7dcc;
+  --animus-primary-muted:        rgba(163, 166, 255, 0.15);
+
+  --animus-secondary:            #a28efc;
+  --animus-secondary-bright:     #c4b5ff;
+  --animus-secondary-dim:        #816dd4;
+  --animus-secondary-muted:      rgba(162, 142, 252, 0.15);
+
+  --animus-tertiary:             #6ee7b7;
+  --animus-tertiary-bright:      #a7f3d0;
+  --animus-tertiary-dim:         #4ac78f;
+  --animus-tertiary-muted:       rgba(110, 231, 183, 0.12);
+
+  /* ── Surfaces (Dark Mode — Default) ────────────────────────── */
+  --animus-bg-base:              #0e0e0e;
+  --animus-bg-raised:            #161618;
+  --animus-bg-overlay:           #1c1c1f;
+  --animus-bg-sunken:            #0a0a0a;
+  --animus-bg-inset:             #111113;
+
+  --animus-surface-base:         #161618;
+  --animus-surface-raised:       #1e1e21;
+  --animus-surface-overlay:      #232326;
+  --animus-surface-elevated:     #2a2a2e;
+  --animus-surface-sunken:       #101012;
+
+  /* ── Glassmorphism ─────────────────────────────────────────── */
+  --animus-glass-bg:             rgba(22, 22, 24, 0.72);
+  --animus-glass-bg-heavy:       rgba(22, 22, 24, 0.88);
+  --animus-glass-border:         rgba(163, 166, 255, 0.12);
+  --animus-glass-border-bright:  rgba(163, 166, 255, 0.25);
+  --animus-glass-blur:           16px;
+  --animus-glass-blur-heavy:     32px;
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --animus-border-default:       rgba(255, 255, 255, 0.06);
+  --animus-border-subtle:        rgba(255, 255, 255, 0.03);
+  --animus-border-strong:        rgba(255, 255, 255, 0.12);
+  --animus-border-focus:         var(--animus-primary);
+  --animus-border-error:         var(--animus-error);
+
+  /* ── Text ──────────────────────────────────────────────────── */
+  --animus-text-primary:         #f0f0f3;
+  --animus-text-secondary:       #a0a0a8;
+  --animus-text-tertiary:        #6b6b73;
+  --animus-text-inverse:         #0e0e0e;
+  --animus-text-link:            var(--animus-primary);
+  --animus-text-on-accent:       #0e0e0e;
+
+  /* ── Semantic: Success ─────────────────────────────────────── */
+  --animus-success:              #6ee7b7;
+  --animus-success-dim:          #4ac78f;
+  --animus-success-muted:        rgba(110, 231, 183, 0.12);
+  --animus-success-surface:      rgba(110, 231, 183, 0.08);
+
+  /* ── Semantic: Warning ─────────────────────────────────────── */
+  --animus-warning:              #fbbf24;
+  --animus-warning-dim:          #d4a017;
+  --animus-warning-muted:        rgba(251, 191, 36, 0.12);
+  --animus-warning-surface:      rgba(251, 191, 36, 0.08);
+
+  /* ── Semantic: Error ───────────────────────────────────────── */
+  --animus-error:                #f87171;
+  --animus-error-dim:            #dc5252;
+  --animus-error-muted:          rgba(248, 113, 113, 0.12);
+  --animus-error-surface:        rgba(248, 113, 113, 0.08);
+
+  /* ── Semantic: Info ────────────────────────────────────────── */
+  --animus-info:                 #67e8f9;
+  --animus-info-dim:             #49c5d6;
+  --animus-info-muted:           rgba(103, 232, 249, 0.12);
+  --animus-info-surface:         rgba(103, 232, 249, 0.08);
+
+  /* ── Neon Glow Overlays ────────────────────────────────────── */
+  --animus-glow-primary:         0 0 20px rgba(163, 166, 255, 0.25);
+  --animus-glow-secondary:       0 0 20px rgba(162, 142, 252, 0.25);
+  --animus-glow-success:         0 0 20px rgba(110, 231, 183, 0.20);
+  --animus-glow-error:           0 0 20px rgba(248, 113, 113, 0.20);
+  --animus-glow-intense:         0 0 40px rgba(163, 166, 255, 0.35),
+                                 0 0 80px rgba(162, 142, 252, 0.15);
+}
+
+/* ── Light Mode Override ──────────────────────────────────────── */
+[data-theme="light"],
+.theme-light {
+  --animus-bg-base:              #f5f5f7;
+  --animus-bg-raised:            #ffffff;
+  --animus-bg-overlay:           #ffffff;
+  --animus-bg-sunken:            #ebebed;
+  --animus-bg-inset:             #e5e5e8;
+
+  --animus-surface-base:         #ffffff;
+  --animus-surface-raised:       #ffffff;
+  --animus-surface-overlay:      #f5f5f7;
+  --animus-surface-elevated:     #ffffff;
+  --animus-surface-sunken:       #ebebed;
+
+  --animus-glass-bg:             rgba(255, 255, 255, 0.72);
+  --animus-glass-bg-heavy:       rgba(255, 255, 255, 0.88);
+  --animus-glass-border:         rgba(162, 142, 252, 0.15);
+  --animus-glass-border-bright:  rgba(162, 142, 252, 0.30);
+
+  --animus-border-default:       rgba(0, 0, 0, 0.08);
+  --animus-border-subtle:        rgba(0, 0, 0, 0.04);
+  --animus-border-strong:        rgba(0, 0, 0, 0.15);
+
+  --animus-primary:              #7a7dcc;
+  --animus-primary-bright:       #6565b0;
+  --animus-primary-dim:          #5c5ca0;
+  --animus-primary-muted:        rgba(122, 125, 204, 0.10);
+
+  --animus-secondary:            #816dd4;
+  --animus-secondary-bright:     #6b55ba;
+  --animus-secondary-dim:        #5a48a0;
+  --animus-secondary-muted:      rgba(129, 109, 212, 0.10);
+
+  --animus-tertiary:             #2f9e6f;
+  --animus-tertiary-bright:      #24855a;
+  --animus-tertiary-dim:         #1d6e4a;
+
+  --animus-text-primary:         #1a1a1e;
+  --animus-text-secondary:       #5c5c66;
+  --animus-text-tertiary:        #9a9aa4;
+  --animus-text-inverse:         #f0f0f3;
+  --animus-text-on-accent:       #ffffff;
+
+  --animus-success:              #2f9e6f;
+  --animus-warning:              #c48a08;
+  --animus-error:                #d44040;
+  --animus-info:                 #1a9bb0;
+
+  --animus-glow-primary:         0 0 20px rgba(122, 125, 204, 0.15);
+  --animus-glow-secondary:       0 0 20px rgba(129, 109, 212, 0.15);
+  --animus-glow-intense:         0 0 40px rgba(122, 125, 204, 0.20),
+                                 0 0 80px rgba(129, 109, 212, 0.08);
+}
