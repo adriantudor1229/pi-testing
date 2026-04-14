@@ -1,0 +1,105 @@
+/* ============================================================
+   ANIMUS DESIGN SYSTEM — Token Reference Sheet
+   Quick-lookup for design handoff
+   ============================================================ */
+
+/*
+┌─────────────────────────────────────────────────────────────────┐
+│  COLOR TOKENS                                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  PRIMARY         #a3a6ff    ━━━━━━━━━━━━  Neon lavender         │
+│    bright        #c4c6ff    ────────────  Lighter variant       │
+│    dim           #7a7dcc    ── ── ── ──   Darker variant        │
+│    muted         15% α      ░░░░░░░░░░░░  Glass fill            │
+│                                                                  │
+│  SECONDARY       #a28efc    ━━━━━━━━━━━━  Electric violet       │
+│    bright        #c4b5ff    ────────────  Lighter variant       │
+│    dim           #816dd4    ── ── ── ──   Darker variant        │
+│    muted         15% α      ░░░░░░░░░░░░  Glass fill            │
+│                                                                  │
+│  TERTIARY        #6ee7b7    ━━━━━━━━━━━━  Mint signal           │
+│    bright        #a7f3d0    ────────────  Lighter variant       │
+│    dim           #4ac78f    ── ── ── ──   Darker variant        │
+│                                                                  │
+│  SURFACES (Dark)                                                  │
+│    bg-base       #0e0e0e    ████████████  Deepest               │
+│    bg-raised     #161618    ████████████  Default surface       │
+│    bg-overlay    #1c1c1f    ████████████  Modal / popover       │
+│    bg-sunken     #0a0a0a    ████████████  Recessed wells        │
+│                                                                  │
+│  TEXT                                                             │
+│    primary       #f0f0f3    ████████████  High-emphasis         │
+│    secondary     #a0a0a8    ████████████  Mid-emphasis          │
+│    tertiary      #6b6b73    ████████████  Low-emphasis          │
+│                                                                  │
+│  SEMANTIC                                                         │
+│    success       #6ee7b7    ✓  Confirmed / operational          │
+│    warning       #fbbf24    ⚠  Caution / pending                │
+│    error         #f87171    ✕  Failure / destructive             │
+│    info          #67e8f9    ⓘ  Informational                     │
+│                                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│  TYPOGRAPHY — Space Grotesk                                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  Level    Name          Size     Weight  Line-ht  Tracking      │
+│  ───────  ────────────  ───────  ──────  ───────  ──────────    │
+│  1        Display       3.5rem   700     1.10    -0.03em       │
+│  2        Headline      2.25rem  700     1.15    -0.02em       │
+│  3        Title         1.5rem   600     1.25    -0.015em      │
+│  4        Subtitle      1.125rem 600     1.35    -0.01em       │
+│  5        Body Large    1.0625rm 400     1.60     0em          │
+│  6        Body          0.9375rm 400     1.60     0.005em      │
+│  7        Caption       0.8125rm 500     1.45     0.01em       │
+│  8        Overline      0.6875rm 600     1.40     0.08em  UP   │
+│                                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│  SPACING — 4px base grid                                         │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  Token     Value    px                                           │
+│  ────────  ───────  ────                                         │
+│  space-1   0.25rem   4   ┃                                      │
+│  space-2   0.5rem    8   ┃┃                                     │
+│  space-3   0.75rem  12   ┃┃┃                                    │
+│  space-4   1rem      16   ┃┃┃┃                                  │
+│  space-5   1.5rem    24   ┃┃┃┃┃┃                                │
+│  space-6   2rem      32   ┃┃┃┃┃┃┃┃                              │
+│  space-7   3rem      48   ┃┃┃┃┃┃┃┃┃┃┃┃                          │
+│  space-8   4rem      64   ┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃                      │
+│                                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│  BORDER RADII                                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  Token       Value     Use case                                  │
+│  ──────────  ────────  ─────────────────────────                 │
+│  radius-none  0        Dividers, rules                           │
+│  radius-xs    2px      Tags, chips                               │
+│  radius-sm    4px      Buttons, inputs                           │
+│  radius-md    8px      Cards, modals                             │
+│  radius-lg    12px     Panels, drawers                           │
+│  radius-full  9999px   Avatars, badges, toggles                  │
+│                                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│  SHADOWS & GLOWS                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  Elevation  Depth   Use case                                     │
+│  ─────────  ──────  ──────────────────────                       │
+│  shadow-0   none    Flush elements                               │
+│  shadow-1   subtle  Resting cards                                │
+│  shadow-2   raised  Dropdowns, popovers                          │
+│  shadow-3   float   Modals, dialogs                              │
+│  shadow-4   lifted  Toasts, command palette                      │
+│                                                                  │
+│  Neon Glows                                                      │
+│  ──────────                                                      │
+│  glow-primary-sm/md/lg   Lavender aura (3 intensities)           │
+│  glow-secondary-sm/md/lg Violet aura (3 intensities)             │
+│  glow-success-sm         Mint aura                               │
+│  glow-error-sm           Red aura                                │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+*/

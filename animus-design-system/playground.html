@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animus — Design System Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Inline all tokens for self-contained demo ────────────── */
+    :root {
+      --animus-primary:#a3a6ff;--animus-primary-bright:#c4c6ff;--animus-primary-dim:#7a7dcc;--animus-primary-muted:rgba(163,166,255,0.15);
+      --animus-secondary:#a28efc;--animus-secondary-bright:#c4b5ff;--animus-secondary-dim:#816dd4;--animus-secondary-muted:rgba(162,142,252,0.15);
+      --animus-tertiary:#6ee7b7;--animus-tertiary-bright:#a7f3d0;--animus-tertiary-dim:#4ac78f;--animus-tertiary-muted:rgba(110,231,183,0.12);
+      --animus-bg-base:#0e0e0e;--animus-bg-raised:#161618;--animus-bg-overlay:#1c1c1f;--animus-bg-sunken:#0a0a0a;--animus-bg-inset:#111113;
+      --animus-surface-base:#161618;--animus-surface-raised:#1e1e21;--animus-surface-overlay:#232326;--animus-surface-elevated:#2a2a2e;--animus-surface-sunken:#101012;
+      --animus-glass-bg:rgba(22,22,24,0.72);--animus-glass-bg-heavy:rgba(22,22,24,0.88);--animus-glass-border:rgba(163,166,255,0.12);--animus-glass-border-bright:rgba(163,166,255,0.25);--animus-glass-blur:16px;
+      --animus-border-default:rgba(255,255,255,0.06);--animus-border-subtle:rgba(255,255,255,0.03);--animus-border-strong:rgba(255,255,255,0.12);
+      --animus-text-primary:#f0f0f3;--animus-text-secondary:#a0a0a8;--animus-text-tertiary:#6b6b73;--animus-text-inverse:#0e0e0e;--animus-text-on-accent:#0e0e0e;
+      --animus-success:#6ee7b7;--animus-success-muted:rgba(110,231,183,0.12);
+      --animus-warning:#fbbf24;--animus-warning-muted:rgba(251,191,36,0.12);
+      --animus-error:#f87171;--animus-error-muted:rgba(248,113,113,0.12);
+      --animus-info:#67e8f9;--animus-info-muted:rgba(103,232,249,0.12);
+      --animus-space-1:0.25rem;--animus-space-2:0.5rem;--animus-space-3:0.75rem;--animus-space-4:1rem;--animus-space-5:1.5rem;--animus-space-6:2rem;--animus-space-7:3rem;--animus-space-8:4rem;
+      --animus-radius-none:0;--animus-radius-xs:0.125rem;--animus-radius-sm:0.25rem;--animus-radius-md:0.5rem;--animus-radius-lg:0.75rem;--animus-radius-full:9999px;
+      --animus-shadow-1:0 1px 2px rgba(0,0,0,0.3),0 1px 3px rgba(0,0,0,0.15);
+      --animus-shadow-2:0 4px 6px -1px rgba(0,0,0,0.35),0 2px 4px -2px rgba(0,0,0,0.2);
+      --animus-shadow-3:0 10px 15px -3px rgba(0,0,0,0.4),0 4px 6px -4px rgba(0,0,0,0.25);
+      --animus-shadow-4:0 20px 25px -5px rgba(0,0,0,0.5),0 8px 10px -6px rgba(0,0,0,0.3);
+      --animus-glow-primary-sm:0 0 8px rgba(163,166,255,0.3);--animus-glow-primary-md:0 0 16px rgba(163,166,255,0.25),0 0 32px rgba(163,166,255,0.1);
+      --animus-glow-secondary-sm:0 0 8px rgba(162,142,252,0.3);--animus-glow-error-sm:0 0 8px rgba(248,113,113,0.25);
+      --animus-font-sans:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+      --animus-ease-default:cubic-bezier(0.4,0,0.2,1);--animus-ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+      --animus-duration-fast:100ms;--animus-duration-normal:200ms;
+      --animus-focus-ring:0 0 0 2px #0e0e0e,0 0 0 4px #a3a6ff;
+    }
+
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { font-size:100%; -webkit-font-smoothing:antialiased; }
+    body {
+      font:400 0.9375rem/1.6 'Space Grotesk',sans-serif;
+      color:var(--animus-text-primary);
+      background:var(--animus-bg-base);
+      padding:var(--animus-space-8);
+    }
+    ::-webkit-scrollbar { width:6px; } ::-webkit-scrollbar-track { background:transparent; }
+    ::-webkit-scrollbar-thumb { background:var(--animus-border-strong); border-radius:9999px; }
+    ::selection { background:var(--animus-primary-muted); color:var(--animus-primary-bright); }
+
+    /* ── Buttons ─────────────────────────────────────── */
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:var(--animus-space-2);
+      font:600 0.9375rem/1 'Space Grotesk',sans-serif; padding:var(--animus-space-2) var(--animus-space-4);
+      border-radius:var(--animus-radius-sm); border:1px solid transparent; cursor:pointer;
+      transition:all 100ms var(--animus-ease-default); height:2.25rem; text-decoration:none;
+    }
+    .btn:focus-visible { outline:none; box-shadow:var(--animus-focus-ring); }
+    .btn:active { transform:translateY(1px); }
+    .btn-primary { background:var(--animus-primary); color:var(--animus-text-on-accent); border-color:var(--animus-primary); }
+    .btn-primary:hover { background:var(--animus-primary-bright); box-shadow:var(--animus-glow-primary-md); }
+    .btn-secondary { background:var(--animus-primary-muted); color:var(--animus-primary); border-color:rgba(163,166,255,0.2); }
+    .btn-secondary:hover { background:rgba(163,166,255,0.22); box-shadow:var(--animus-glow-primary-sm); }
+    .btn-ghost { background:transparent; color:var(--animus-text-secondary); }
+    .btn-ghost:hover { background:var(--animus-surface-raised); color:var(--animus-text-primary); border-color:var(--animus-border-strong); }
+    .btn-outline { background:transparent; color:var(--animus-text-primary); border-color:var(--animus-border-strong); }
+    .btn-outline:hover { border-color:var(--animus-primary); color:var(--animus-primary); box-shadow:var(--animus-glow-primary-sm); }
+    .btn-destructive { background:var(--animus-error-muted); color:var(--animus-error); border-color:rgba(248,113,113,0.2); }
+    .btn-destructive:hover { background:rgba(248,113,113,0.22); box-shadow:var(--animus-glow-error-sm); }
+
+    /* ── Inputs ──────────────────────────────────────── */
+    .input {
+      font:400 0.9375rem/1.6 'Space Grotesk',sans-serif; color:var(--animus-text-primary);
+      background:var(--animus-bg-inset); border:1px solid var(--animus-border-default);
+      border-radius:var(--animus-radius-sm); padding:0.5rem 0.75rem; height:2.25rem; width:100%;
+      transition:border-color 100ms var(--animus-ease-default),box-shadow 200ms var(--animus-ease-default);
+    }
+    .input::placeholder { color:var(--animus-text-tertiary); }
+    .input:hover { border-color:var(--animus-border-strong); }
+    .input:focus { outline:none; border-color:var(--animus-primary); box-shadow:var(--animus-glow-primary-sm); }
+
+    /* ── Cards ───────────────────────────────────────── */
+    .card {
+      background:var(--animus-surface-base); border:1px solid var(--animus-border-default);
+      border-radius:var(--animus-radius-md); padding:var(--animus-space-5);
+      transition:border-color 100ms var(--animus-ease-default),box-shadow 200ms var(--animus-ease-default);
+    }
+    .card:hover { border-color:var(--animus-border-strong); }
+    .card-glass {
+      background:var(--animus-glass-bg); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+      border-color:var(--animus-glass-border);
+    }
+    .card-glass:hover { border-color:var(--animus-glass-border-bright); box-shadow:var(--animus-glow-primary-sm); }
+    .card-interactive { cursor:pointer; }
+    .card-interactive:hover { border-color:rgba(163,166,255,0.25); box-shadow:var(--animus-glow-primary-sm); }
+
+    /* ── Badges ──────────────────────────────────────── */
+    .badge {
+      display:inline-flex; align-items:center; gap:4px;
+      font:600 0.6875rem/1.4 'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.08em;
+      padding:2px 8px; border-radius:9999px; white-space:nowrap;
+    }
+    .badge-default { background:var(--animus-surface-raised); color:var(--animus-text-secondary); border:1px solid var(--animus-border-default); }
+    .badge-primary { background:var(--animus-primary-muted); color:var(--animus-primary); border:1px solid rgba(163,166,255,0.2); }
+    .badge-secondary { background:var(--animus-secondary-muted); color:var(--animus-secondary); border:1px solid rgba(162,142,252,0.2); }
+    .badge-success { background:var(--animus-success-muted); color:var(--animus-success); border:1px solid rgba(110,231,183,0.2); }
+    .badge-warning { background:var(--animus-warning-muted); color:var(--animus-warning); border:1px solid rgba(251,191,36,0.2); }
+    .badge-error { background:var(--animus-error-muted); color:var(--animus-error); border:1px solid rgba(248,113,113,0.2); }
+    .badge-dot::before { content:''; width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
+
+    /* ── Tooltips ────────────────────────────────────── */
+    .tip-wrap { position:relative; display:inline-flex; }
+    .tip {
+      position:absolute; z-index:50; bottom:calc(100% + 8px); left:50%;
+      transform:translateX(-50%) scale(0.96);
+      font:500 0.8125rem/1.45 'Space Grotesk',sans-serif; color:var(--animus-text-primary);
+      background:var(--animus-glass-bg-heavy); backdrop-filter:blur(16px);
+      border:1px solid var(--animus-glass-border); border-radius:var(--animus-radius-sm);
+      padding:4px 8px; white-space:nowrap; pointer-events:none; opacity:0;
+      transition:opacity 100ms var(--animus-ease-default),transform 100ms var(--animus-ease-spring);
+      box-shadow:var(--animus-shadow-2);
+    }
+    .tip-wrap:hover .tip { opacity:1; transform:translateX(-50%) scale(1); }
+
+    /* ── Demo Layout ─────────────────────────────────── */
+    .page { max-width:960px; margin:0 auto; }
+    .section { margin-bottom:var(--animus-space-8); }
+    .section-title { font:700 2.25rem/1.15 'Space Grotesk',sans-serif; letter-spacing:-0.02em; margin-bottom:var(--animus-space-2); }
+    .section-desc { font:400 0.9375rem/1.6 'Space Grotesk',sans-serif; color:var(--animus-text-secondary); margin-bottom:var(--animus-space-6); }
+    .subsection { font:600 1.125rem/1.35 'Space Grotesk',sans-serif; letter-spacing:-0.01em; color:var(--animus-text-secondary); margin-bottom:var(--animus-space-3); }
+    .row { display:flex; flex-wrap:wrap; gap:var(--animus-space-3); align-items:center; }
+    .grid { display:grid; gap:var(--animus-space-4); }
+    .grid-2 { grid-template-columns:repeat(2,1fr); }
+    .grid-3 { grid-template-columns:repeat(3,1fr); }
+
+    /* Color swatch */
+    .swatch-row { display:flex; gap:var(--animus-space-2); flex-wrap:wrap; }
+    .swatch {
+      width:80px; height:80px; border-radius:var(--animus-radius-sm); border:1px solid var(--animus-border-default);
+      display:flex; align-items:flex-end; padding:var(--animus-space-1) var(--animus-space-2);
+      font:500 0.625rem/1 'JetBrains Mono',monospace; color:var(--animus-text-secondary);
+    }
+
+    /* Elevation demo */
+    .elev-demo { padding:var(--animus-space-4); border-radius:var(--animus-radius-md); background:var(--animus-surface-base); border:1px solid var(--animus-border-default); }
+
+    /* Logo */
+    .logo { font:700 3.5rem/1.1 'Space Grotesk',sans-serif; letter-spacing:-0.03em; color:var(--animus-primary); text-shadow:0 0 24px rgba(163,166,255,0.35),0 0 48px rgba(163,166,255,0.15); }
+    .logo span { color:var(--animus-text-primary); }
+    .logo-sub { font:600 0.6875rem/1.4 'Space Grotesk',sans-serif; letter-spacing:0.12em; text-transform:uppercase; color:var(--animus-text-tertiary); margin-top:var(--animus-space-2); }
+
+    /* Divider */
+    .divider { height:1px; background:var(--animus-border-default); margin:var(--animus-space-7) 0; }
+
+    /* Neon line */
+    .neon-line { height:2px; background:linear-gradient(90deg,transparent,var(--animus-primary),var(--animus-secondary),transparent); margin:var(--animus-space-5) 0; box-shadow:0 0 12px rgba(163,166,255,0.3); }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  HERO                                                -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section" style="text-align:center; padding:var(--animus-space-8) 0;">
+      <div class="logo">A<span>nimus</span></div>
+      <div class="logo-sub">Design System — The Neon Architect</div>
+      <div class="neon-line" style="max-width:320px; margin:var(--animus-space-5) auto;"></div>
+      <p style="font:400 1.0625rem/1.6 'Space Grotesk',sans-serif; color:var(--animus-text-secondary); max-width:520px; margin:0 auto;">
+        A high-fidelity design system for cutting-edge AI prompt engineering. Built on ultra-dark surfaces, neon lavender &amp; electric violet accents, and the precision of Space Grotesk.
+      </p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  1. COLOR TOKENS                                     -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section">
+      <h2 class="section-title">Color Tokens</h2>
+      <p class="section-desc">Core palette with primary, secondary, tertiary, semantic, surface, and border tokens — all with dark &amp; light mode variants.</p>
+
+      <p class="subsection">Primary — Neon Lavender</p>
+      <div class="swatch-row">
+        <div class="swatch" style="background:var(--animus-primary);color:#0e0e0e;">#a3a6ff</div>
+        <div class="swatch" style="background:var(--animus-primary-bright);color:#0e0e0e;">#c4c6ff</div>
+        <div class="swatch" style="background:var(--animus-primary-dim);">var dim</div>
+        <div class="swatch" style="background:var(--animus-primary-muted);">muted</div>
+      </div>
+
+      <p class="subsection" style="margin-top:var(--animus-space-5);">Secondary — Electric Violet</p>
+      <div class="swatch-row">
+        <div class="swatch" style="background:var(--animus-secondary);color:#0e0e0e;">#a28efc</div>
+        <div class="swatch" style="background:var(--animus-secondary-bright);color:#0e0e0e;">#c4b5ff</div>
+        <div class="swatch" style="background:var(--animus-secondary-dim);">dim</div>
+        <div class="swatch" style="background:var(--animus-secondary-muted);">muted</div>
+      </div>
+
+      <p class="subsection" style="margin-top:var(--animus-space-5);">Semantic</p>
+      <div class="swatch-row">
+        <div class="swatch" style="background:var(--animus-success);color:#0e0e0e;">success</div>
+        <div class="swatch" style="background:var(--animus-warning);color:#0e0e0e;">warning</div>
+        <div class="swatch" style="background:var(--animus-error);color:#0e0e0e;">error</div>
+        <div class="swatch" style="background:var(--animus-info);color:#0e0e0e;">info</div>
+      </div>
+
+      <p class="subsection" style="margin-top:var(--animus-space-5);">Surfaces</p>
+      <div class="swatch-row">
+        <div class="swatch" style="background:var(--animus-bg-base);">#0e0e0e</div>
+        <div class="swatch" style="background:var(--animus-bg-raised);">#161618</div>
+        <div class="swatch" style="background:var(--animus-bg-overlay);">#1c1c1f</div>
+        <div class="swatch" style="background:var(--animus-bg-sunken);">#0a0a0a</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  2. TYPOGRAPHY                                       -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section">
+      <h2 class="section-title">Typography</h2>
+      <p class="section-desc">8-level type scale using Space Grotesk with weights, line heights, and letter spacing tuned for ML/technical UI.</p>
+
+      <div style="display:flex;flex-direction:column;gap:var(--animus-space-4);">
+        <div>
+          <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">L1 · Display · 56px / 700 / -0.03em</span>
+          <div style="font:700 3.5rem/1.1 'Space Grotesk',sans-serif;letter-spacing:-0.03em;">Prompt Architecture</div>
+        </div>
+        <div>
+          <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">L2 · Headline · 36px / 700 / -0.02em</span>
+          <div style="font:700 2.25rem/1.15 'Space Grotesk',sans-serif;letter-spacing:-0.02em;">Model Configuration</div>
+        </div>
+        <div>
+          <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">L3 · Title · 24px / 600 / -0.015em</span>
+          <div style="font:600 1.5rem/1.25 'Space Grotesk',sans-serif;letter-spacing:-0.015em;">Fine-Tuning Parameters</div>
+        </div>
+        <div>
+          <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">L4 · Subtitle · 18px / 600 / -0.01em</span>
+          <div style="font:600 1.125rem/1.35 'Space Grotesk',sans-serif;letter-spacing:-0.01em;">Embedding Dimensions</div>
+        </div>
+        <div>
+          <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">L5 · Body Large · 17px / 400</span>
+          <div style="font:400 1.0625rem/1.6 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);">The transformer architecture processes token embeddings through multi-head attention layers, scaling with O(n²) complexity.</div>
+        </div>
+        <div>
+          <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">L6 · Body · 15px / 400</span>
+          <div style="font:400 0.9375rem/1.6 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);">System prompts define the behavioral boundary conditions for model inference across temperature ranges.</div>
+        </div>
+        <div>
+          <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">L7 · Caption · 13px / 500</span>
+          <div style="font:500 0.8125rem/1.45 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);">Token count: 2,048 · Latency: 340ms · Model: animus-v3-turbo</div>
+        </div>
+        <div>
+          <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">L8 · Overline · 11px / 600 / 0.08em / uppercase</span>
+          <div style="font:600 0.6875rem/1.4 'Space Grotesk',sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--animus-text-tertiary);">Machine Learning Pipeline · v2.4.1</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  3. SPACING + RADII + SHADOWS                        -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section">
+      <h2 class="section-title">Spacing · Radii · Elevation</h2>
+      <p class="section-desc">4px base grid (8 levels), 6 border radii from sharp to pill, and 4 elevation tiers with neon glow variants.</p>
+
+      <p class="subsection">Spacing Scale</p>
+      <div style="display:flex;gap:var(--animus-space-3);align-items:flex-end;margin-bottom:var(--animus-space-5);">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:4px;height:4px;background:var(--animus-primary);border-radius:2px;"></div><span style="font:500 0.625rem/1 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">4</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:8px;height:8px;background:var(--animus-primary);border-radius:2px;"></div><span style="font:500 0.625rem/1 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">8</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:12px;height:12px;background:var(--animus-primary);border-radius:2px;"></div><span style="font:500 0.625rem/1 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">12</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:16px;height:16px;background:var(--animus-primary);border-radius:2px;"></div><span style="font:500 0.625rem/1 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">16</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:24px;height:24px;background:var(--animus-primary);border-radius:2px;"></div><span style="font:500 0.625rem/1 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">24</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:32px;height:32px;background:var(--animus-primary);border-radius:2px;"></div><span style="font:500 0.625rem/1 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">32</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:48px;height:48px;background:var(--animus-primary);border-radius:2px;"></div><span style="font:500 0.625rem/1 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">48</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:64px;height:64px;background:var(--animus-primary);border-radius:2px;"></div><span style="font:500 0.625rem/1 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">64</span></div>
+      </div>
+
+      <p class="subsection">Border Radii</p>
+      <div style="display:flex;gap:var(--animus-space-3);align-items:center;margin-bottom:var(--animus-space-5);">
+        <div style="width:40px;height:40px;background:var(--animus-surface-raised);border:1px solid var(--animus-border-strong);border-radius:0;"></div>
+        <div style="width:40px;height:40px;background:var(--animus-surface-raised);border:1px solid var(--animus-border-strong);border-radius:2px;"></div>
+        <div style="width:40px;height:40px;background:var(--animus-surface-raised);border:1px solid var(--animus-border-strong);border-radius:4px;"></div>
+        <div style="width:40px;height:40px;background:var(--animus-surface-raised);border:1px solid var(--animus-border-strong);border-radius:8px;"></div>
+        <div style="width:40px;height:40px;background:var(--animus-surface-raised);border:1px solid var(--animus-border-strong);border-radius:12px;"></div>
+        <div style="width:40px;height:40px;background:var(--animus-surface-raised);border:1px solid var(--animus-border-strong);border-radius:9999px;"></div>
+        <div style="display:flex;gap:var(--animus-space-2);margin-left:var(--animus-space-2);">
+          <span style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">0</span>
+          <span style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">2px</span>
+          <span style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">4px</span>
+          <span style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">8px</span>
+          <span style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">12px</span>
+          <span style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">pill</span>
+        </div>
+      </div>
+
+      <p class="subsection">Elevation Shadows + Neon Glows</p>
+      <div style="display:flex;gap:var(--animus-space-4);flex-wrap:wrap;">
+        <div class="elev-demo" style="box-shadow:var(--animus-shadow-1);flex:1;min-width:120px;">
+          <div style="font:600 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-secondary);">shadow-1</div>
+          <div style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">Subtle</div>
+        </div>
+        <div class="elev-demo" style="box-shadow:var(--animus-shadow-2);flex:1;min-width:120px;">
+          <div style="font:600 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-secondary);">shadow-2</div>
+          <div style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">Raised</div>
+        </div>
+        <div class="elev-demo" style="box-shadow:var(--animus-shadow-3);flex:1;min-width:120px;">
+          <div style="font:600 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-secondary);">shadow-3</div>
+          <div style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">Floating</div>
+        </div>
+        <div class="elev-demo" style="box-shadow:var(--animus-shadow-4);flex:1;min-width:120px;">
+          <div style="font:600 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-secondary);">shadow-4</div>
+          <div style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">Lifted</div>
+        </div>
+        <div class="elev-demo" style="box-shadow:var(--animus-glow-primary-md);border-color:rgba(163,166,255,0.2);flex:1;min-width:120px;">
+          <div style="font:600 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-primary);">glow-md</div>
+          <div style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">Primary</div>
+        </div>
+        <div class="elev-demo" style="box-shadow:var(--animus-glow-secondary-sm);border-color:rgba(162,142,252,0.2);flex:1;min-width:120px;">
+          <div style="font:600 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-secondary);">glow-sm</div>
+          <div style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);">Secondary</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  4. BUTTONS                                          -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section">
+      <h2 class="section-title">Buttons</h2>
+      <p class="section-desc">5 variants — Primary, Secondary, Ghost, Outline, Destructive — each with hover glow states and focus rings.</p>
+
+      <div class="row">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-destructive">Destructive</button>
+      </div>
+      <div class="row" style="margin-top:var(--animus-space-4);">
+        <button class="btn btn-primary" disabled>Disabled</button>
+        <button class="btn btn-primary" style="height:1.75rem;padding:0.25rem 0.75rem;font-size:0.8125rem;">Small</button>
+        <button class="btn btn-primary" style="height:2.75rem;padding:0.75rem 1.5rem;font-size:1.125rem;">Large</button>
+      </div>
+      <div style="margin-top:var(--animus-space-5);padding:var(--animus-space-4);background:var(--animus-surface-base);border:1px solid var(--animus-border-default);border-radius:var(--animus-radius-md);">
+        <span style="font:500 0.6875rem/1.4 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">With icons</span>
+        <div class="row" style="margin-top:var(--animus-space-2);">
+          <button class="btn btn-primary">▶ Execute Prompt</button>
+          <button class="btn btn-secondary">⟳ Regenerate</button>
+          <button class="btn btn-ghost">⚙ Settings</button>
+          <button class="btn btn-outline">＋ New Chain</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  5. INPUTS                                           -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section">
+      <h2 class="section-title">Inputs</h2>
+      <p class="section-desc">Text inputs with default, hover, focus (neon glow), and error states.</p>
+
+      <div class="grid grid-2">
+        <div>
+          <label style="font:500 0.8125rem/1.45 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);display:block;margin-bottom:var(--animus-space-1);">System Prompt</label>
+          <input class="input" type="text" placeholder="Enter system instructions…" />
+          <span style="font:500 0.8125rem/1.45 'Space Grotesk',sans-serif;color:var(--animus-text-tertiary);display:block;margin-top:4px;">Define the model's behavioral context.</span>
+        </div>
+        <div>
+          <label style="font:500 0.8125rem/1.45 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);display:block;margin-bottom:var(--animus-space-1);">Temperature</label>
+          <input class="input" type="text" value="0.7" />
+        </div>
+        <div>
+          <label style="font:500 0.8125rem/1.45 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);display:block;margin-bottom:var(--animus-space-1);">API Key</label>
+          <input class="input" style="border-color:var(--animus-error);box-shadow:var(--animus-glow-error-sm);" type="text" value="sk-invalid" />
+          <span style="font:500 0.8125rem/1.45 'Space Grotesk',sans-serif;color:var(--animus-error);display:block;margin-top:4px;">Invalid API key format.</span>
+        </div>
+        <div>
+          <label style="font:500 0.8125rem/1.45 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);display:block;margin-bottom:var(--animus-space-1);">Model Endpoint</label>
+          <input class="input" type="text" placeholder="https://api.animus.ai/v1/…" style="font-family:'JetBrains Mono',monospace;font-size:0.8125rem;" />
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  6. CARDS                                            -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section">
+      <h2 class="section-title">Cards</h2>
+      <p class="section-desc">Standard, interactive (clickable), and glassmorphism variants with neon border glow on hover.</p>
+
+      <div class="grid grid-3">
+        <!-- Standard card -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--animus-space-3);">
+            <span style="font:600 1.125rem/1.35 'Space Grotesk',sans-serif;letter-spacing:-0.01em;">Prompt Chain</span>
+            <span class="badge badge-primary">Active</span>
+          </div>
+          <p style="font:400 0.9375rem/1.6 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);">Multi-step inference pipeline with context window management.</p>
+          <div style="display:flex;gap:var(--animus-space-2);margin-top:var(--animus-space-4);padding-top:var(--animus-space-3);border-top:1px solid var(--animus-border-subtle);">
+            <span class="badge badge-default">v2.4</span>
+            <span class="badge badge-default">4 steps</span>
+          </div>
+        </div>
+
+        <!-- Interactive card -->
+        <div class="card card-interactive">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--animus-space-3);">
+            <span style="font:600 1.125rem/1.35 'Space Grotesk',sans-serif;letter-spacing:-0.01em;">Fine-Tuning Job</span>
+            <span class="badge badge-success badge-dot">Running</span>
+          </div>
+          <p style="font:400 0.9375rem/1.6 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);">Training on 12K examples with LoRA adapters for domain specialization.</p>
+          <div style="height:4px;background:var(--animus-surface-raised);border-radius:9999px;margin-top:var(--animus-space-4);overflow:hidden;">
+            <div style="width:68%;height:100%;background:var(--animus-primary);border-radius:9999px;box-shadow:0 0 8px rgba(163,166,255,0.4);"></div>
+          </div>
+          <span style="font:400 0.625rem 'JetBrains Mono',monospace;color:var(--animus-text-tertiary);margin-top:4px;display:block;">68% · 8,160 / 12,000 epochs</span>
+        </div>
+
+        <!-- Glass card -->
+        <div class="card card-glass">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--animus-space-3);">
+            <span style="font:600 1.125rem/1.35 'Space Grotesk',sans-serif;letter-spacing:-0.01em;">Embeddings API</span>
+            <span class="badge badge-secondary">Beta</span>
+          </div>
+          <p style="font:400 0.9375rem/1.6 'Space Grotesk',sans-serif;color:var(--animus-text-secondary);">1536-dimensional vector space with cosine similarity search.</p>
+          <div style="display:flex;gap:var(--animus-space-2);margin-top:var(--animus-space-4);padding-top:var(--animus-space-3);border-top:1px solid rgba(163,166,255,0.08);">
+            <span class="badge badge-default">REST</span>
+            <span class="badge badge-default">gRPC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  7. BADGES                                           -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section">
+      <h2 class="section-title">Badges</h2>
+      <p class="section-desc">Semantic badges with dot indicator variants for status signaling.</p>
+
+      <div class="row">
+        <span class="badge badge-default">Default</span>
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-success badge-dot">Online</span>
+        <span class="badge badge-warning badge-dot">Pending</span>
+        <span class="badge badge-error badge-dot">Failed</span>
+        <span class="badge badge-default" style="font-family:'JetBrains Mono',monospace;">v3.2.1</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  8. TOOLTIPS                                         -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section">
+      <h2 class="section-title">Tooltips</h2>
+      <p class="section-desc">Glassmorphic tooltips with spring animation and neon-tinted borders.</p>
+
+      <div class="row" style="gap:var(--animus-space-5);">
+        <div class="tip-wrap">
+          <button class="btn btn-primary">Hover me</button>
+          <div class="tip">Execute the prompt chain</div>
+        </div>
+        <div class="tip-wrap">
+          <button class="btn btn-outline">Settings</button>
+          <div class="tip">Configure model parameters</div>
+        </div>
+        <div class="tip-wrap">
+          <button class="btn btn-ghost">Help</button>
+          <div class="tip">Open documentation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="neon-line" style="margin-top:var(--animus-space-8);"></div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  FOOTER                                              -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div style="text-align:center;padding:var(--animus-space-7) 0;">
+      <div style="font:700 1.5rem/1.25 'Space Grotesk',sans-serif;letter-spacing:-0.015em;color:var(--animus-text-primary);">Animus Design System</div>
+      <div style="font:600 0.6875rem/1.4 'Space Grotesk',sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--animus-text-tertiary);margin-top:var(--animus-space-2);">The Neon Architect · 2026</div>
+      <div style="margin-top:var(--animus-space-3);display:flex;justify-content:center;gap:var(--animus-space-2);">
+        <span class="badge badge-primary">CSS Tokens</span>
+        <span class="badge badge-secondary">Tailwind</span>
+        <span class="badge badge-default">Space Grotesk</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
