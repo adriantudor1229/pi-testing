@@ -29,3 +29,8 @@ Design constraints:
   
 ## Cons: the usage, using claude with max effort, was too high for this. I'm using pro-plan, and it took 20% of my usage.
 - TO-DO: add screenshots
+
+## First try of adding skills to PI
+- The usage of tokens were still very good.
+- The worst part: after creating the skills, I tried to see how will the site look. The output was awfull. The problem is 100% because of the prompt, that is generated from the index.html. I'm saying this because, even Claude Opus 4.6, made the same design mistakes.
+- The outputs can be seen in pi-sitese/pi-landing-page-with-skill/2 and claude-playground/claude-same-prompt
