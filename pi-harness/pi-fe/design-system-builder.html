@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Builder</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0b1326;
+      --surface: #131b30;
+      --surface-variant: #1a2340;
+      --border: #2a3454;
+      --text: #dae2fd;
+      --text-muted: #8892b0;
+      --primary: #2665fd;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .panel-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      background: var(--surface-variant);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238892b0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 32px;
+    }
+
+    .color-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .color-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .color-label {
+      width: 90px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    input[type="color"] {
+      width: 40px;
+      height: 32px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-variant);
+      cursor: pointer;
+      padding: 2px;
+    }
+
+    input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 2px;
+    }
+
+    input[type="color"]::-webkit-color-swatch {
+      border: none;
+      border-radius: 3px;
+    }
+
+    .color-hex {
+      width: 90px;
+      padding: 6px 8px;
+      background: var(--surface-variant);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      text-align: center;
+      outline: none;
+    }
+
+    .color-hex:focus {
+      border-color: var(--primary);
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      background: var(--surface-variant);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .checkbox-item:hover {
+      border-color: var(--text-muted);
+    }
+
+    .checkbox-item.checked {
+      border-color: var(--primary);
+      background: rgba(38, 101, 253, 0.1);
+    }
+
+    .checkbox-item .checkmark {
+      width: 16px;
+      height: 16px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .checkbox-item.checked .checkmark {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .checkbox-item.checked .checkmark::after {
+      content: '';
+      width: 6px;
+      height: 10px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) translate(-1px, -1px);
+    }
+
+    .custom-page-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .custom-page-row input {
+      flex: 1;
+    }
+
+    .btn-add-page {
+      padding: 8px 14px;
+      background: var(--surface-variant);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .btn-add-page:hover {
+      border-color: var(--primary);
+    }
+
+    .custom-pages-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .custom-page-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(38, 101, 253, 0.1);
+      border: 1px solid var(--primary);
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--primary);
+    }
+
+    .custom-page-tag .remove {
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .custom-page-tag .remove:hover {
+      opacity: 1;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .radio-option {
+      flex: 1;
+      padding: 10px 12px;
+      background: var(--surface-variant);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .radio-option:hover {
+      border-color: var(--text-muted);
+    }
+
+    .radio-option.active {
+      border-color: var(--primary);
+      background: rgba(38, 101, 253, 0.1);
+      color: var(--primary);
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      outline: none;
+      appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: var(--primary);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .slider-value {
+      font-size: 13px;
+      font-family: monospace;
+      color: var(--text-muted);
+      min-width: 40px;
+      text-align: right;
+    }
+
+    /* Preview */
+    .preview-area {
+      min-height: 400px;
+    }
+
+    .preview-section {
+      margin-bottom: 24px;
+    }
+
+    .preview-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .preview-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .preview-colors {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .color-swatch-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .preview-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .preview-btn {
+      padding: 10px 20px;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .preview-btn:hover {
+      opacity: 0.85;
+    }
+
+    .preview-input {
+      padding: 10px 12px;
+      border: 1px solid;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .preview-card {
+      border: 1px solid;
+      padding: 20px;
+      max-width: 350px;
+    }
+
+    .preview-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .preview-card p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .preview-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .preview-typography h2 {
+      margin-bottom: 4px;
+    }
+
+    .preview-typography p {
+      margin-bottom: 2px;
+    }
+
+    /* Export */
+    .export-bar {
+      margin-top: 32px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .btn-export {
+      padding: 12px 32px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-export:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      padding: 12px 24px;
+      background: var(--surface-variant);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 640px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .modal textarea {
+      width: 100%;
+      min-height: 300px;
+      margin-bottom: 16px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .copied-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 12px 20px;
+      background: #16a34a;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 200;
+    }
+
+    .copied-toast.show {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Design System Builder</h1>
+    <p class="subtitle">Configure your design tokens visually. Export as markdown for your agent.</p>
+
+    <div class="layout">
+      <!-- Controls -->
+      <div>
+        <!-- Site Brief -->
+        <div class="panel" style="margin-bottom: 24px;">
+          <div class="panel-title">Site Brief</div>
+          <div class="field">
+            <label>What is this site?</label>
+            <input type="text" id="appDesc" placeholder="e.g., A task management tool for small dev teams">
+          </div>
+          <div class="field">
+            <label>Pages</label>
+            <div class="checkbox-grid" id="pagesGrid">
+              <div class="checkbox-item" data-page="Landing Page"><span class="checkmark"></span>Landing Page</div>
+              <div class="checkbox-item" data-page="Dashboard"><span class="checkmark"></span>Dashboard</div>
+              <div class="checkbox-item" data-page="Login / Register"><span class="checkmark"></span>Login / Register</div>
+              <div class="checkbox-item" data-page="Settings"><span class="checkmark"></span>Settings</div>
+              <div class="checkbox-item" data-page="Profile"><span class="checkmark"></span>Profile</div>
+              <div class="checkbox-item" data-page="Pricing"><span class="checkmark"></span>Pricing</div>
+              <div class="checkbox-item" data-page="About"><span class="checkmark"></span>About</div>
+              <div class="checkbox-item" data-page="Contact"><span class="checkmark"></span>Contact</div>
+            </div>
+            <div class="custom-page-row">
+              <input type="text" id="customPageInput" placeholder="Add custom page...">
+              <button class="btn-add-page" onclick="addCustomPage()">+ Add</button>
+            </div>
+            <div class="custom-pages-list" id="customPagesList"></div>
+          </div>
+          <div class="field">
+            <label>Key Features</label>
+            <textarea id="keyFeatures" placeholder="e.g., sidebar nav, drag and drop tasks, dark mode toggle, notifications" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label>Target Audience</label>
+            <input type="text" id="targetAudience" placeholder="e.g., Developers and small teams">
+          </div>
+        </div>
+
+        <!-- Theme -->
+        <div class="panel" style="margin-bottom: 24px;">
+          <div class="panel-title">Theme</div>
+          <div class="field">
+            <div class="radio-group" id="themeGroup">
+              <div class="radio-option active" data-value="dark">Dark</div>
+              <div class="radio-option" data-value="light">Light</div>
+              <div class="radio-option" data-value="both">Both</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colors -->
+        <div class="panel" style="margin-bottom: 24px;">
+          <div class="panel-title">Colors</div>
+          <div class="color-row">
+            <span class="color-label">Primary</span>
+            <input type="color" id="colorPrimary" value="#2665fd">
+            <input type="text" class="color-hex" id="hexPrimary" value="#2665fd">
+          </div>
+          <div class="color-row">
+            <span class="color-label">Secondary</span>
+            <input type="color" id="colorSecondary" value="#475569">
+            <input type="text" class="color-hex" id="hexSecondary" value="#475569">
+          </div>
+          <div class="color-row">
+            <span class="color-label">Surface</span>
+            <input type="color" id="colorSurface" value="#0b1326">
+            <input type="text" class="color-hex" id="hexSurface" value="#0b1326">
+          </div>
+          <div class="color-row">
+            <span class="color-label">Text</span>
+            <input type="color" id="colorText" value="#dae2fd">
+            <input type="text" class="color-hex" id="hexText" value="#dae2fd">
+          </div>
+          <div class="color-row">
+            <span class="color-label">Error</span>
+            <input type="color" id="colorError" value="#ffb4ab">
+            <input type="text" class="color-hex" id="hexError" value="#ffb4ab">
+          </div>
+          <div class="color-row">
+            <span class="color-label">Success</span>
+            <input type="color" id="colorSuccess" value="#4ade80">
+            <input type="text" class="color-hex" id="hexSuccess" value="#4ade80">
+          </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="panel" style="margin-bottom: 24px;">
+          <div class="panel-title">Typography</div>
+          <div class="field">
+            <label>Font Family</label>
+            <select id="fontFamily">
+              <option value="Inter">Inter</option>
+              <option value="system-ui">System UI</option>
+              <option value="Roboto">Roboto</option>
+              <option value="Poppins">Poppins</option>
+              <option value="DM Sans">DM Sans</option>
+              <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Base Font Size</label>
+            <div class="slider-row">
+              <input type="range" id="fontSize" min="12" max="20" value="14">
+              <span class="slider-value" id="fontSizeValue">14px</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Font Weight (body)</label>
+            <select id="fontWeight">
+              <option value="300">Light (300)</option>
+              <option value="400" selected>Regular (400)</option>
+              <option value="500">Medium (500)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Spacing -->
+        <div class="panel" style="margin-bottom: 24px;">
+          <div class="panel-title">Spacing</div>
+          <div class="field">
+            <div class="radio-group" id="spacingGroup">
+              <div class="radio-option" data-value="compact">Compact</div>
+              <div class="radio-option active" data-value="default">Default</div>
+              <div class="radio-option" data-value="relaxed">Relaxed</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Corners -->
+        <div class="panel">
+          <div class="panel-title">Corners</div>
+          <div class="field">
+            <div class="radio-group" id="cornersGroup">
+              <div class="radio-option" data-value="sharp">Sharp</div>
+              <div class="radio-option active" data-value="rounded">Rounded</div>
+              <div class="radio-option" data-value="pill">Pill</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Border Radius</label>
+            <div class="slider-row">
+              <input type="range" id="borderRadius" min="0" max="24" value="8">
+              <span class="slider-value" id="borderRadiusValue">8px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div>
+        <div class="panel preview-area">
+          <div class="panel-title">Live Preview</div>
+
+          <div class="preview-section">
+            <div class="preview-label">Colors</div>
+            <div class="preview-colors" id="previewColors"></div>
+          </div>
+
+          <div class="preview-section">
+            <div class="preview-label">Typography</div>
+            <div class="preview-typography" id="previewTypography">
+              <h2>Headline Text</h2>
+              <p>Body text looks like this at the selected size.</p>
+              <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Label Text</p>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <div class="preview-label">Buttons</div>
+            <div class="preview-buttons" id="previewButtons">
+              <button class="preview-btn" id="btnPrimary">Primary</button>
+              <button class="preview-btn" id="btnSecondary">Secondary</button>
+              <button class="preview-btn" id="btnDanger">Danger</button>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <div class="preview-label">Input</div>
+            <input type="text" class="preview-input" id="previewInput" placeholder="Type something...">
+          </div>
+
+          <div class="preview-section">
+            <div class="preview-label">Card</div>
+            <div class="preview-card" id="previewCard">
+              <h3>Card Title</h3>
+              <p>This is how a content card looks with your current design system settings.</p>
+              <div style="margin-top: 12px; display: flex; gap: 6px;">
+                <span class="preview-badge" id="badgePrimary">Active</span>
+                <span class="preview-badge" id="badgeSecondary">Draft</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export Bar -->
+    <div class="export-bar">
+      <button class="btn-secondary" onclick="resetDefaults()">Reset</button>
+      <button class="btn-export" onclick="exportDesignSystem()">Export</button>
+    </div>
+  </div>
+
+  <!-- Export Modal -->
+  <div class="modal-overlay" id="exportModal">
+    <div class="modal">
+      <h2>Design System Markdown</h2>
+      <p class="subtitle">Copy this and paste it to your agent.</p>
+      <textarea id="exportOutput" readonly></textarea>
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeModal()">Close</button>
+        <button class="btn-export" onclick="copyToClipboard()">Copy to Clipboard</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="copied-toast" id="toast">Copied to clipboard!</div>
+
+  <script>
+    // State
+    const state = {
+      appDesc: '',
+      pages: [],
+      customPages: [],
+      keyFeatures: '',
+      targetAudience: '',
+      theme: 'dark',
+      colors: {
+        primary: '#2665fd',
+        secondary: '#475569',
+        surface: '#0b1326',
+        text: '#dae2fd',
+        error: '#ffb4ab',
+        success: '#4ade80'
+      },
+      fontFamily: 'Inter',
+      fontSize: 14,
+      fontWeight: '400',
+      spacing: 'default',
+      corners: 'rounded',
+      borderRadius: 8
+    };
+
+    // Radio groups
+    document.querySelectorAll('.radio-group').forEach(group => {
+      group.querySelectorAll('.radio-option').forEach(option => {
+        option.addEventListener('click', () => {
+          group.querySelectorAll('.radio-option').forEach(o => o.classList.remove('active'));
+          option.classList.add('active');
+          const value = option.dataset.value;
+          const groupId = group.id;
+
+          if (groupId === 'themeGroup') state.theme = value;
+          if (groupId === 'spacingGroup') state.spacing = value;
+          if (groupId === 'cornersGroup') {
+            state.corners = value;
+            const radiusMap = { sharp: 0, rounded: 8, pill: 20 };
+            state.borderRadius = radiusMap[value];
+            document.getElementById('borderRadius').value = state.borderRadius;
+            document.getElementById('borderRadiusValue').textContent = state.borderRadius + 'px';
+          }
+
+          updatePreview();
+        });
+      });
+    });
+
+    // Color inputs
+    const colorNames = ['Primary', 'Secondary', 'Surface', 'Text', 'Error', 'Success'];
+    const colorKeys = ['primary', 'secondary', 'surface', 'text', 'error', 'success'];
+
+    colorKeys.forEach((key, i) => {
+      const name = colorNames[i];
+      const picker = document.getElementById('color' + name);
+      const hex = document.getElementById('hex' + name);
+
+      picker.addEventListener('input', () => {
+        state.colors[key] = picker.value;
+        hex.value = picker.value;
+        updatePreview();
+      });
+
+      hex.addEventListener('input', () => {
+        const val = hex.value;
+        if (/^#[0-9a-fA-F]{6}$/.test(val)) {
+          state.colors[key] = val;
+          picker.value = val;
+          updatePreview();
+        }
+      });
+    });
+
+    // Site Brief inputs
+    document.getElementById('appDesc').addEventListener('input', e => {
+      state.appDesc = e.target.value;
+    });
+
+    document.getElementById('keyFeatures').addEventListener('input', e => {
+      state.keyFeatures = e.target.value;
+    });
+
+    document.getElementById('targetAudience').addEventListener('input', e => {
+      state.targetAudience = e.target.value;
+    });
+
+    // Page checkboxes
+    document.querySelectorAll('#pagesGrid .checkbox-item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('checked');
+        const page = item.dataset.page;
+        if (item.classList.contains('checked')) {
+          if (!state.pages.includes(page)) state.pages.push(page);
+        } else {
+          state.pages = state.pages.filter(p => p !== page);
+        }
+      });
+    });
+
+    // Custom pages
+    function addCustomPage() {
+      const input = document.getElementById('customPageInput');
+      const name = input.value.trim();
+      if (!name || state.customPages.includes(name)) return;
+
+      state.customPages.push(name);
+      input.value = '';
+      renderCustomPages();
+    }
+
+    document.getElementById('customPageInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); addCustomPage(); }
+    });
+
+    function removeCustomPage(name) {
+      state.customPages = state.customPages.filter(p => p !== name);
+      renderCustomPages();
+    }
+
+    function renderCustomPages() {
+      const list = document.getElementById('customPagesList');
+      list.innerHTML = state.customPages.map(name =>
+        `<div class="custom-page-tag">${name}<span class="remove" onclick="removeCustomPage('${name.replace(/'/g, "\\'")}')">&times;</span></div>`
+      ).join('');
+    }
+
+    document.getElementById('fontFamily').addEventListener('change', e => {
+      state.fontFamily = e.target.value;
+      updatePreview();
+    });
+
+    document.getElementById('fontWeight').addEventListener('change', e => {
+      state.fontWeight = e.target.value;
+      updatePreview();
+    });
+
+    // Sliders
+    document.getElementById('fontSize').addEventListener('input', e => {
+      state.fontSize = parseInt(e.target.value);
+      document.getElementById('fontSizeValue').textContent = state.fontSize + 'px';
+      updatePreview();
+    });
+
+    document.getElementById('borderRadius').addEventListener('input', e => {
+      state.borderRadius = parseInt(e.target.value);
+      document.getElementById('borderRadiusValue').textContent = state.borderRadius + 'px';
+      state.corners = state.borderRadius === 0 ? 'sharp' : state.borderRadius >= 16 ? 'pill' : 'rounded';
+
+      document.querySelectorAll('#cornersGroup .radio-option').forEach(o => {
+        o.classList.toggle('active', o.dataset.value === state.corners);
+      });
+
+      updatePreview();
+    });
+
+    // Preview update
+    function updatePreview() {
+      const { colors, fontFamily, fontSize, fontWeight, borderRadius } = state;
+
+      // Colors
+      const colorsHtml = colorKeys.map((key, i) => `
+        <div>
+          <div class="color-swatch" style="background: ${colors[key]};"></div>
+          <div class="color-swatch-label">${colorNames[i]}</div>
+        </div>
+      `).join('');
+      document.getElementById('previewColors').innerHTML = colorsHtml;
+
+      // Typography
+      const typo = document.getElementById('previewTypography');
+      typo.style.fontFamily = `'${fontFamily}', system-ui, sans-serif`;
+      typo.querySelector('h2').style.fontSize = (fontSize + 6) + 'px';
+      typo.querySelector('h2').style.fontWeight = '600';
+      typo.querySelector('p').style.fontSize = fontSize + 'px';
+      typo.querySelector('p').style.fontWeight = fontWeight;
+
+      // Buttons
+      const r = borderRadius + 'px';
+      const btnPrimary = document.getElementById('btnPrimary');
+      btnPrimary.style.background = colors.primary;
+      btnPrimary.style.color = '#fff';
+      btnPrimary.style.borderRadius = r;
+
+      const btnSecondary = document.getElementById('btnSecondary');
+      btnSecondary.style.background = colors.secondary;
+      btnSecondary.style.color = colors.text;
+      btnSecondary.style.borderRadius = r;
+
+      const btnDanger = document.getElementById('btnDanger');
+      btnDanger.style.background = colors.error;
+      btnDanger.style.color = '#1a1a1a';
+      btnDanger.style.borderRadius = r;
+
+      // Input
+      const input = document.getElementById('previewInput');
+      input.style.borderColor = colors.secondary;
+      input.style.background = colors.surface;
+      input.style.color = colors.text;
+      input.style.borderRadius = r;
+      input.style.fontFamily = `'${fontFamily}', system-ui, sans-serif`;
+      input.style.fontSize = fontSize + 'px';
+
+      // Card
+      const card = document.getElementById('previewCard');
+      card.style.borderColor = colors.secondary;
+      card.style.background = colors.surface;
+      card.style.color = colors.text;
+      card.style.borderRadius = (borderRadius + 4) + 'px';
+      card.style.fontFamily = `'${fontFamily}', system-ui, sans-serif`;
+      card.querySelector('p').style.fontSize = fontSize + 'px';
+
+      // Badges
+      const badgePrimary = document.getElementById('badgePrimary');
+      badgePrimary.style.background = colors.primary + '22';
+      badgePrimary.style.color = colors.primary;
+      badgePrimary.style.borderRadius = r;
+
+      const badgeSecondary = document.getElementById('badgeSecondary');
+      badgeSecondary.style.background = colors.secondary + '33';
+      badgeSecondary.style.color = colors.text;
+      badgeSecondary.style.borderRadius = r;
+    }
+
+    // Export
+    function exportDesignSystem() {
+      const { appDesc, pages, customPages, keyFeatures, targetAudience, theme, colors, fontFamily, fontSize, fontWeight, spacing, corners, borderRadius } = state;
+
+      const allPages = [...pages, ...customPages];
+
+      const spacingScale = {
+        compact: '4px / 8px / 12px / 16px / 24px',
+        default: '4px / 8px / 16px / 24px / 32px',
+        relaxed: '8px / 12px / 20px / 32px / 48px'
+      };
+
+      const pagesSection = allPages.length > 0
+        ? allPages.map(p => `- ${p}`).join('\n')
+        : '- (none selected)';
+
+      const featuresSection = keyFeatures
+        ? keyFeatures.split(',').map(f => `- ${f.trim()}`).filter(f => f !== '- ').join('\n')
+        : '- (none specified)';
+
+      const md = `---
+name: design-system
+description: Project design system - ${appDesc || 'untitled'}
+type: skill
+---
+
+# Design System
+
+## Site Brief
+${appDesc || 'A web application with a custom design system.'}
+
+### Target Audience
+${targetAudience || 'General users'}
+
+### Pages
+${pagesSection}
+
+### Key Features
+${featuresSection}
+
+## Theme
+- **Mode**: ${theme}
+
+## Colors
+- **Primary** (${colors.primary}): CTAs, active states, key interactive elements
+- **Secondary** (${colors.secondary}): Supporting UI, chips, secondary actions
+- **Surface** (${colors.surface}): Page backgrounds
+- **Text** (${colors.text}): Primary text
+- **Error** (${colors.error}): Validation errors, destructive actions
+- **Success** (${colors.success}): Success states, confirmations
+
+## Typography
+- **Font Family**: ${fontFamily}
+- **Base Size**: ${fontSize}px
+- **Body Weight**: ${fontWeight}
+- **Headlines**: ${fontFamily}, semi-bold (600)
+- **Body**: ${fontFamily}, ${fontWeight === '400' ? 'regular' : fontWeight === '300' ? 'light' : 'medium'}, ${fontSize}px
+- **Labels**: ${fontFamily}, medium (500), ${fontSize - 2}px, uppercase for section headers
+
+## Spacing
+- **Density**: ${spacing}
+- **Scale**: ${spacingScale[spacing]}
+
+## Components
+- **Border Radius**: ${borderRadius}px (${corners})
+- **Buttons**: ${corners} corners, primary uses brand color fill, secondary uses muted fill
+- **Inputs**: 1px border, surface background, ${borderRadius}px radius
+- **Cards**: No elevation, 1px border, surface background, ${borderRadius + 4}px radius
+- **Badges**: Tinted background matching their semantic color, ${borderRadius}px radius
+
+## Do's and Don'ts
+- Do use the primary color sparingly, only for the most important action per view
+- Don't mix corner styles — keep ${corners} consistently
+- Do maintain 4.5:1 contrast ratio for all text (WCAG AA)
+- Don't use more than 3 font weights on a single page
+- Do use the spacing scale consistently — no arbitrary pixel values
+`;
+
+      document.getElementById('exportOutput').value = md;
+      document.getElementById('exportModal').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('exportModal').classList.remove('show');
+    }
+
+    function copyToClipboard() {
+      const text = document.getElementById('exportOutput').value;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    }
+
+    function resetDefaults() {
+      state.appDesc = '';
+      state.pages = [];
+      state.customPages = [];
+      state.keyFeatures = '';
+      state.targetAudience = '';
+      state.theme = 'dark';
+      state.colors = {
+        primary: '#2665fd', secondary: '#475569', surface: '#0b1326',
+        text: '#dae2fd', error: '#ffb4ab', success: '#4ade80'
+      };
+      state.fontFamily = 'Inter';
+      state.fontSize = 14;
+      state.fontWeight = '400';
+      state.spacing = 'default';
+      state.corners = 'rounded';
+      state.borderRadius = 8;
+
+      document.getElementById('appDesc').value = '';
+      document.getElementById('keyFeatures').value = '';
+      document.getElementById('targetAudience').value = '';
+      document.getElementById('customPageInput').value = '';
+      document.getElementById('customPagesList').innerHTML = '';
+      document.querySelectorAll('#pagesGrid .checkbox-item').forEach(item => {
+        item.classList.remove('checked');
+      });
+      document.getElementById('fontFamily').value = 'Inter';
+      document.getElementById('fontWeight').value = '400';
+      document.getElementById('fontSize').value = 14;
+      document.getElementById('fontSizeValue').textContent = '14px';
+      document.getElementById('borderRadius').value = 8;
+      document.getElementById('borderRadiusValue').textContent = '8px';
+
+      colorKeys.forEach((key, i) => {
+        document.getElementById('color' + colorNames[i]).value = state.colors[key];
+        document.getElementById('hex' + colorNames[i]).value = state.colors[key];
+      });
+
+      document.querySelectorAll('.radio-group').forEach(group => {
+        const defaults = { themeGroup: 'dark', spacingGroup: 'default', cornersGroup: 'rounded' };
+        group.querySelectorAll('.radio-option').forEach(o => {
+          o.classList.toggle('active', o.dataset.value === defaults[group.id]);
+        });
+      });
+
+      updatePreview();
+    }
+
+    // Init
+    updatePreview();
+  </script>
+</body>
+</html>
