@@ -1,0 +1,110 @@
+[
+  {
+    "id": "lelouch",
+    "name": "Lelouch vi Britannia",
+    "alias": "Zero",
+    "faction": "The Black Knights",
+    "image": "/images/characters/lelouch.svg",
+    "bio": "Exiled 11th prince of the Holy Britannian Empire. After obtaining the power of Geass from C.C., he assumes the identity of Zero and leads the Black Knights in a war against Britannia. A genius tactician willing to sacrifice everything for a better world.",
+    "stats": { "intelligence": 10, "combat": 3, "charisma": 10, "geass": 10 }
+  },
+  {
+    "id": "suzaku",
+    "name": "Suzaku Kururugi",
+    "alias": "Knight of Seven",
+    "faction": "Holy Britannian Empire",
+    "image": "/images/characters/suzaku.svg",
+    "bio": "Lelouch's childhood friend and the son of Japan's last prime minister. He becomes a Britannian soldier believing change must come from within, eventually piloting the Lancelot and rising to the Knights of the Round.",
+    "stats": { "intelligence": 7, "combat": 10, "charisma": 7, "geass": 1 }
+  },
+  {
+    "id": "cc",
+    "name": "C.C.",
+    "alias": "Immortal Witch",
+    "faction": "The Black Knights",
+    "image": "/images/characters/cc.svg",
+    "bio": "A mysterious immortal woman who grants Lelouch the power of Geass. Her true age spans centuries, and she has been the bearer of the Code — the source of Geass powers — across many lifetimes. She loves pizza and serves as Lelouch's closest confidante.",
+    "stats": { "intelligence": 8, "combat": 6, "charisma": 8, "geass": 10 }
+  },
+  {
+    "id": "kallen",
+    "name": "Kallen Stadtfeld",
+    "alias": "Kallen Kōzuki",
+    "faction": "The Black Knights",
+    "image": "/images/characters/kallen.svg",
+    "bio": "Half-Britannian, half-Japanese ace pilot of the Black Knights. She pilots the Guren Mk-II and later the Guren S.E.I.T.E.N. Eight Elements. One of the most skilled Knightmare Frame pilots in the world, fiercely devoted to Japan's liberation.",
+    "stats": { "intelligence": 6, "combat": 10, "charisma": 8, "geass": 1 }
+  },
+  {
+    "id": "nunnally",
+    "name": "Nunnally vi Britannia",
+    "alias": null,
+    "faction": "Holy Britannian Empire",
+    "image": "/images/characters/nunnally.svg",
+    "bio": "Lelouch's younger sister, blinded and paralyzed by the trauma of their mother's assassination. She is Lelouch's primary motivation — everything he does is to create a gentler world for her. Eventually becomes the 100th Empress of Britannia.",
+    "stats": { "intelligence": 6, "combat": 1, "charisma": 9, "geass": 1 }
+  },
+  {
+    "id": "schneizel",
+    "name": "Schneizel el Britannia",
+    "alias": "Second Prince",
+    "faction": "Holy Britannian Empire",
+    "image": "/images/characters/schneizel.svg",
+    "bio": "The second prince of Britannia and Lelouch's older half-brother. A brilliant strategist and charismatic leader who is perhaps the only person who can match Lelouch intellectually. He commands the Damocles and seeks to reshape the world order through fear.",
+    "stats": { "intelligence": 10, "combat": 6, "charisma": 9, "geass": 1 }
+  },
+  {
+    "id": "cornelia",
+    "name": "Cornelia li Britannia",
+    "alias": "Second Princess",
+    "faction": "Holy Britannian Empire",
+    "image": "/images/characters/cornelia.svg",
+    "bio": "The second princess of Britannia and a renowned military commander known as the 'Witch of Britannia.' She conquered Area 11 and serves as a formidable opponent to the Black Knights. Deeply devoted to her sister Euphemia.",
+    "stats": { "intelligence": 8, "combat": 9, "charisma": 7, "geass": 1 }
+  },
+  {
+    "id": "mao",
+    "name": "Mao",
+    "alias": null,
+    "faction": "None",
+    "image": "/images/characters/mao.svg",
+    "bio": "A Chinese orphan who received the power of mind-reading Geass from C.C. at a young age. Unable to turn off his power, he was driven to madness by hearing everyone's thoughts. He is obsessively devoted to C.C. and serves as a dangerous adversary to Lelouch.",
+    "stats": { "intelligence": 6, "combat": 4, "charisma": 3, "geass": 9 }
+  },
+  {
+    "id": "jeremiah",
+    "name": "Jeremiah Gottwald",
+    "alias": "Orange Boy",
+    "faction": "Holy Britannian Empire",
+    "image": "/images/characters/jeremiah.svg",
+    "bio": "A fiercely loyal Britannian military officer initially disgraced by his failures against Zero. After being cybernetically enhanced, he gains the ability to cancel Geass effects. His loyalty ultimately shifts to Lelouch after learning his true identity.",
+    "stats": { "intelligence": 5, "combat": 8, "charisma": 4, "geass": 1 }
+  },
+  {
+    "id": "euphemia",
+    "name": "Euphemia li Britannia",
+    "alias": "Euphie",
+    "faction": "Holy Britannian Empire",
+    "image": "/images/characters/euphemia.svg",
+    "bio": "The third princess of Britannia and a genuinely kind soul who seeks peaceful coexistence. She establishes the Special Administrative Zone of Japan but falls victim to Lelouch's Geass, leading to the catastrophic incident known as the Euphemia Massacre.",
+    "stats": { "intelligence": 5, "combat": 2, "charisma": 10, "geass": 1 }
+  },
+  {
+    "id": "rolo",
+    "name": "Rolo Lamperouge",
+    "alias": null,
+    "faction": "Geass Order",
+    "image": "/images/characters/rolo.svg",
+    "bio": "An assassin raised by the Geass Order and implanted as Lelouch's fake brother during his memory-altered period. He possesses a Geass that can freeze the perception of time for those around him. Despite his origins, he develops genuine feelings for Lelouch.",
+    "stats": { "intelligence": 6, "combat": 8, "charisma": 5, "geass": 7 }
+  },
+  {
+    "id": "charles",
+    "name": "Charles zi Britannia",
+    "alias": "The 98th Emperor",
+    "faction": "Holy Britannian Empire",
+    "image": "/images/characters/charles.svg",
+    "bio": "The 98th Emperor of Britannia and Lelouch's father. He possesses a Geass that can alter memories and seeks to use the Ragnarök Connection to merge all human consciousness, killing the gods and creating a world without lies.",
+    "stats": { "intelligence": 9, "combat": 7, "charisma": 8, "geass": 8 }
+  }
+]

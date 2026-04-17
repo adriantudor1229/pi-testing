@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CharacterCard from '../components/CharacterCard.astro';
+import characters from '../data/characters.json';
+---
+
+<BaseLayout title="Characters">
+  <main>
+    <section class="characters-page">
+      <div class="container">
+        <h1 class="section-title">Characters</h1>
+        <div class="card-grid">
+          {characters.map(char => (
+            <CharacterCard
+              name={char.name}
+              alias={char.alias}
+              faction={char.faction}
+              factionId={char.factionId}
+              image={char.image}
+              bio={char.bio}
+              stats={char.stats}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .characters-page {
+    padding-top: calc(var(--nav-height) + 3rem);
+    padding-bottom: 2rem;
+    min-height: 100vh;
+  }
+</style>

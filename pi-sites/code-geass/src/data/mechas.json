@@ -1,0 +1,101 @@
+[
+  {
+    "id": "lancelot",
+    "name": "Lancelot",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Suzaku Kururugi",
+    "class": "7th Generation",
+    "image": "/images/mechas/lancelot.svg",
+    "stats": { "speed": 9, "power": 7, "defense": 6, "mobility": 9, "range": 5 }
+  },
+  {
+    "id": "lancelot-albion",
+    "name": "Lancelot Albion",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Suzaku Kururugi",
+    "class": "9th Generation",
+    "image": "/images/mechas/lancelot-albion.svg",
+    "stats": { "speed": 10, "power": 10, "defense": 8, "mobility": 10, "range": 8 }
+  },
+  {
+    "id": "gawain",
+    "name": "Gawain",
+    "faction": "The Black Knights",
+    "pilot": "Lelouch vi Britannia / C.C.",
+    "class": "7th Generation",
+    "image": "/images/mechas/gawain.svg",
+    "stats": { "speed": 5, "power": 8, "defense": 7, "mobility": 4, "range": 10 }
+  },
+  {
+    "id": "shinkiro",
+    "name": "Shinkirō",
+    "faction": "The Black Knights",
+    "pilot": "Lelouch vi Britannia",
+    "class": "9th Generation",
+    "image": "/images/mechas/shinkiro.svg",
+    "stats": { "speed": 6, "power": 9, "defense": 10, "mobility": 7, "range": 9 }
+  },
+  {
+    "id": "guren-mk2",
+    "name": "Guren Mk-II",
+    "faction": "The Black Knights",
+    "pilot": "Kallen Stadtfeld",
+    "class": "7th Generation",
+    "image": "/images/mechas/guren-mk2.svg",
+    "stats": { "speed": 8, "power": 8, "defense": 5, "mobility": 8, "range": 4 }
+  },
+  {
+    "id": "guren-seiten",
+    "name": "Guren S.E.I.T.E.N.",
+    "faction": "The Black Knights",
+    "pilot": "Kallen Stadtfeld",
+    "class": "9th Generation",
+    "image": "/images/mechas/guren-seiten.svg",
+    "stats": { "speed": 10, "power": 10, "defense": 7, "mobility": 10, "range": 7 }
+  },
+  {
+    "id": "sutherland",
+    "name": "Sutherland",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Various",
+    "class": "5th Generation",
+    "image": "/images/mechas/sutherland.svg",
+    "stats": { "speed": 5, "power": 5, "defense": 5, "mobility": 5, "range": 4 }
+  },
+  {
+    "id": "gloucester",
+    "name": "Gloucester",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Cornelia li Britannia / Various",
+    "class": "5th Generation (Improved)",
+    "image": "/images/mechas/gloucester.svg",
+    "stats": { "speed": 6, "power": 6, "defense": 6, "mobility": 5, "range": 4 }
+  },
+  {
+    "id": "vincent",
+    "name": "Vincent",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Rolo Lamperouge / Various",
+    "class": "7th Generation (Mass-produced)",
+    "image": "/images/mechas/vincent.svg",
+    "stats": { "speed": 8, "power": 6, "defense": 5, "mobility": 8, "range": 5 }
+  },
+  {
+    "id": "mordred",
+    "name": "Mordred",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Anya Alstreim",
+    "class": "6th Generation (Heavy)",
+    "image": "/images/mechas/mordred.svg",
+    "stats": { "speed": 4, "power": 9, "defense": 9, "mobility": 4, "range": 8 }
+  },
+  {
+    "id": "tristan",
+    "name": "Tristan",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Gino Weinberg",
+    "class": "7th Generation",
+    "image": "/images/mechas/tristan.svg",
+    "stats": { "speed": 9, "power": 7, "defense": 6, "mobility": 9, "range": 6 }
+  }
+]

@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GeassSigil from '../components/GeassSigil.astro';
+---
+
+<BaseLayout title="Home">
+  <main class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <GeassSigil size={280} />
+
+      <h1 class="hero-title">Code Geass</h1>
+      <p class="hero-tagline">The power of absolute obedience</p>
+
+      <div class="hero-cta">
+        <a href="/characters/" class="btn btn-primary">Characters</a>
+        <a href="/mechas/" class="btn btn-outline">Knightmares</a>
+        <a href="/factions/" class="btn btn-outline">Factions</a>
+      </div>
+    </div>
+
+    <div class="fog fog-1"></div>
+    <div class="fog fog-2"></div>
+  </main>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(139, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 1) 70%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--text-primary);
+    text-shadow: 0 0 40px rgba(139, 0, 0, 0.4);
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .btn-primary {
+    background: var(--red-blood);
+    color: white;
+    border: 1px solid var(--red-blood);
+  }
+
+  .btn-primary:hover {
+    background: var(--red-bright);
+    color: white;
+    box-shadow: 0 0 20px rgba(204, 0, 0, 0.4);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid rgba(139, 0, 0, 0.5);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--red-bright);
+    color: var(--red-bright);
+    box-shadow: 0 0 15px rgba(204, 0, 0, 0.2);
+  }
+
+  /* Fog effect */
+  .fog {
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    width: 120%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .fog-1 {
+    opacity: 0.6;
+    animation: fogDrift 15s ease-in-out infinite alternate;
+  }
+
+  .fog-2 {
+    opacity: 0.3;
+    animation: fogDrift 20s ease-in-out infinite alternate-reverse;
+    height: 20%;
+  }
+
+  @keyframes fogDrift {
+    from { transform: translateX(-5%); }
+    to   { transform: translateX(5%); }
+  }
+
+  @media (max-width: 767px) {
+    .hero-title {
+      font-size: 2rem;
+      letter-spacing: 0.2em;
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+    }
+  }
+</style>

@@ -1,0 +1,207 @@
+---
+interface Props {
+  name: string;
+  alias: string;
+  faction: string;
+  factionId: string;
+  image: string;
+  bio: string;
+  stats: {
+    intelligence: number;
+    combat: number;
+    charisma: number;
+    geass: number;
+  };
+}
+
+const { name, alias, faction, factionId, bio, stats } = Astro.props;
+
+const factionColors: Record<string, string> = {
+  'britannia': '#6B21A8',
+  'black-knights': '#1E3A5F',
+  'geass-order': '#8B0000',
+  'knight-of-rounds': '#B8860B',
+  'jlf': '#2F4F2F',
+};
+
+const factionColor = factionColors[factionId] ?? '#555';
+const statEntries = Object.entries(stats) as [string, number][];
+---
+
+<div class="card">
+  <div class="card-inner">
+    <!-- Front -->
+    <div class="card-front">
+      <div class="card-portrait">
+        <div class="portrait-placeholder" style={`border-color: ${factionColor};`}>
+          <span class="portrait-initial">{name[0]}</span>
+        </div>
+      </div>
+      <h3 class="card-name">{name}</h3>
+      <p class="card-alias">{alias}</p>
+      <span class="card-faction" style={`background: ${factionColor};`}>{faction}</span>
+    </div>
+
+    <!-- Back -->
+    <div class="card-back">
+      <h3 class="back-name">{name}</h3>
+      <p class="back-bio">{bio}</p>
+      <div class="back-stats">
+        {statEntries.map(([key, value]) => (
+          <div class="stat-row">
+            <span class="stat-label">{key}</span>
+            <div class="stat-bar-bg">
+              <div class="stat-bar-fill" style={`width: ${value * 10}%;`}></div>
+            </div>
+            <span class="stat-value">{value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card {
+    perspective: 1000px;
+    height: 420px;
+    cursor: pointer;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+  }
+
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(139, 0, 0, 0.2);
+    background: var(--black-card);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-front {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    justify-content: flex-start;
+    gap: 0.75rem;
+    overflow-y: auto;
+  }
+
+  .card-portrait {
+    margin-bottom: 0.5rem;
+  }
+
+  .portrait-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait-initial {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  .card-name {
+    font-size: 1.15rem;
+    text-align: center;
+  }
+
+  .card-alias {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .card-faction {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .back-name {
+    font-size: 1rem;
+    color: var(--red-bright);
+    text-align: center;
+  }
+
+  .back-bio {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .back-stats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: auto;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    width: 80px;
+    text-align: right;
+  }
+
+  .stat-bar-bg {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .stat-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red-blood), var(--red-bright));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+
+  .stat-value {
+    font-size: 0.7rem;
+    color: var(--text-primary);
+    width: 20px;
+    text-align: center;
+  }
+</style>

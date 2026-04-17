@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="sigilGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF0000" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#8B0000" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#sigilGlow)"/>
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#8B0000" stroke-width="2.5" stroke-opacity="0.6"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#5a0000" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="4 8"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#8B0000" stroke-width="3" filter="url(#glow)"/>
+  <path d="M100 8 L103 18 L100 22 L97 18 Z" fill="#CC0000" opacity="0.9"/>
+  <path d="M100 192 L103 182 L100 178 L97 182 Z" fill="#CC0000" opacity="0.9"/>
+  <path d="M8 100 L18 97 L22 100 L18 103 Z" fill="#CC0000" opacity="0.9"/>
+  <path d="M192 100 L182 97 L178 100 L182 103 Z" fill="#CC0000" opacity="0.9"/>
+  <circle cx="100" cy="100" r="65" fill="none" stroke="#6B0000" stroke-width="1.5" stroke-opacity="0.7"/>
+  <path d="M100 42 C90 52, 72 58, 55 72 C48 78, 38 88, 32 100 C36 92, 44 82, 54 74 C50 82, 46 90, 44 98 C52 88, 64 78, 76 72 C80 68, 86 62, 100 58 Z" fill="#8B0000" fill-opacity="0.85"/>
+  <path d="M100 42 C110 52, 128 58, 145 72 C152 78, 162 88, 168 100 C164 92, 156 82, 146 74 C150 82, 154 90, 156 98 C148 88, 136 78, 124 72 C120 68, 114 62, 100 58 Z" fill="#8B0000" fill-opacity="0.85"/>
+  <ellipse cx="100" cy="80" rx="22" ry="14" fill="none" stroke="#FF0000" stroke-width="2"/>
+  <circle cx="100" cy="80" r="8" fill="#FF0000" fill-opacity="0.9"/>
+  <circle cx="100" cy="80" r="4" fill="#FF4444"/>
+  <path d="M100 94 L96 130 Q98 148 100 155 Q102 148 104 130 L100 94 Z" fill="#8B0000" fill-opacity="0.7"/>
+</svg>

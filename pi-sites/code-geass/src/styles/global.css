@@ -1,0 +1,212 @@
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cinzel', 'Georgia', 'Segoe UI', system-ui, serif;
+  background-color: var(--black);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--red-bright);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: var(--red-glow);
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ===== Design Tokens ===== */
+:root {
+  /* Blacks */
+  --black: #000000;
+  --black-light: #0a0a0a;
+  --black-card: #0d0d0d;
+  --black-elevated: #141414;
+
+  /* Reds */
+  --red-blood: #8B0000;
+  --red-bright: #CC0000;
+  --red-glow: #FF0000;
+  --red-accent: #B22222;
+
+  /* Text */
+  --text-primary: #E0E0E0;
+  --text-muted: #888888;
+  --text-red: #FF4444;
+  --text-dim: #555555;
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 64px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-med: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  /* Glow shadows */
+  --glow-red: 0 0 20px rgba(139, 0, 0, 0.6);
+  --glow-red-bright: 0 0 30px rgba(255, 0, 0, 0.4);
+  --glow-red-soft: 0 0 15px rgba(139, 0, 0, 0.3);
+
+  /* Card shadow */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 12px 40px rgba(139, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.8);
+
+  /* Border styles */
+  --border-subtle: 1px solid rgba(139, 0, 0, 0.15);
+  --border-visible: 1px solid rgba(139, 0, 0, 0.3);
+  --border-strong: 2px solid var(--red-blood);
+}
+
+/* ===== Utility ===== */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  position: relative;
+}
+
+.page-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red-blood), transparent);
+  margin: 0.75rem auto 0;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(255, 0, 0, 0.8), 0 0 100px rgba(139, 0, 0, 0.4);
+  }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(139, 0, 0, 0.3); }
+  50% { border-color: rgba(139, 0, 0, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Page fade-in on load */
+main {
+  animation: fadeIn 0.6s ease both;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red-blood);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red-bright);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(139, 0, 0, 0.4);
+  color: var(--text-primary);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+  .page-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+}

@@ -1,0 +1,91 @@
+---
+interface Props {
+  size?: number;
+}
+
+const { size = 300 } = Astro.props;
+---
+
+<div class="sigil-container" style={`width: ${size}px; height: ${size}px;`}>
+  <svg class="sigil" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer ring -->
+    <circle cx="100" cy="100" r="95" fill="none" stroke="var(--red-blood)" stroke-width="2" opacity="0.6" />
+    <circle cx="100" cy="100" r="88" fill="none" stroke="var(--red-blood)" stroke-width="0.5" opacity="0.3" />
+
+    <!-- Geass sigil - stylized bird/crane shape -->
+    <g class="sigil-glyph">
+      <!-- Central V shape -->
+      <path d="M100 30 L60 110 L100 85 L140 110 Z"
+        fill="none" stroke="var(--red-glow)" stroke-width="2.5" stroke-linejoin="round" />
+
+      <!-- Lower wings -->
+      <path d="M60 110 Q40 130 25 100"
+        fill="none" stroke="var(--red-glow)" stroke-width="2" stroke-linecap="round" />
+      <path d="M140 110 Q160 130 175 100"
+        fill="none" stroke="var(--red-glow)" stroke-width="2" stroke-linecap="round" />
+
+      <!-- Inner detail lines -->
+      <path d="M100 85 L100 140"
+        fill="none" stroke="var(--red-glow)" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M85 120 L100 140 L115 120"
+        fill="none" stroke="var(--red-glow)" stroke-width="1.5" stroke-linecap="round" />
+
+      <!-- Upper accent arcs -->
+      <path d="M70 55 Q100 20 130 55"
+        fill="none" stroke="var(--red-glow)" stroke-width="1" opacity="0.6" />
+
+      <!-- Side tendrils -->
+      <path d="M25 100 Q20 80 35 60"
+        fill="none" stroke="var(--red-glow)" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M175 100 Q180 80 165 60"
+        fill="none" stroke="var(--red-glow)" stroke-width="1.5" stroke-linecap="round" />
+
+      <!-- Bottom detail -->
+      <path d="M80 150 L100 170 L120 150"
+        fill="none" stroke="var(--red-glow)" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="100" cy="170" r="3" fill="var(--red-glow)" opacity="0.8" />
+    </g>
+
+    <!-- Corner runes -->
+    <circle cx="100" cy="15" r="2" fill="var(--red-blood)" opacity="0.4" />
+    <circle cx="100" cy="185" r="2" fill="var(--red-blood)" opacity="0.4" />
+    <circle cx="15" cy="100" r="2" fill="var(--red-blood)" opacity="0.4" />
+    <circle cx="185" cy="100" r="2" fill="var(--red-blood)" opacity="0.4" />
+  </svg>
+</div>
+
+<style>
+  .sigil-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sigil {
+    width: 100%;
+    height: 100%;
+    animation: sigilRotate 20s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.3));
+  }
+
+  .sigil-glyph {
+    animation: sigilPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes sigilRotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @keyframes sigilPulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.4));
+      opacity: 0.85;
+    }
+    50% {
+      filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.8));
+      opacity: 1;
+    }
+  }
+</style>

@@ -1,0 +1,192 @@
+[
+  {
+    "id": "britannia",
+    "name": "Holy Britannian Empire",
+    "color": "#6B21A8",
+    "description": "The world's dominant superpower, controlling one-third of the globe. Governed by Emperor Charles zi Britannia under a philosophy of Social Darwinism, where the strong dominate the weak.",
+    "leader": "Charles zi Britannia",
+    "hierarchy": [
+      {
+        "name": "Charles zi Britannia",
+        "role": "Emperor",
+        "rank": "leader",
+        "children": [
+          {
+            "name": "Schneizel el Britannia",
+            "role": "Prime Minister",
+            "rank": "commander",
+            "children": [
+              { "name": "Kanon Maldini", "role": "Aide", "rank": "officer" }
+            ]
+          },
+          {
+            "name": "Cornelia li Britannia",
+            "role": "Viceroy",
+            "rank": "commander",
+            "children": [
+              { "name": "Guilford", "role": "Knight", "rank": "officer" },
+              { "name": "Darlton", "role": "General", "rank": "officer" }
+            ]
+          },
+          {
+            "name": "Clovis la Britannia",
+            "role": "Former Viceroy",
+            "rank": "commander",
+            "children": []
+          },
+          {
+            "name": "Lelouch vi Britannia",
+            "role": "Exiled Prince",
+            "rank": "commander",
+            "children": []
+          },
+          {
+            "name": "Nunnally vi Britannia",
+            "role": "Viceroy",
+            "rank": "commander",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "black-knights",
+    "name": "The Black Knights",
+    "color": "#1E3A5F",
+    "description": "A revolutionary organization founded by Zero to fight against Britannian oppression. Known as the 'Knights of Justice,' they seek to protect the weak and liberate occupied nations.",
+    "leader": "Zero (Lelouch vi Britannia)",
+    "hierarchy": [
+      {
+        "name": "Zero",
+        "role": "Supreme Commander",
+        "rank": "leader",
+        "children": [
+          {
+            "name": "Kallen Stadtfeld",
+            "role": "Ace Pilot / Captain",
+            "rank": "commander",
+            "children": []
+          },
+          {
+            "name": "Kaname Ohgi",
+            "role": "Deputy Commander",
+            "rank": "commander",
+            "children": [
+              { "name": "Tamaki", "role": "Squad Leader", "rank": "officer" }
+            ]
+          },
+          {
+            "name": "Diethard Ried",
+            "role": "Intelligence",
+            "rank": "commander",
+            "children": []
+          },
+          {
+            "name": "Tohdoh",
+            "role": "Military Advisor",
+            "rank": "commander",
+            "children": [
+              { "name": "Holy Swords", "role": "Elite Unit", "rank": "officer" }
+            ]
+          },
+          {
+            "name": "Rakshata",
+            "role": "Chief Scientist",
+            "rank": "commander",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "geass-order",
+    "name": "Geass Order",
+    "color": "#8B0000",
+    "description": "A secret organization dedicated to researching and cultivating Geass users. Led by V.V., the Order operates from a hidden base and has existed for centuries, manipulating world events from the shadows.",
+    "leader": "V.V.",
+    "hierarchy": [
+      {
+        "name": "V.V.",
+        "role": "Director",
+        "rank": "leader",
+        "children": [
+          {
+            "name": "Rolo Lamperouge",
+            "role": "Assassin",
+            "rank": "commander",
+            "children": []
+          },
+          {
+            "name": "Jeremiah Gottwald",
+            "role": "Enforcer",
+            "rank": "commander",
+            "children": []
+          },
+          {
+            "name": "C.C.",
+            "role": "Former Member",
+            "rank": "commander",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "knight-of-rounds",
+    "name": "Knights of the Round",
+    "color": "#B8860B",
+    "description": "The twelve most powerful knights in the Britannian Empire, answering directly to the Emperor. Each holds a title corresponding to the Knights of the Round Table from Arthurian legend.",
+    "leader": "Bismarck Waldstein (Knight of One)",
+    "hierarchy": [
+      {
+        "name": "Bismarck Waldstein",
+        "role": "Knight of One",
+        "rank": "leader",
+        "children": [
+          { "name": "Gino Weinberg", "role": "Knight of Three", "rank": "commander", "children": [] },
+          { "name": "Dorothea Ernst", "role": "Knight of Four", "rank": "commander", "children": [] },
+          { "name": "Anya Alstreim", "role": "Knight of Six", "rank": "commander", "children": [] },
+          { "name": "Suzaku Kururugi", "role": "Knight of Seven", "rank": "commander", "children": [] },
+          { "name": "Luciano Bradley", "role": "Knight of Ten", "rank": "commander", "children": [] },
+          { "name": "Monica Kruszewski", "role": "Knight of Twelve", "rank": "commander", "children": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jlf",
+    "name": "Japan Liberation Front",
+    "color": "#2F4F2F",
+    "description": "The main Japanese resistance group before the rise of the Black Knights. Composed of former Japanese military personnel, they fight using guerrilla tactics but are eventually absorbed into the Black Knights.",
+    "leader": "Lieutenant General Katase",
+    "hierarchy": [
+      {
+        "name": "Lt. Gen. Katase",
+        "role": "Commander",
+        "rank": "leader",
+        "children": [
+          {
+            "name": "Tohdoh",
+            "role": "Miracle Worker",
+            "rank": "commander",
+            "children": [
+              { "name": "Asahina", "role": "Holy Sword", "rank": "officer", "children": [] },
+              { "name": "Chiba", "role": "Holy Sword", "rank": "officer", "children": [] },
+              { "name": "Senba", "role": "Holy Sword", "rank": "officer", "children": [] },
+              { "name": "Urabe", "role": "Holy Sword", "rank": "officer", "children": [] }
+            ]
+          },
+          {
+            "name": "Kusakabe",
+            "role": "Colonel",
+            "rank": "commander",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

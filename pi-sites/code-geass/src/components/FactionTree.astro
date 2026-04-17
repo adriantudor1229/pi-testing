@@ -1,0 +1,229 @@
+---
+interface HierarchyNode {
+  name?: string;
+  leader?: string;
+  children: HierarchyNode[];
+}
+
+interface Props {
+  name: string;
+  leader: string;
+  hierarchy: HierarchyNode;
+}
+
+const { name, leader, hierarchy } = Astro.props;
+
+// Layout constants
+const svgWidth = 800;
+const nodeHeight = 30;
+const nodeWidth = 140;
+const levelHeight = 75;
+const horizontalGap = 15;
+
+interface LayoutNode {
+  name: string;
+  x: number;
+  y: number;
+  depth: number;
+  width: number;
+  children: LayoutNode[];
+}
+
+interface FlatNode {
+  name: string;
+  x: number;
+  y: number;
+  parentX?: number;
+  parentY?: number;
+  depth: number;
+  isLeaf: boolean;
+}
+
+function countLeaves(node: HierarchyNode): number {
+  if (!node.children || node.children.length === 0) return 1;
+  return node.children.reduce((sum, child) => sum + countLeaves(child), 0);
+}
+
+function layoutTree(root: HierarchyNode, rootName: string): LayoutNode {
+  const totalLeaves = Math.max(countLeaves(root), 1);
+
+  function layout(node: HierarchyNode, x: number, y: number, depth: number): LayoutNode {
+    const currentName = node.name || node.leader || 'Unknown';
+    const leafCount = countLeaves(node);
+    const nodeW = leafCount * (nodeWidth + horizontalGap);
+    const current: LayoutNode = { name: currentName, x, y, depth, width: nodeW, children: [] };
+
+    if (node.children && node.children.length > 0) {
+      let childX = x - nodeW / 2;
+      node.children.forEach((child) => {
+        const childLeafCount = countLeaves(child);
+        const childWidth = childLeafCount * (nodeWidth + horizontalGap);
+        const childCenterX = childX + childWidth / 2;
+        const childY = y + levelHeight;
+        const childLayout = layout(child, childCenterX, childY, depth + 1);
+        current.children.push(childLayout);
+        childX += childWidth;
+      });
+    }
+    return current;
+  }
+
+  return layout(root, svgWidth / 2, 40, 0);
+}
+
+const rootDisplayName = leader || hierarchy.leader || 'Unknown';
+const treeRoot = layoutTree(hierarchy, rootDisplayName);
+treeRoot.name = rootDisplayName;
+
+const flatNodes: FlatNode[] = [];
+
+function flattenWithParent(node: LayoutNode, parent?: LayoutNode) {
+  flatNodes.push({
+    name: node.name,
+    x: node.x,
+    y: node.y,
+    parentX: parent?.x,
+    parentY: parent?.y,
+    depth: node.depth,
+    isLeaf: node.children.length === 0,
+  });
+  node.children.forEach((child) => flattenWithParent(child, node));
+}
+flattenWithParent(treeRoot);
+
+const maxDepth = flatNodes.reduce((max, n) => Math.max(max, n.depth), 0);
+const dynamicHeight = Math.max((maxDepth + 1) * levelHeight + 80, 200);
+---
+
+<div class="faction-tree">
+  <h3 class="faction-tree-title">{name}</h3>
+  <div class="faction-tree-leader">Leader: <strong>{leader}</strong></div>
+  <svg viewBox={`0 0 ${svgWidth} ${dynamicHeight}`} class="tree-svg" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="nodeGlow">
+        <feGaussianBlur stdDeviation="2" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+      <linearGradient id="leaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#8B0000" />
+        <stop offset="100%" stop-color="#5a0000" />
+      </linearGradient>
+      <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#1a1a1a" />
+        <stop offset="100%" stop-color="#111111" />
+      </linearGradient>
+    </defs>
+
+    {/* Connection lines — curved paths */}
+    {flatNodes.filter((n) => n.parentX !== undefined).map((node) => {
+      const midY = ((node.parentY ?? 0) + nodeHeight / 2 + node.y - nodeHeight / 2) / 2;
+      return (
+        <path
+          d={`M ${node.parentX} ${(node.parentY ?? 0) + nodeHeight / 2}
+              C ${node.parentX} ${midY},
+                ${node.x} ${midY},
+                ${node.x} ${node.y - nodeHeight / 2}`}
+          fill="none"
+          stroke="#8B0000"
+          stroke-width="1.5"
+          opacity="0.5"
+        />
+      );
+    })}
+
+    {/* Nodes */}
+    {flatNodes.map((node) => (
+      <g class={node.depth === 0 ? 'node-leader' : node.isLeaf ? 'node-leaf' : 'node-mid'}>
+        {/* Node background */}
+        <rect
+          x={node.x - nodeWidth / 2}
+          y={node.y - nodeHeight / 2}
+          width={nodeWidth}
+          height={nodeHeight}
+          rx="5"
+          fill={node.depth === 0 ? 'url(#leaderGrad)' : 'url(#nodeGrad)'}
+          stroke={node.depth === 0 ? '#CC0000' : '#8B0000'}
+          stroke-width={node.depth === 0 ? '2' : '1'}
+          opacity={node.depth === 0 ? '1' : '0.9'}
+        />
+        {/* Glow ring for leader */}
+        {node.depth === 0 && (
+          <rect
+            x={node.x - nodeWidth / 2 - 2}
+            y={node.y - nodeHeight / 2 - 2}
+            width={nodeWidth + 4}
+            height={nodeHeight + 4}
+            rx="7"
+            fill="none"
+            stroke="#FF0000"
+            stroke-width="1"
+            opacity="0.3"
+          />
+        )}
+        {/* Node text */}
+        <text
+          x={node.x}
+          y={node.y + 4}
+          text-anchor="middle"
+          fill={node.depth === 0 ? '#ffffff' : '#E0E0E0'}
+          font-family="Rajdhani, system-ui, sans-serif"
+          font-size={node.depth === 0 ? '12' : '11'}
+          font-weight={node.depth === 0 ? '700' : '500'}
+        >
+          {node.name.length > 20 ? node.name.slice(0, 18) + '…' : node.name}
+        </text>
+      </g>
+    ))}
+  </svg>
+</div>
+
+<style>
+  .faction-tree {
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    padding: 0.5rem;
+  }
+
+  .faction-tree-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.03em;
+  }
+
+  .faction-tree-leader {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.15);
+  }
+
+  .faction-tree-leader strong {
+    color: var(--red-bright);
+  }
+
+  .tree-svg {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+  }
+
+  /* SVG hover effects */
+  .tree-svg :global(g) {
+    transition: opacity 0.2s ease;
+  }
+
+  .tree-svg :global(g:hover) {
+    opacity: 1 !important;
+  }
+
+  .tree-svg :global(g:hover rect) {
+    stroke: #CC0000;
+    stroke-width: 2;
+  }
+</style>

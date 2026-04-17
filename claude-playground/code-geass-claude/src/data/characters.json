@@ -1,0 +1,92 @@
+[
+  {
+    "id": "lelouch",
+    "name": "Lelouch vi Britannia",
+    "alias": "Zero",
+    "faction": "The Black Knights",
+    "factionId": "black-knights",
+    "image": "/images/characters/lelouch.jpg",
+    "bio": "Exiled Britannian prince who obtains the power of Geass from C.C., allowing him to command absolute obedience. He leads the Black Knights as the masked vigilante Zero, waging war against the Holy Britannian Empire to create a better world for his sister Nunnally.",
+    "stats": { "intelligence": 10, "combat": 3, "charisma": 10, "geass": 10 }
+  },
+  {
+    "id": "suzaku",
+    "name": "Suzaku Kururugi",
+    "alias": "Knight of Seven",
+    "faction": "Holy Britannian Empire",
+    "factionId": "britannia",
+    "image": "/images/characters/suzaku.jpg",
+    "bio": "Son of Japan's last prime minister, Suzaku believes in changing the system from within. An elite Knightmare pilot, he rises through Britannia's ranks as the pilot of the experimental Lancelot, often clashing with his childhood friend Lelouch.",
+    "stats": { "intelligence": 7, "combat": 10, "charisma": 7, "geass": 0 }
+  },
+  {
+    "id": "cc",
+    "name": "C.C.",
+    "alias": "The Immortal Witch",
+    "faction": "The Black Knights",
+    "factionId": "black-knights",
+    "image": "/images/characters/cc.jpg",
+    "bio": "A mysterious immortal girl who grants Lelouch his Geass power. Centuries old, she has wandered the world seeking someone who can fulfill her true wish. She serves as Lelouch's confidante and accomplice throughout his rebellion.",
+    "stats": { "intelligence": 9, "combat": 5, "charisma": 8, "geass": 10 }
+  },
+  {
+    "id": "kallen",
+    "name": "Kallen Stadtfeld",
+    "alias": "Q-1",
+    "faction": "The Black Knights",
+    "factionId": "black-knights",
+    "image": "/images/characters/kallen.jpg",
+    "bio": "Half-Britannian, half-Japanese ace pilot of the Black Knights. She pilots the Guren, one of the most powerful Knightmares ever built. Fiercely loyal to Zero's cause, she fights for the liberation of Japan with unmatched combat skill.",
+    "stats": { "intelligence": 6, "combat": 9, "charisma": 6, "geass": 0 }
+  },
+  {
+    "id": "nunnally",
+    "name": "Nunnally vi Britannia",
+    "alias": "Viceroy of Area 11",
+    "faction": "Holy Britannian Empire",
+    "factionId": "britannia",
+    "image": "/images/characters/nunnally.jpg",
+    "bio": "Lelouch's beloved younger sister, blinded and crippled by a traumatic childhood incident. Her gentle nature and desire for a peaceful world drive much of Lelouch's motivation. She eventually becomes Viceroy of Area 11.",
+    "stats": { "intelligence": 6, "combat": 1, "charisma": 9, "geass": 0 }
+  },
+  {
+    "id": "schneizel",
+    "name": "Schneizel el Britannia",
+    "alias": "The White Prince",
+    "faction": "Holy Britannian Empire",
+    "factionId": "britannia",
+    "image": "/images/characters/schneizel.jpg",
+    "bio": "Second prince of Britannia and Lelouch's most dangerous rival. A master strategist who has never lost to Lelouch in chess. He seeks to create world peace through absolute control, wielding the destructive power of the Damocles fortress.",
+    "stats": { "intelligence": 10, "combat": 2, "charisma": 9, "geass": 0 }
+  },
+  {
+    "id": "cornelia",
+    "name": "Cornelia li Britannia",
+    "alias": "The Witch of Britannia",
+    "faction": "Holy Britannian Empire",
+    "factionId": "britannia",
+    "image": "/images/characters/cornelia.jpg",
+    "bio": "Second princess of Britannia and a formidable military commander. Known as the 'Witch of Britannia' for her ruthless efficiency on the battlefield. She deeply cares for her younger sister Euphemia and seeks to avenge her death.",
+    "stats": { "intelligence": 8, "combat": 8, "charisma": 7, "geass": 0 }
+  },
+  {
+    "id": "mao",
+    "name": "Mao",
+    "alias": "The Mind Reader",
+    "faction": "Geass Order",
+    "factionId": "geass-order",
+    "image": "/images/characters/mao.jpg",
+    "bio": "A Geass user granted the power of absolute mind-reading by C.C. Unable to control his power, he can hear the thoughts of everyone within 500 meters. His obsessive love for C.C. drives him to madness and puts him in direct conflict with Lelouch.",
+    "stats": { "intelligence": 5, "combat": 3, "charisma": 2, "geass": 8 }
+  },
+  {
+    "id": "jeremiah",
+    "name": "Jeremiah Gottwald",
+    "alias": "Orange",
+    "faction": "Holy Britannian Empire",
+    "factionId": "britannia",
+    "image": "/images/characters/jeremiah.jpg",
+    "bio": "A loyal Britannian soldier who becomes a cyborg with the power to cancel any Geass. Originally Lelouch's enemy, his unwavering loyalty to the vi Britannia family leads him to become one of Lelouch's most devoted allies in the final battle.",
+    "stats": { "intelligence": 5, "combat": 8, "charisma": 5, "geass": 7 }
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "lancelot",
+    "name": "Lancelot",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Suzaku Kururugi",
+    "class": "7th Generation",
+    "image": "/images/mechas/lancelot.png",
+    "description": "The first seventh-generation Knightmare Frame, developed by Lloyd Asplund. Features unprecedented speed and agility with its Yggdrasil Drive and MVS swords.",
+    "stats": { "speed": 9, "power": 7, "defense": 6, "mobility": 9, "range": 5 }
+  },
+  {
+    "id": "lancelot-albion",
+    "name": "Lancelot Albion",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Suzaku Kururugi",
+    "class": "9th Generation",
+    "image": "/images/mechas/lancelot-albion.png",
+    "description": "The ultimate evolution of the Lancelot line. Equipped with an energy wing system granting flight capability and the super VARIS rifle for devastating ranged attacks.",
+    "stats": { "speed": 10, "power": 9, "defense": 8, "mobility": 10, "range": 9 }
+  },
+  {
+    "id": "gawain",
+    "name": "Gawain",
+    "faction": "The Black Knights",
+    "pilot": "Lelouch & C.C.",
+    "class": "Prototype",
+    "image": "/images/mechas/gawain.png",
+    "description": "A prototype Knightmare stolen from Britannia, featuring a Druid System for advanced tactical analysis and twin Hadron Cannons for devastating firepower. Piloted by Lelouch with C.C. as co-pilot.",
+    "stats": { "speed": 5, "power": 10, "defense": 8, "mobility": 6, "range": 10 }
+  },
+  {
+    "id": "shinkiro",
+    "name": "Shinkirou",
+    "faction": "The Black Knights",
+    "pilot": "Lelouch vi Britannia",
+    "class": "Special",
+    "image": "/images/mechas/shinkiro.png",
+    "description": "Zero's personal Knightmare Frame, built with an absolute defense system using a Druid-powered barrier. Features the Diffusion Structure Phase Transition Cannon.",
+    "stats": { "speed": 6, "power": 8, "defense": 10, "mobility": 7, "range": 8 }
+  },
+  {
+    "id": "guren",
+    "name": "Guren Mk-II",
+    "faction": "The Black Knights",
+    "pilot": "Kallen Stadtfeld",
+    "class": "Custom",
+    "image": "/images/mechas/guren.png",
+    "description": "Japan's ace Knightmare built with Rakshata's radiant wave technology. Its signature right arm can unleash devastating radiation surges that destroy enemies on contact.",
+    "stats": { "speed": 8, "power": 9, "defense": 5, "mobility": 8, "range": 3 }
+  },
+  {
+    "id": "guren-seiten",
+    "name": "Guren S.E.I.T.E.N.",
+    "faction": "The Black Knights",
+    "pilot": "Kallen Stadtfeld",
+    "class": "9th Generation",
+    "image": "/images/mechas/guren-seiten.png",
+    "description": "The ultimate Guren variant, rivaling the Lancelot Albion. Equipped with energy wings, enhanced radiant wave surger, and the ability to project radiation blasts at long range.",
+    "stats": { "speed": 10, "power": 10, "defense": 7, "mobility": 10, "range": 8 }
+  },
+  {
+    "id": "sutherland",
+    "name": "Sutherland",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Various",
+    "class": "5th Generation",
+    "image": "/images/mechas/sutherland.png",
+    "description": "The backbone of Britannia's military forces. A mass-produced fifth-generation Knightmare that serves as the standard combat unit for Britannian soldiers.",
+    "stats": { "speed": 5, "power": 5, "defense": 5, "mobility": 5, "range": 5 }
+  },
+  {
+    "id": "gloucester",
+    "name": "Gloucester",
+    "faction": "Holy Britannian Empire",
+    "pilot": "Cornelia li Britannia",
+    "class": "5th Generation",
+    "image": "/images/mechas/gloucester.png",
+    "description": "An enhanced Sutherland variant designed for elite pilots. Favored by Cornelia and her royal guard, it excels in close combat with its jousting lance.",
+    "stats": { "speed": 6, "power": 7, "defense": 6, "mobility": 6, "range": 4 }
+  }
+]

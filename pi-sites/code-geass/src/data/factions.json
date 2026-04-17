@@ -1,0 +1,193 @@
+[
+  {
+    "id": "holy-britannian-empire",
+    "name": "Holy Britannian Empire",
+    "leader": "Emperor Charles zi Britannia",
+    "emblem": "/images/factions/britannia.svg",
+    "description": "The world's dominant superpower, controlling over a third of the globe. Built on Social Darwinism and military conquest, Britannia subjugates conquered nations as 'Areas' with numbered designations.",
+    "members": [
+      { "name": "Charles zi Britannia", "role": "98th Emperor" },
+      { "name": "Schneizel el Britannia", "role": "Second Prince / Prime Minister" },
+      { "name": "Cornelia li Britannia", "role": "Second Princess / Military Commander" },
+      { "name": "Euphemia li Britannia", "role": "Third Princess / Sub-Viceroy of Area 11" },
+      { "name": "Odysseus eu Britannia", "role": "First Prince / Crown Prince" },
+      { "name": "Clovis la Britannia", "role": "Third Prince / Viceroy of Area 11" }
+    ],
+    "hierarchy": {
+      "leader": "Charles zi Britannia",
+      "children": [
+        {
+          "name": "Schneizel el Britannia",
+          "children": [
+            { "name": "Kanon Maldini", "children": [] },
+            { "name": "Military Command", "children": [] }
+          ]
+        },
+        {
+          "name": "Cornelia li Britannia",
+          "children": [
+            { "name": "Gloucester Squadron", "children": [] }
+          ]
+        },
+        {
+          "name": "Euphemia li Britannia",
+          "children": []
+        },
+        {
+          "name": "Other Royal Family",
+          "children": [
+            { "name": "Odysseus eu Britannia", "children": [] },
+            { "name": "Clovis la Britannia", "children": [] },
+            { "name": "Carline ne Britannia", "children": [] }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "the-black-knights",
+    "name": "The Black Knights",
+    "leader": "Zero (Lelouch vi Britannia)",
+    "emblem": "/images/factions/black-knights.svg",
+    "description": "A paramilitary resistance organization founded by Zero to fight against Britannian oppression. They champion the liberation of Japan and eventually expand their goals to challenging the entire world order.",
+    "members": [
+      { "name": "Zero (Lelouch)", "role": "Supreme Commander" },
+      { "name": "Kallen Stadtfeld", "role": "Ace Pilot / Captain" },
+      { "name": "Kyōshirō Tōdō", "role": "Military Advisor / General" },
+      { "name": "Kaname Ohgi", "role": "Deputy Commander" },
+      { "name": "Diethard Ried", "role": "Intelligence / PR Director" },
+      { "name": "Rakshata Chawla", "role": "Chief Scientist" },
+      { "name": "C.C.", "role": "Advisor / Co-Pilot" },
+      { "name": "Liang Xingke", "role": "Commander (R2 alliance)" }
+    ],
+    "hierarchy": {
+      "leader": "Zero",
+      "children": [
+        {
+          "name": "Kyōshirō Tōdō",
+          "children": [
+            { "name": "Four Holy Swords", "children": [] }
+          ]
+        },
+        {
+          "name": "Kallen Stadtfeld",
+          "children": []
+        },
+        {
+          "name": "Kaname Ohgi",
+          "children": [
+            { "name": "Original Resistance", "children": [] }
+          ]
+        },
+        {
+          "name": "Diethard Ried",
+          "children": [
+            { "name": "Intelligence Division", "children": [] }
+          ]
+        },
+        {
+          "name": "Rakshata Chawla",
+          "children": [
+            { "name": "R&D Division", "children": [] }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "geass-order",
+    "name": "Geass Order",
+    "leader": "V.V.",
+    "emblem": "/images/factions/geass-order.svg",
+    "description": "A secretive organization dedicated to researching and exploiting the power of Geass. Led by V.V., the immortal twin brother of Emperor Charles. They conduct experiments on Geass users and seek to harness the power of C's World.",
+    "members": [
+      { "name": "V.V.", "role": "Leader / Immortal" },
+      { "name": "Jeremiah Gottwald", "role": "Geass Canceler (formerly)" },
+      { "name": "Rolo Lamperouge", "role": "Assassin" },
+      { "name": "Various Agents", "role": "Geass Users / Test Subjects" }
+    ],
+    "hierarchy": {
+      "leader": "V.V.",
+      "children": [
+        {
+          "name": "Jeremiah Gottwald",
+          "children": []
+        },
+        {
+          "name": "Assassins",
+          "children": [
+            { "name": "Rolo Lamperouge", "children": [] }
+          ]
+        },
+        {
+          "name": "Research Division",
+          "children": [
+            { "name": "Geass Test Subjects", "children": [] }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "knights-of-the-round",
+    "name": "Knight of Rounds",
+    "leader": "Bismarck Waldstein (Knight of One)",
+    "emblem": "/images/factions/knights-of-round.svg",
+    "description": "An elite unit of twelve of the strongest and most skilled Knightmare Frame pilots in the Holy Britannian Empire. They answer directly to the Emperor and are the pinnacle of Britannia's military power.",
+    "members": [
+      { "name": "Bismarck Waldstein", "role": "Knight of One" },
+      { "name": "Gino Weinberg", "role": "Knight of Three" },
+      { "name": "Dorothea Ernst", "role": "Knight of Four" },
+      { "name": "Anya Alstreim", "role": "Knight of Six" },
+      { "name": "Suzaku Kururugi", "role": "Knight of Seven" },
+      { "name": "Nonette Enneagram", "role": "Knight of Nine" },
+      { "name": "Luciano Bradley", "role": "Knight of Ten" },
+      { "name": "Monica Krushevsky", "role": "Knight of Twelve" }
+    ],
+    "hierarchy": {
+      "leader": "Bismarck Waldstein (Knight of One)",
+      "children": [
+        { "name": "Gino Weinberg (Knight of Three)", "children": [] },
+        { "name": "Dorothea Ernst (Knight of Four)", "children": [] },
+        { "name": "Anya Alstreim (Knight of Six)", "children": [] },
+        { "name": "Suzaku Kururugi (Knight of Seven)", "children": [] },
+        { "name": "Nonette Enneagram (Knight of Nine)", "children": [] },
+        { "name": "Luciano Bradley (Knight of Ten)", "children": [] },
+        { "name": "Monica Krushevsky (Knight of Twelve)", "children": [] }
+      ]
+    }
+  },
+  {
+    "id": "japan-liberation-front",
+    "name": "Japan Liberation Front",
+    "leader": "Kyōshirō Tōdō (Military) / General Katase",
+    "emblem": "/images/factions/jlf.svg",
+    "description": "A Japanese resistance organization formed by former members of the Japanese military after the Britannian conquest. They sought to restore Japan's independence through guerrilla warfare before being absorbed into the Black Knights.",
+    "members": [
+      { "name": "Kyōshirō Tōdō", "role": "Tactical Commander" },
+      { "name": "General Katase", "role": "Leader" },
+      { "name": "Kōsetsu Urabe", "role": "Four Holy Swords" },
+      { "name": "Asahina Shōgo", "role": "Four Holy Swords" },
+      { "name": "Chiba Nagisa", "role": "Four Holy Swords" },
+      { "name": "Senba", "role": "Four Holy Swords" }
+    ],
+    "hierarchy": {
+      "leader": "General Katase",
+      "children": [
+        {
+          "name": "Kyōshirō Tōdō",
+          "children": [
+            { "name": "Kōsetsu Urabe", "children": [] },
+            { "name": "Asahina Shōgo", "children": [] },
+            { "name": "Chiba Nagisa", "children": [] },
+            { "name": "Senba", "children": [] }
+          ]
+        },
+        {
+          "name": "JLF Infantry",
+          "children": []
+        }
+      ]
+    }
+  }
+]

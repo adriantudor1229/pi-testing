@@ -1,0 +1,272 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MechaCard from '../components/MechaCard.astro';
+import MechaStatBar from '../components/MechaStatBar.astro';
+import mechas from '../data/mechas.json';
+
+// Sort by generation
+const sortedMechas = [...mechas].sort((a, b) => {
+  const genA = parseInt(a.class.match(/\d+/)?.[0] || '0');
+  const genB = parseInt(b.class.match(/\d+/)?.[0] || '0');
+  return genB - genA;
+});
+
+const ninthGen = mechas.filter((m) => m.class.includes('9th'));
+const seventhGen = mechas.filter((m) => m.class.includes('7th') && !m.class.includes('9th'));
+const olderGen = mechas.filter((m) => !m.class.includes('7th') && !m.class.includes('9th'));
+---
+
+<BaseLayout title="Mechas" description="Knightmare Frames of Code Geass — specs, stats, and pilots.">
+  <section class="page-section">
+    <div class="container">
+      <h1 class="page-title">Knightmare Frames</h1>
+      <p class="page-subtitle">The machines that wage war across nations.</p>
+    </div>
+
+    <!-- 9th Generation — Elite -->
+    {ninthGen.length > 0 && (
+      <div class="generation-group">
+        <div class="container">
+          <div class="section-header">
+            <span class="gen-badge gen-9">9TH GEN</span>
+            <h2 class="section-title">The Pinnacle</h2>
+            <span class="section-line"></span>
+          </div>
+        </div>
+        <div class="container">
+          <div class="mecha-grid mecha-grid-featured">
+            {ninthGen.map((mech) => (
+              <MechaCard
+                id={mech.id}
+                name={mech.name}
+                faction={mech.faction}
+                pilot={mech.pilot}
+                classType={mech.class}
+                image={mech.image}
+                stats={mech.stats}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- 7th Generation -->
+    {seventhGen.length > 0 && (
+      <div class="generation-group">
+        <div class="container">
+          <div class="section-header">
+            <span class="gen-badge gen-7">7TH GEN</span>
+            <h2 class="section-title">Advanced Frames</h2>
+            <span class="section-line"></span>
+          </div>
+        </div>
+        <div class="container">
+          <div class="mecha-grid">
+            {seventhGen.map((mech) => (
+              <MechaCard
+                id={mech.id}
+                name={mech.name}
+                faction={mech.faction}
+                pilot={mech.pilot}
+                classType={mech.class}
+                image={mech.image}
+                stats={mech.stats}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- Older Generations -->
+    {olderGen.length > 0 && (
+      <div class="generation-group">
+        <div class="container">
+          <div class="section-header">
+            <span class="gen-badge gen-older">5-6TH GEN</span>
+            <h2 class="section-title">Mass Production & Heavy Units</h2>
+            <span class="section-line"></span>
+          </div>
+        </div>
+        <div class="container">
+          <div class="mecha-grid">
+            {olderGen.map((mech) => (
+              <MechaCard
+                id={mech.id}
+                name={mech.name}
+                faction={mech.faction}
+                pilot={mech.pilot}
+                classType={mech.class}
+                image={mech.image}
+                stats={mech.stats}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+  </section>
+
+  <!-- 9th Generation Comparison Section -->
+  {ninthGen.length > 0 && (
+    <section class="comparison-section">
+      <div class="container">
+        <div class="comparison-header">
+          <h2 class="page-title" style="font-size: 1.6rem;">9th Generation Comparison</h2>
+          <p class="page-subtitle" style="margin-bottom: 2rem;">The ultimate Knightmare Frames — head to head.</p>
+        </div>
+        <div class="comparison-grid">
+          {ninthGen.map((mech) => (
+            <div class="comparison-card">
+              <div class="comparison-card-header">
+                <h3 class="comparison-name">{mech.name}</h3>
+                <span class="comparison-pilot">{mech.pilot}</span>
+              </div>
+              <div class="comparison-bars">
+                <MechaStatBar label="Speed" value={mech.stats.speed} />
+                <MechaStatBar label="Power" value={mech.stats.power} />
+                <MechaStatBar label="Defense" value={mech.stats.defense} />
+                <MechaStatBar label="Mobility" value={mech.stats.mobility} />
+                <MechaStatBar label="Range" value={mech.stats.range} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .page-section {
+    padding-top: calc(var(--nav-height) + 3rem);
+    padding-bottom: 2rem;
+  }
+
+  .generation-group {
+    margin-bottom: 3.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .gen-badge {
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .gen-9 {
+    background: rgba(255, 0, 0, 0.2);
+    color: #FF4444;
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.15);
+  }
+
+  .gen-7 {
+    background: rgba(139, 0, 0, 0.2);
+    color: var(--red-bright);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+  }
+
+  .gen-older {
+    background: rgba(80, 80, 80, 0.2);
+    color: var(--text-muted);
+    border: 1px solid rgba(80, 80, 80, 0.3);
+  }
+
+  .section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--red-blood), transparent);
+  }
+
+  .mecha-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .mecha-grid-featured {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+
+  /* Comparison Section */
+  .comparison-section {
+    padding: 3rem 0;
+    border-top: 1px solid rgba(139, 0, 0, 0.15);
+    background: linear-gradient(to bottom, transparent, rgba(10, 0, 0, 0.5));
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .comparison-card {
+    background: var(--black-card);
+    border: 1px solid rgba(139, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: border-color var(--transition-med), box-shadow var(--transition-med);
+  }
+
+  .comparison-card:hover {
+    border-color: rgba(139, 0, 0, 0.5);
+    box-shadow: var(--glow-red-soft);
+  }
+
+  .comparison-card-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.15);
+  }
+
+  .comparison-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .comparison-pilot {
+    font-size: 0.85rem;
+    color: var(--red-bright);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .mecha-grid, .mecha-grid-featured {
+      grid-template-columns: 1fr;
+    }
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .mecha-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

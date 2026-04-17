@@ -1,0 +1,135 @@
+---
+interface Props {
+  size?: number;
+  opacity?: number;
+}
+
+const { size = 200, opacity = 1 } = Astro.props;
+---
+
+<div class="geass-sigil" style={`width: ${size}px; height: ${size}px; opacity: ${opacity}`}>
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="sigil-svg">
+    <defs>
+      <radialGradient id="sigilGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#FF0000" stop-opacity="0.3" />
+        <stop offset="60%" stop-color="#8B0000" stop-opacity="0.1" />
+        <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+      </radialGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+        <feMerge>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+      <filter id="strongGlow">
+        <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
+        <feMerge>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    <!-- Background glow aura -->
+    <circle cx="100" cy="100" r="95" fill="url(#sigilGlow)" />
+
+    <!-- Outer decorative ring with tick marks -->
+    <circle cx="100" cy="100" r="92" fill="none" stroke="#8B0000" stroke-width="2.5" stroke-opacity="0.6" />
+    <circle cx="100" cy="100" r="88" fill="none" stroke="#5a0000" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="4 8" />
+
+    <!-- Outer ring -->
+    <circle cx="100" cy="100" r="82" fill="none" stroke="#8B0000" stroke-width="3" filter="url(#glow)" />
+
+    <!-- Cardinal points — elongated diamond marks -->
+    <path d="M100 8 L103 18 L100 22 L97 18 Z" fill="#CC0000" opacity="0.9" />
+    <path d="M100 192 L103 182 L100 178 L97 182 Z" fill="#CC0000" opacity="0.9" />
+    <path d="M8 100 L18 97 L22 100 L18 103 Z" fill="#CC0000" opacity="0.9" />
+    <path d="M192 100 L182 97 L178 100 L182 103 Z" fill="#CC0000" opacity="0.9" />
+
+    <!-- Inner circle -->
+    <circle cx="100" cy="100" r="65" fill="none" stroke="#6B0000" stroke-width="1.5" stroke-opacity="0.7" />
+
+    <!-- Left wing — more refined bird shape sweeping upward and outward -->
+    <path d="M100 42 
+             C90 52, 72 58, 55 72 
+             C48 78, 38 88, 32 100 
+             C36 92, 44 82, 54 74 
+             C50 82, 46 90, 44 98 
+             C52 88, 64 78, 76 72 
+             C80 68, 86 62, 100 58 Z"
+          fill="#8B0000" fill-opacity="0.85" filter="url(#glow)" />
+
+    <!-- Right wing — mirror -->
+    <path d="M100 42 
+             C110 52, 128 58, 145 72 
+             C152 78, 162 88, 168 100 
+             C164 92, 156 82, 146 74 
+             C150 82, 154 90, 156 98 
+             C148 88, 136 78, 124 72 
+             C120 68, 114 62, 100 58 Z"
+          fill="#8B0000" fill-opacity="0.85" filter="url(#glow)" />
+
+    <!-- Left wing feather details -->
+    <path d="M60 86 C70 78, 82 70, 100 60" fill="none" stroke="#5a0000" stroke-width="0.8" opacity="0.5" />
+    <path d="M50 96 C62 84, 78 72, 100 62" fill="none" stroke="#5a0000" stroke-width="0.8" opacity="0.5" />
+    <path d="M42 100 C58 86, 76 74, 100 64" fill="none" stroke="#5a0000" stroke-width="0.6" opacity="0.4" />
+
+    <!-- Right wing feather details -->
+    <path d="M140 86 C130 78, 118 70, 100 60" fill="none" stroke="#5a0000" stroke-width="0.8" opacity="0.5" />
+    <path d="M150 96 C138 84, 122 72, 100 62" fill="none" stroke="#5a0000" stroke-width="0.8" opacity="0.5" />
+    <path d="M158 100 C142 86, 124 74, 100 64" fill="none" stroke="#5a0000" stroke-width="0.6" opacity="0.4" />
+
+    <!-- Central Geass eye — more detailed -->
+    <ellipse cx="100" cy="80" rx="22" ry="14" fill="none" stroke="#FF0000" stroke-width="2" filter="url(#strongGlow)" />
+    <ellipse cx="100" cy="80" rx="14" ry="9" fill="none" stroke="#CC0000" stroke-width="1" opacity="0.6" />
+
+    <!-- Inner iris rings -->
+    <circle cx="100" cy="80" r="8" fill="#FF0000" fill-opacity="0.9" filter="url(#strongGlow)" />
+    <circle cx="100" cy="80" r="4" fill="#FF4444" />
+    <circle cx="100" cy="80" r="2" fill="#FF8888" />
+
+    <!-- Tail/body descending from the bird -->
+    <path d="M100 94 L96 130 Q98 148 100 155 Q102 148 104 130 L100 94 Z"
+          fill="#8B0000" fill-opacity="0.7" filter="url(#glow)" />
+
+    <!-- Tail split -->
+    <path d="M100 130 Q90 150 85 160" fill="none" stroke="#8B0000" stroke-width="1.2" opacity="0.5" />
+    <path d="M100 130 Q110 150 115 160" fill="none" stroke="#8B0000" stroke-width="1.2" opacity="0.5" />
+
+    <!-- Diagonal accent lines between rings -->
+    <line x1="33" y1="33" x2="42" y2="42" stroke="#6B0000" stroke-width="1" opacity="0.4" />
+    <line x1="167" y1="33" x2="158" y2="42" stroke="#6B0000" stroke-width="1" opacity="0.4" />
+    <line x1="33" y1="167" x2="42" y2="158" stroke="#6B0000" stroke-width="1" opacity="0.4" />
+    <line x1="167" y1="167" x2="158" y2="158" stroke="#6B0000" stroke-width="1" opacity="0.4" />
+  </svg>
+</div>
+
+<style>
+  .geass-sigil {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sigil-svg {
+    animation: spinSlow 25s linear infinite, pulseGlow 3s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      filter: drop-shadow(0 0 8px rgba(139, 0, 0, 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.7)) drop-shadow(0 0 50px rgba(139, 0, 0, 0.3));
+    }
+  }
+</style>

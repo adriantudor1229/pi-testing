@@ -1,0 +1,321 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  alias: string | null;
+  faction: string;
+  image: string;
+  bio: string;
+  stats: {
+    intelligence: number;
+    combat: number;
+    charisma: number;
+    geass: number;
+  };
+}
+
+const { id, name, alias, faction, image, bio, stats } = Astro.props;
+
+const statLabels: Record<string, string> = {
+  intelligence: 'INT',
+  combat: 'COM',
+  charisma: 'CHA',
+  geass: 'GEO',
+};
+
+const statEntries = Object.entries(stats);
+---
+
+<article class="character-card" data-id={id}>
+  <div class="card-glow"></div>
+  <div class="card-inner">
+    <div class="card-front">
+      <div class="card-image">
+        <img src={image} alt={name} loading="lazy" />
+        <div class="card-image-overlay"></div>
+      </div>
+      <div class="card-info">
+        <h3 class="card-name">{name}</h3>
+        {alias && <span class="card-alias">{alias}</span>}
+        <span class="card-faction">
+          <span class="faction-dot"></span>
+          {faction}
+        </span>
+      </div>
+    </div>
+    <div class="card-back">
+      <div class="card-back-header">
+        <h3 class="card-name">{name}</h3>
+        {alias && <span class="card-alias-back">{alias}</span>}
+      </div>
+      <p class="card-bio">{bio}</p>
+      <div class="card-stats">
+        {statEntries.map(([key, value]) => (
+          <div class="stat-row">
+            <span class="stat-label">{statLabels[key]}</span>
+            <div class="stat-bar">
+              <div class="stat-fill" style={`--target-width: ${value * 10}%`} data-target={value * 10}></div>
+            </div>
+            <span class="stat-value">{value}</span>
+          </div>
+        ))}
+      </div>
+      <div class="card-faction-badge">
+        <span class="faction-dot"></span>
+        {faction}
+      </div>
+    </div>
+  </div>
+</article>
+
+<script>
+  // Animate stat bars when card back becomes visible
+  const cards = document.querySelectorAll('.character-card');
+  cards.forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      const bars = card.querySelectorAll<HTMLDivElement>('.stat-fill[data-target]');
+      bars.forEach((bar) => {
+        bar.style.width = `${bar.dataset.target}%`;
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      const bars = card.querySelectorAll<HTMLDivElement>('.stat-fill[data-target]');
+      bars.forEach((bar) => {
+        bar.style.width = '0%';
+      });
+    });
+  });
+</script>
+
+<style>
+  .character-card {
+    position: relative;
+    background: var(--black-card);
+    border: 1px solid rgba(139, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+    perspective: 1000px;
+  }
+
+  .character-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(139, 0, 0, 0.5);
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 10px;
+    opacity: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(139, 0, 0, 0.15), transparent 70%);
+    transition: opacity var(--transition-med);
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .character-card:hover .card-glow {
+    opacity: 1;
+  }
+
+  .card-inner {
+    position: relative;
+  }
+
+  /* Front face */
+  .card-front {
+    transition: opacity 0.3s ease;
+  }
+
+  .character-card:hover .card-front {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--black-light) 0%, var(--black-card) 100%);
+    position: relative;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow), filter var(--transition-med);
+  }
+
+  .character-card:hover .card-image img {
+    transform: scale(1.08);
+    filter: brightness(0.6);
+  }
+
+  .card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .card-info {
+    padding: 1.1rem 1.25rem;
+    background: linear-gradient(to bottom, var(--black-card), var(--black-light));
+  }
+
+  .card-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .card-alias {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--red-bright);
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+
+  .card-faction {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .faction-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--red-blood);
+    box-shadow: 0 0 4px rgba(139, 0, 0, 0.6);
+    flex-shrink: 0;
+  }
+
+  /* Back face */
+  .card-back {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(145deg, var(--black-card) 0%, rgba(13, 13, 13, 0.98) 100%);
+    overflow-y: auto;
+  }
+
+  .character-card:hover .card-back {
+    opacity: 1;
+    position: relative;
+  }
+
+  .card-back-header {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.15);
+  }
+
+  .card-alias-back {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--red-bright);
+    font-weight: 600;
+    margin-top: 0.15rem;
+  }
+
+  .card-bio {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .card-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .stat-label {
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    width: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .stat-bar {
+    flex: 1;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .stat-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--red-blood), var(--red-bright), var(--red-glow));
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+  }
+
+  .stat-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--red-glow);
+    border-radius: 0 3px 3px 0;
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .stat-fill[style*="--target-width"]::after {
+    opacity: 1;
+  }
+
+  .stat-value {
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    width: 1.5rem;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .card-faction-badge {
+    font-size: 0.78rem;
+    color: var(--red-blood);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(139, 0, 0, 0.15);
+  }
+</style>

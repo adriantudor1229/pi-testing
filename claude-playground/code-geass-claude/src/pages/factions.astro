@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FactionTree from '../components/FactionTree.astro';
+import factions from '../data/factions.json';
+---
+
+<BaseLayout title="Factions">
+  <main>
+    <section class="factions-page">
+      <div class="container">
+        <h1 class="section-title">Factions</h1>
+
+        {factions.map(faction => (
+          <FactionTree
+            name={faction.name}
+            color={faction.color}
+            description={faction.description}
+            leader={faction.leader}
+            hierarchy={faction.hierarchy}
+          />
+        ))}
+
+        <!-- Faction Relationships -->
+        <div class="relationships">
+          <h2 class="relationships-title">Alliances & Rivalries</h2>
+          <div class="rel-grid">
+            <div class="rel-card rivalry">
+              <span class="rel-label">Rivalry</span>
+              <div class="rel-pair">
+                <span>Holy Britannian Empire</span>
+                <span class="rel-vs">VS</span>
+                <span>The Black Knights</span>
+              </div>
+            </div>
+            <div class="rel-card rivalry">
+              <span class="rel-label">Rivalry</span>
+              <div class="rel-pair">
+                <span>Lelouch (Zero)</span>
+                <span class="rel-vs">VS</span>
+                <span>Suzaku (Knight of Seven)</span>
+              </div>
+            </div>
+            <div class="rel-card alliance">
+              <span class="rel-label">Alliance</span>
+              <div class="rel-pair">
+                <span>Black Knights</span>
+                <span class="rel-link">&mdash;</span>
+                <span>Japan Liberation Front</span>
+              </div>
+            </div>
+            <div class="rel-card secret">
+              <span class="rel-label">Secret</span>
+              <div class="rel-pair">
+                <span>Geass Order</span>
+                <span class="rel-link">&mdash;</span>
+                <span>Britannian Throne</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .factions-page {
+    padding-top: calc(var(--nav-height) + 3rem);
+    padding-bottom: 2rem;
+    min-height: 100vh;
+  }
+
+  .relationships {
+    margin-top: 3rem;
+  }
+
+  .relationships-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .rel-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .rel-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .rel-card {
+    background: var(--black-card);
+    border: 1px solid rgba(139, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .rel-label {
+    display: inline-block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .rivalry .rel-label {
+    background: rgba(139, 0, 0, 0.3);
+    color: var(--text-red);
+  }
+
+  .alliance .rel-label {
+    background: rgba(30, 58, 95, 0.3);
+    color: #6B9BD2;
+  }
+
+  .secret .rel-label {
+    background: rgba(139, 0, 0, 0.2);
+    color: var(--text-muted);
+  }
+
+  .rel-pair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .rel-vs {
+    color: var(--red-bright);
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .rel-link {
+    color: var(--text-muted);
+  }
+</style>

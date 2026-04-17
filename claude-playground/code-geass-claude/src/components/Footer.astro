@@ -1,0 +1,53 @@
+---
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-sigil" aria-hidden="true">
+      <svg viewBox="0 0 100 100" width="40" height="40">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2" />
+        <path d="M50 10 L50 90 M10 50 L90 50 M22 22 L78 78 M78 22 L22 78"
+          fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.15" />
+        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2" />
+      </svg>
+    </div>
+    <p class="footer-text">Fan-made site — not affiliated with Sunrise or Bandai Namco.</p>
+    <p class="footer-credit">Code Geass: Lelouch of the Rebellion</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid rgba(139, 0, 0, 0.2);
+    background: var(--black-light);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-sigil {
+    color: var(--red-blood);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .footer-credit {
+    font-size: 0.75rem;
+    color: rgba(139, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+</style>

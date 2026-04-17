@@ -1,0 +1,101 @@
+---
+interface Props {
+  label: string;
+  value: number;
+  maxValue?: number;
+  color?: string;
+}
+
+const { label, value, maxValue = 10, color } = Astro.props;
+const percent = (value / maxValue) * 100;
+const barColor = color || 'var(--red-bright)';
+---
+
+<div class="mecha-stat-bar" data-percent={percent}>
+  <span class="bar-label">{label}</span>
+  <div class="bar-track">
+    <div class="bar-fill" style={`--fill-color: ${barColor}`} data-target={percent}></div>
+  </div>
+  <span class="bar-value">{value}</span>
+</div>
+
+<style>
+  .mecha-stat-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .bar-label {
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    width: 4.5rem;
+    text-align: right;
+    letter-spacing: 0.05em;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--red-blood), var(--fill-color));
+    border-radius: 5px;
+    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    box-shadow: 0 0 8px rgba(139, 0, 0, 0.3);
+  }
+
+  .bar-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: var(--red-glow);
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+  }
+
+  .bar-value {
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    width: 2rem;
+    font-weight: 700;
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const fill = entry.target.querySelector<HTMLDivElement>('.bar-fill[data-target]');
+          if (fill) {
+            setTimeout(() => {
+              fill.style.width = `${fill.dataset.target}%`;
+            }, 200);
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  document.querySelectorAll('.mecha-stat-bar').forEach((bar) => observer.observe(bar));
+</script>

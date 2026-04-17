@@ -101,7 +101,9 @@ tmux attach -t tarot-club
 6. **The Fool reports to you** — asks if you approve
 7. **The Hanged Man codes** — phase by phase, reviewed one by one
 
-> **Note:** Members don't auto-watch files. When it's a member's turn, switch to their pane (`Ctrl+B` then arrow keys) and tell them to check `tarot-plan/status.md`.
+> **Auto-watcher:** The start script launches a watcher that monitors `tarot-plan/status.md`. When the active member changes, it automatically nudges the right pane. No manual nudging needed!
+>
+> To run the watcher manually: `./tarot-club/scripts/watcher.sh /path/to/project`
 
 ### Tmux shortcuts
 
@@ -120,7 +122,8 @@ tmux attach -t tarot-club
 tarot-club/
 ├── SKILL.md              # Master skill — orchestrates the team
 ├── scripts/
-│   └── start.sh          # Tmux setup script
+│   ├── start.sh          # Tmux setup + auto-start watcher
+│   └── watcher.sh        # Auto-watcher that nudges members
 ├── the-fool/
 │   └── SKILL.md          # Leader — talks to you, coordinates
 ├── the-justice/
@@ -133,7 +136,6 @@ tarot-club/
 
 ## Future Plans
 
-- Auto-watcher script to eliminate manual nudging
 - More members (The Fool's team may grow)
 - More built-in rules for The Sun
 - Additional plan files from The Justice

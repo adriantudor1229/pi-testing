@@ -1,0 +1,118 @@
+---
+import MechaStatBar from './MechaStatBar.astro';
+
+interface Props {
+  name: string;
+  faction: string;
+  pilot: string;
+  class: string;
+  description: string;
+  stats: {
+    speed: number;
+    power: number;
+    defense: number;
+    mobility: number;
+    range: number;
+  };
+}
+
+const { name, faction, pilot, class: mechaClass, description, stats } = Astro.props;
+const statEntries = Object.entries(stats) as [string, number][];
+---
+
+<div class="mecha-card" data-animate>
+  <div class="mecha-header">
+    <div class="mecha-icon">
+      <svg viewBox="0 0 40 40" width="40" height="40">
+        <rect x="14" y="5" width="12" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <rect x="10" y="13" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <line x1="6" y1="16" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" />
+        <line x1="34" y1="16" x2="30" y2="18" stroke="currentColor" stroke-width="1.5" />
+        <line x1="15" y1="29" x2="13" y2="38" stroke="currentColor" stroke-width="1.5" />
+        <line x1="25" y1="29" x2="27" y2="38" stroke="currentColor" stroke-width="1.5" />
+      </svg>
+    </div>
+    <div>
+      <h3 class="mecha-name">{name}</h3>
+      <p class="mecha-class">{mechaClass}</p>
+    </div>
+  </div>
+
+  <div class="mecha-meta">
+    <span class="meta-item"><strong>Pilot:</strong> {pilot}</span>
+    <span class="meta-item"><strong>Faction:</strong> {faction}</span>
+  </div>
+
+  <p class="mecha-desc">{description}</p>
+
+  <div class="mecha-stats">
+    {statEntries.map(([key, value]) => (
+      <MechaStatBar label={key} value={value} />
+    ))}
+  </div>
+</div>
+
+<style>
+  .mecha-card {
+    background: var(--black-card);
+    border: 1px solid rgba(139, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .mecha-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(139, 0, 0, 0.15);
+  }
+
+  .mecha-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mecha-icon {
+    color: var(--red-blood);
+    flex-shrink: 0;
+  }
+
+  .mecha-name {
+    font-size: 1.2rem;
+  }
+
+  .mecha-class {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .mecha-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .mecha-meta strong {
+    color: var(--text-primary);
+  }
+
+  .mecha-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .mecha-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+</style>

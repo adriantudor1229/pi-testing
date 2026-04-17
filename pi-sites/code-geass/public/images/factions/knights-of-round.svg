@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="fbg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <filter id="fglow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="98" fill="url(#fbg)" stroke="#8B0000" stroke-width="2"/>
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#8B0000" stroke-width="1" opacity="0.4"/>
+  
+  <g filter="url(#fglow)" transform="translate(100,78)">
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#8B0000" stroke-width="2" opacity="0.6"/>
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#8B0000" stroke-width="1" opacity="0.4"/>
+    <line x1="0" y1="-28" x2="0" y2="-35" stroke="#CC0000" stroke-width="2"/>
+    <line x1="0" y1="28" x2="0" y2="35" stroke="#CC0000" stroke-width="2"/>
+    <line x1="-28" y1="0" x2="-35" y2="0" stroke="#CC0000" stroke-width="2"/>
+    <line x1="28" y1="0" x2="35" y2="0" stroke="#CC0000" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" fill="#CC0000" font-family="Georgia, serif" font-size="14" font-weight="700">XII</text>
+  </g>
+  <text x="100" y="185" text-anchor="middle" fill="#CC0000" font-family="system-ui, sans-serif" font-size="8" opacity="0.6" letter-spacing="2">KNIGHTS OF THE ROUND</text>
+</svg>

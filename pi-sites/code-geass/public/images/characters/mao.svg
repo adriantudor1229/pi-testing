@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#990044" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#990044" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="300" height="400" fill="url(#bg)"/>
+  <rect x="0" y="0" width="300" height="400" fill="url(#accent-grad)"/>
+  <line x1="0" y1="280" x2="300" y2="280" stroke="#990044" stroke-width="1" opacity="0.3"/>
+  <circle cx="150" cy="160" r="60" fill="none" stroke="#990044" stroke-width="1.5" opacity="0.4"/>
+  <text x="150" y="175" text-anchor="middle" fill="#990044" font-family="Georgia, serif" font-size="48" font-weight="700" filter="url(#glow)">M</text>
+  <text x="150" y="310" text-anchor="middle" fill="#E0E0E0" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Mao</text>
+  <text x="150" y="332" text-anchor="middle" fill="#990044" font-family="system-ui, sans-serif" font-size="11" opacity="0.8"></text>
+  <text x="150" y="360" text-anchor="middle" fill="#888888" font-family="system-ui, sans-serif" font-size="10">None</text>
+</svg>

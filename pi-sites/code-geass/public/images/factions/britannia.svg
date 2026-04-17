@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="fbg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <filter id="fglow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="98" fill="url(#fbg)" stroke="#8B0000" stroke-width="2"/>
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#8B0000" stroke-width="1" opacity="0.4"/>
+  
+  <g filter="url(#fglow)" transform="translate(100,80)">
+    <polygon points="0,-30 -8,-10 0,-18 8,-10" fill="#8B0000" fill-opacity="0.8"/>
+    <polygon points="-15,0 -25,15 -20,15 -12,5" fill="#8B0000" fill-opacity="0.6"/>
+    <polygon points="15,0 25,15 20,15 12,5" fill="#8B0000" fill-opacity="0.6"/>
+    <polygon points="-5,-5 -20,20 -15,20 -2,0" fill="#8B0000" fill-opacity="0.5"/>
+    <polygon points="5,-5 20,20 15,20 2,0" fill="#8B0000" fill-opacity="0.5"/>
+    <rect x="-12" y="20" width="24" height="4" rx="1" fill="#8B0000" opacity="0.7"/>
+    <rect x="-8" y="26" width="16" height="3" rx="1" fill="#8B0000" opacity="0.5"/>
+  </g>
+  <text x="100" y="185" text-anchor="middle" fill="#CC0000" font-family="system-ui, sans-serif" font-size="8" opacity="0.6" letter-spacing="2">BRITANNIA</text>
+</svg>

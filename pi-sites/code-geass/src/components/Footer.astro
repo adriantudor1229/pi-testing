@@ -1,0 +1,119 @@
+---
+import GeassSigil from './GeassSigil.astro';
+---
+
+<footer class="footer">
+  <div class="footer-bg"></div>
+  <div class="footer-watermark">
+    <GeassSigil size={100} opacity={0.06} />
+  </div>
+  <div class="footer-content container">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <span class="footer-sep">·</span>
+      <a href="/characters">Characters</a>
+      <span class="footer-sep">·</span>
+      <a href="/mechas">Mechas</a>
+      <span class="footer-sep">·</span>
+      <a href="/factions">Factions</a>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-tagline">"The power of absolute obedience."</p>
+    <p class="footer-credit">
+      Fan-made site — Not affiliated with <strong>Sunrise</strong>, <strong>CLAMP</strong>, or <strong>Bandai</strong>.
+    </p>
+    <p class="footer-copy">
+      &copy; {new Date().getFullYear()} Code Geass Fan Site
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    background: var(--black-light);
+    border-top: 1px solid rgba(139, 0, 0, 0.2);
+    padding: 3rem 0 2rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .footer-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    pointer-events: none;
+  }
+
+  .footer-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--red-bright);
+  }
+
+  .footer-sep {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+  }
+
+  .footer-divider {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--red-blood), transparent);
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-tagline {
+    color: var(--red-blood);
+    font-family: 'Cinzel', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.03em;
+  }
+
+  .footer-credit {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-credit strong {
+    color: var(--text-muted);
+  }
+
+  .footer-copy {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+  }
+</style>

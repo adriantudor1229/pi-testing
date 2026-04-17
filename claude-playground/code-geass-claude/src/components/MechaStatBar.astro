@@ -1,0 +1,58 @@
+---
+interface Props {
+  label: string;
+  value: number;
+  max?: number;
+}
+
+const { label, value, max = 10 } = Astro.props;
+const percentage = (value / max) * 100;
+---
+
+<div class="stat-row">
+  <span class="stat-label">{label}</span>
+  <div class="stat-bar-bg">
+    <div class="stat-bar-fill" data-width={percentage} style="width: 0%;"></div>
+  </div>
+  <span class="stat-value">{value}</span>
+</div>
+
+<style>
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    width: 70px;
+    text-align: right;
+  }
+
+  .stat-bar-bg {
+    flex: 1;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .stat-bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--red-blood), var(--red-bright));
+    transition: width 1s ease-out;
+  }
+
+  .stat-value {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    width: 24px;
+    text-align: center;
+  }
+</style>

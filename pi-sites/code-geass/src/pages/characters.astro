@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CharacterCard from '../components/CharacterCard.astro';
+import characters from '../data/characters.json';
+
+// Group characters by faction
+const factionOrder = ['The Black Knights', 'Holy Britannian Empire', 'Geass Order', 'None'];
+const grouped = factionOrder.map(faction => ({
+  faction,
+  chars: characters.filter(c => c.faction === faction),
+})).filter(g => g.chars.length > 0);
+---
+
+<BaseLayout title="Characters" description="Code Geass characters — profiles, stats, and allegiances.">
+  <section class="page-section">
+    <div class="container">
+      <h1 class="page-title">Characters</h1>
+      <p class="page-subtitle">The minds and blades that shaped the revolution.</p>
+    </div>
+
+    {grouped.map((group) => (
+      <div class="faction-group">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-line"></span>
+            <h2 class="section-title">{group.faction === 'None' ? 'Independent' : group.faction}</h2>
+            <span class="section-line"></span>
+          </div>
+        </div>
+        <div class="container">
+          <div class="character-grid">
+            {group.chars.map((char, i) => (
+              <div class="card-wrapper" style={`animation-delay: ${i * 0.08}s`}>
+                <CharacterCard
+                  id={char.id}
+                  name={char.name}
+                  alias={char.alias}
+                  faction={char.faction}
+                  image={char.image}
+                  bio={char.bio}
+                  stats={char.stats}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .page-section {
+    padding-top: calc(var(--nav-height) + 3rem);
+    padding-bottom: 4rem;
+    min-height: 100vh;
+  }
+
+  .faction-group {
+    margin-bottom: 3.5rem;
+  }
+
+  .faction-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--red-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--red-blood), transparent);
+  }
+
+  .section-line:last-child {
+    background: linear-gradient(90deg, transparent, var(--red-blood));
+  }
+
+  .character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card-wrapper {
+    animation: cardAppear 0.6s ease both;
+    animation-delay: inherit;
+  }
+
+  @keyframes cardAppear {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .character-grid {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .character-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<script>
+  // Stagger card animations on scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.card-wrapper').forEach((card, index) => {
+    (card as HTMLElement).style.animationDelay = `${index * 0.06}s`;
+    observer.observe(card);
+  });
+</script>

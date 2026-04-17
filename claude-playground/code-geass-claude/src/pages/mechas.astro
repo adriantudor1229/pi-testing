@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MechaCard from '../components/MechaCard.astro';
+import mechas from '../data/mechas.json';
+---
+
+<BaseLayout title="Knightmare Frames">
+  <main>
+    <section class="mechas-page">
+      <div class="container">
+        <h1 class="section-title">Knightmare Frames</h1>
+        <div class="card-grid mecha-grid">
+          {mechas.map(mecha => (
+            <MechaCard
+              name={mecha.name}
+              faction={mecha.faction}
+              pilot={mecha.pilot}
+              class={mecha.class}
+              description={mecha.description}
+              stats={mecha.stats}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const bars = entry.target.querySelectorAll<HTMLElement>('.stat-bar-fill');
+          bars.forEach((bar) => {
+            const target = bar.dataset.width;
+            if (target) {
+              bar.style.width = target + '%';
+            }
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  document.querySelectorAll('[data-animate]').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .mechas-page {
+    padding-top: calc(var(--nav-height) + 3rem);
+    padding-bottom: 2rem;
+    min-height: 100vh;
+  }
+
+  .mecha-grid {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .mecha-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

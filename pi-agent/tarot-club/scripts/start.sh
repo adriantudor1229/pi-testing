@@ -4,6 +4,7 @@
 
 PROJECT_PATH="${1:-$(pwd)}"
 TAROT_CLUB_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+SCRIPTS_DIR="$TAROT_CLUB_DIR/scripts"
 SESSION="tarot-club"
 
 # Kill existing session if any
@@ -41,17 +42,17 @@ tmux send-keys -t "$SESSION:tarot-club.3" "pi --skill $TAROT_CLUB_DIR/the-hanged
 # Wait for all pi sessions to initialize
 sleep 8
 
-# Send initial prompts to each member so they know their role
+# Send initial prompts to each member
 # The Justice: watch for activation
-tmux send-keys -t "$SESSION:tarot-club.1" "You are The Justice. Your job is to watch tarot-plan/status.md and act when the Active Member is 'the-justice'. For now, wait. Periodically check the status file. When it says your name, read the prompt/plan files and do your work. Say '⚖️ The Justice is ready and waiting.'" Enter
+tmux send-keys -t "$SESSION:tarot-club.1" "You are The Justice. Your job is to watch tarot-plan/status.md and act when the Active Member is 'the-justice'. When activated, read the prompt/plan files and do your work. Say '⚖️ The Justice is ready and waiting.'" Enter
 
 # The Sun: watch for activation
 sleep 2
-tmux send-keys -t "$SESSION:tarot-club.2" "You are The Sun. Your job is to watch tarot-plan/status.md and act when the Active Member is 'the-sun'. For now, wait. When it says your name, read tarot-plan/architecture.md and create the project skeleton. Say '☀️ The Sun is ready and waiting.'" Enter
+tmux send-keys -t "$SESSION:tarot-club.2" "You are The Sun. Your job is to watch tarot-plan/status.md and act when the Active Member is 'the-sun'. When activated, read tarot-plan/architecture.md and create the project skeleton. Say '☀️ The Sun is ready and waiting.'" Enter
 
 # The Hanged Man: watch for activation
 sleep 2
-tmux send-keys -t "$SESSION:tarot-club.3" "You are The Hanged Man. Your job is to watch tarot-plan/status.md and act when the Active Member is 'the-hanged-man'. For now, wait. When it says your name, read the plan files and start coding. Say '🔵 The Hanged Man is ready and waiting.'" Enter
+tmux send-keys -t "$SESSION:tarot-club.3" "You are The Hanged Man. Your job is to watch tarot-plan/status.md and act when the Active Member is 'the-hanged-man'. When activated, read the plan files and start coding. Say '🔵 The Hanged Man is ready and waiting.'" Enter
 
 # The Fool: start the conversation
 sleep 2
@@ -63,8 +64,17 @@ tmux select-layout -t "$SESSION" even-horizontal
 # Focus on The Fool
 tmux select-pane -t "$SESSION:tarot-club.0"
 
+# Start the auto-watcher in the background
+"$SCRIPTS_DIR/watcher.sh" "$PROJECT_PATH" &
+WATCHER_PID=$!
+
 echo ""
-echo "🃏 Tarot Club session created! Run this to attach:"
+echo "🃏 Tarot Club session created!"
+echo "   Watcher PID: $WATCHER_PID"
 echo ""
 echo "  tmux attach -t tarot-club"
+echo ""
+echo "To stop everything:"
+echo "  tmux kill-session -t tarot-club"
+echo "  kill $WATCHER_PID"
 echo ""

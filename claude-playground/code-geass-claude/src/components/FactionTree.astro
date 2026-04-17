@@ -1,0 +1,248 @@
+---
+interface TreeNode {
+  name: string;
+  role: string;
+  rank: string;
+  children?: TreeNode[];
+}
+
+interface Props {
+  name: string;
+  color: string;
+  description: string;
+  leader: string;
+  hierarchy: TreeNode[];
+}
+
+const { name, color, description, leader, hierarchy } = Astro.props;
+
+const rankColors: Record<string, string> = {
+  leader: '#CC0000',
+  commander: '#B8860B',
+  officer: '#4A7C59',
+};
+---
+
+<div class="faction-section">
+  <div class="faction-header">
+    <div class="faction-badge" style={`background: ${color};`}></div>
+    <div>
+      <h2 class="faction-name">{name}</h2>
+      <p class="faction-leader">Led by {leader}</p>
+    </div>
+  </div>
+
+  <p class="faction-desc">{description}</p>
+
+  <div class="tree-container">
+    {hierarchy.map(root => (
+      <div class="tree">
+        <div class="tree-node" style={`border-color: ${rankColors[root.rank] ?? '#555'};`}>
+          <span class="node-name">{root.name}</span>
+          <span class="node-role">{root.role}</span>
+        </div>
+
+        {root.children && root.children.length > 0 && (
+          <div class="tree-children">
+            <div class="tree-line-v"></div>
+            <div class="tree-branch">
+              {root.children.map(child => (
+                <div class="tree-child-group">
+                  <div class="tree-line-h"></div>
+                  <div class="tree-node" style={`border-color: ${rankColors[child.rank] ?? '#555'};`}>
+                    <span class="node-name">{child.name}</span>
+                    <span class="node-role">{child.role}</span>
+                  </div>
+
+                  {child.children && child.children.length > 0 && (
+                    <div class="tree-sub-children">
+                      <div class="tree-line-v small"></div>
+                      {child.children.map(sub => (
+                        <div class="tree-sub-node-wrapper">
+                          <div class="tree-line-h small"></div>
+                          <div class="tree-node leaf" style={`border-color: ${rankColors[sub.rank] ?? '#555'};`}>
+                            <span class="node-name">{sub.name}</span>
+                            <span class="node-role">{sub.role}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+
+  <div class="rank-legend">
+    <span class="legend-item"><span class="legend-dot" style="background: #CC0000;"></span> Leader</span>
+    <span class="legend-item"><span class="legend-dot" style="background: #B8860B;"></span> Commander</span>
+    <span class="legend-item"><span class="legend-dot" style="background: #4A7C59;"></span> Officer</span>
+  </div>
+</div>
+
+<style>
+  .faction-section {
+    background: var(--black-card);
+    border: 1px solid rgba(139, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .faction-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .faction-badge {
+    width: 12px;
+    height: 40px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .faction-name {
+    font-size: 1.5rem;
+  }
+
+  .faction-leader {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .faction-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .tree-container {
+    overflow-x: auto;
+    padding: 1rem 0;
+  }
+
+  .tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tree-node {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .tree-node.leaf {
+    border-width: 1px;
+    padding: 0.35rem 0.75rem;
+    min-width: 100px;
+  }
+
+  .node-name {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .node-role {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tree-children {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tree-line-v {
+    width: 1px;
+    height: 24px;
+    background: rgba(139, 0, 0, 0.3);
+  }
+
+  .tree-line-v.small {
+    height: 16px;
+  }
+
+  .tree-line-h {
+    width: 24px;
+    height: 1px;
+    background: rgba(139, 0, 0, 0.3);
+    align-self: center;
+  }
+
+  .tree-line-h.small {
+    width: 16px;
+  }
+
+  .tree-branch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    position: relative;
+  }
+
+  .tree-child-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .tree-sub-children {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .tree-sub-node-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .rank-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+</style>

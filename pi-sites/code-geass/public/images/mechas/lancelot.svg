@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="mechbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0d0d"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+    <filter id="mglow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="250" fill="url(#mechbg)"/>
+  <!-- Grid lines -->
+  <g opacity="0.06" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="50" x2="400" y2="50"/><line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="80" y1="0" x2="80" y2="250"/><line x1="160" y1="0" x2="160" y2="250"/>
+    <line x1="240" y1="0" x2="240" y2="250"/><line x1="320" y1="0" x2="320" y2="250"/>
+  </g>
+  <!-- Knightmare silhouette outline -->
+  <g transform="translate(200,110)" stroke="#8B0000" stroke-width="1.5" fill="none" opacity="0.5" filter="url(#mglow)">
+    <!-- Head -->
+    <polygon points="0,-50 -12,-35 12,-35" fill="#8B0000" fill-opacity="0.2"/>
+    <!-- Torso -->
+    <rect x="-18" y="-35" width="36" height="50" rx="3" fill="#8B0000" fill-opacity="0.15"/>
+    <!-- Arms -->
+    <line x1="-18" y1="-25" x2="-45" y2="-5"/><line x1="-45" y1="-5" x2="-50" y2="20"/>
+    <line x1="18" y1="-25" x2="45" y2="-5"/><line x1="45" y1="-5" x2="50" y2="20"/>
+    <!-- Legs -->
+    <line x1="-10" y1="15" x2="-20" y2="50"/><line x1="10" y1="15" x2="20" y2="50"/>
+    <!-- Cockpit detail -->
+    <ellipse cx="0" cy="-15" rx="8" ry="6" fill="#8B0000" fill-opacity="0.3"/>
+  </g>
+  <!-- Tech frame corners -->
+  <path d="M5 20 L5 5 L20 5" fill="none" stroke="#8B0000" stroke-width="1" opacity="0.6"/>
+  <path d="M395 20 L395 5 L380 5" fill="none" stroke="#8B0000" stroke-width="1" opacity="0.6"/>
+  <path d="M5 230 L5 245 L20 245" fill="none" stroke="#8B0000" stroke-width="1" opacity="0.6"/>
+  <path d="M395 230 L395 245 L380 245" fill="none" stroke="#8B0000" stroke-width="1" opacity="0.6"/>
+  <!-- Name plate -->
+  <rect x="15" y="195" width="180" height="40" fill="#8B0000" fill-opacity="0.1" rx="2"/>
+  <text x="25" y="214" fill="#E0E0E0" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Lancelot</text>
+  <text x="25" y="229" fill="#888888" font-family="system-ui, sans-serif" font-size="9">Suzaku Kururugi · 7th Generation</text>
+</svg>
