@@ -40,3 +40,11 @@ Design constraints:
 - communicate with each other, and verify the work
 - created a good looking Lord Of The Mysteries site -- IF YOU PLAN TO READ LORD OF THE MYSTERIES DO NOT CHECK THE PATHWAYS --
 - 10% of usage using Z.AI
+
+## Comparing same prompt - used Claude Code with Opus 4.6 vs PI with 4 agents Z.AI
+- For the front-end I can say it was similarly, the UI was similar
+- It took a bit longer for the 4 PI agents to complete the site, only because I made them to review the code too.
+- I do not know how well was the code generated - need to investigate
+- PI with 4 agents use 23 % of the pro plan of Z.AI
+- Claude Code with Pro plan used 90%
+- The prompt used can be see here: https://github.com/adriantudor1229/pi-testing/blob/master/pi-sites/code-geass/tarot-plan/technologies.md#technologies-code-geass-fan-site 
