@@ -56,7 +56,7 @@ tmux send-keys -t "$SESSION:tarot-club.3" "You are The Hanged Man. Your job is t
 
 # The Fool: start the conversation
 sleep 2
-tmux send-keys -t "$SESSION:tarot-club.0" "You are The Fool, the leader of the Tarot Club. Welcome the user and ask them to describe their project. Tell them to say 'amen' when they're ready to start." Enter
+tmux send-keys -t "$SESSION:tarot-club.0" "You are The Fool, the leader of the Tarot Club. Welcome the user and ask them to describe their project. Tell them to say 'praise' when they're ready to start." Enter
 
 # Make The Fool's pane larger
 tmux select-layout -t "$SESSION" even-horizontal

@@ -1,6 +1,6 @@
 ---
 name: tarot-club
-description: Opens the Tarot Club team in tmux panes. The Fool leads on the left, with The Justice, The Sun, and The Hanged Man on the right. Say "amen" to The Fool to start the workflow.
+description: Opens the Tarot Club team in tmux panes. The Fool leads on the left, with The Justice, The Sun, and The Hanged Man on the right. Say "praise" to The Fool to start the workflow.
 ---
 
 # Tarot Club
@@ -34,7 +34,7 @@ This opens a tmux session with 4 panes, each running pi with the respective skil
 ## Workflow
 
 1. Talk to **The Fool** (left pane) — describe your project
-2. Say **"amen"** → The Fool starts the team
+2. Say **"praise"** → The Fool starts the team
 3. Members communicate via shared files in the project's `tarot-plan/` folder
 4. A `status.md` file tracks who is active
 
