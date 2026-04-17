@@ -1,0 +1,134 @@
+/* ============================================
+   PATHWAYS.CSS — Pathway Explorer Styles
+   ============================================ */
+
+/* --- Pathways Explorer Container --- */
+.pathways-explorer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- Single Pathway Item --- */
+.pathway-item {
+  background: linear-gradient(145deg, var(--fog-deep), #1e1e22);
+  border: 1px solid var(--fog-dark);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pathway-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pathway-header:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pathway-header__name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--candlelight);
+}
+
+.pathway-header__members {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.pathway-header__toggle {
+  color: var(--gold-muted);
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.pathway-item.expanded .pathway-header__toggle {
+  transform: rotate(180deg);
+}
+
+/* --- Sequence Progression --- */
+.pathway-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.pathway-item.expanded .pathway-details {
+  max-height: 2000px;
+}
+
+.sequence-list {
+  padding: 0 1.5rem 1.5rem;
+  list-style: none;
+}
+
+.sequence-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.sequence-entry:last-child {
+  border-bottom: none;
+}
+
+/* --- Sequence Number Badge --- */
+.sequence-number {
+  background: var(--purple-deep);
+  color: var(--candlelight);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* --- Sequence Content --- */
+.sequence-name {
+  font-family: var(--font-heading);
+  color: var(--gold-muted);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.sequence-description {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* --- Sequence Tree Line (visual connector) --- */
+.sequence-entry::before {
+  content: '';
+  position: absolute;
+  left: calc(1.5rem + 1.25rem - 1px);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--fog-dark);
+}
+
+.sequence-entry:last-child::before {
+  bottom: 50%;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .pathway-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

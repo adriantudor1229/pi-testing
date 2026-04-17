@@ -1,0 +1,517 @@
+{
+  "pathways": [
+    {
+      "name": "Seer",
+      "alsoKnownAs": "Fool Pathway",
+      "members": ["The Fool", "The World"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Seer",
+          "description": "Grants basic divination abilities and an intuitive sense for danger. Can perform simple fortune-telling and gain vague glimpses of the future."
+        },
+        {
+          "number": 8,
+          "name": "Clown",
+          "description": "Enhances agility, balance, and reflexes to superhuman levels. Can juggle, tightrope walk, and perform impossible feats of coordination."
+        },
+        {
+          "number": 7,
+          "name": "Magician",
+          "description": "Masters illusion and misdirection. Can create convincing visual and auditory illusions, perform sleight of hand at supernatural speed, and bend perception."
+        },
+        {
+          "number": 6,
+          "name": "Faceless",
+          "description": "Can perfectly disguise as any person — copying voice, appearance, mannerisms, and even Beyonder signatures. The ultimate infiltrator."
+        },
+        {
+          "number": 5,
+          "name": "Marionettist",
+          "description": "Can create and control spirit thread marionettes from corpses or living targets. Controls up to three marionettes simultaneously with independent actions."
+        },
+        {
+          "number": 4,
+          "name": "Bizarre Sorcerer",
+          "description": "Commands strange and terrifying powers that defy logic. Can manipulate probability, create anomalous zones, and warp local reality through bizarre phenomena."
+        },
+        {
+          "number": 3,
+          "name": "Scholar of Yore",
+          "description": "Accesses the Historical Void — a record of everything that has ever existed. Can summon echoes of historical figures, borrow their abilities, and read the past."
+        },
+        {
+          "number": 2,
+          "name": "Miracle Invoker",
+          "description": "Can invoke miracles — rewriting small aspects of reality. Commands immense divine authority and can make the impossible possible within limits."
+        },
+        {
+          "number": 1,
+          "name": "Attendant of Mysteries",
+          "description": "Serves as a bridge to the divine. Holds tremendous authority over mystery and concealment, capable of hiding entire events from history."
+        },
+        {
+          "number": 0,
+          "name": "The Fool",
+          "description": "True God level. Complete authority over fate, mystery, history, and destiny. Can manipulate the very concept of 'luck' and control the Sefirah Castle."
+        }
+      ]
+    },
+    {
+      "name": "Audience",
+      "alsoKnownAs": "Spectator Pathway",
+      "members": ["Justice"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Spectator",
+          "description": "Can observe and read the emotional states of others. Gains heightened perception of body language and micro-expressions."
+        },
+        {
+          "number": 8,
+          "name": "Reader",
+          "description": "Absorbs knowledge from books at supernatural speed. Can memorize and perfectly recall vast amounts of written information."
+        },
+        {
+          "number": 7,
+          "name": "Psychologist",
+          "description": "Masters psychological analysis and suggestion. Can identify mental weaknesses and plant subtle behavioral suggestions in others."
+        },
+        {
+          "number": 6,
+          "name": "Hypnotist",
+          "description": "Can induce full hypnosis in willing or weakened targets. Capable of implanting deep-seated commands and erasing or altering memories."
+        },
+        {
+          "number": 5,
+          "name": "Dream Weaver",
+          "description": "Enters and manipulates the dreams of others. Can extract information from dreams and create elaborate dreamscapes."
+        },
+        {
+          "number": 4,
+          "name": "Manipulator",
+          "description": "Directly manipulates the thoughts and emotions of targets. Can control groups of people simultaneously through mass psychological influence."
+        },
+        {
+          "number": 3,
+          "name": "Scholar of Yore",
+          "description": "A convergence point where the Audience pathway meets the Seer. Gains access to historical knowledge through the psychological imprint left on objects and places."
+        },
+        {
+          "number": 2,
+          "name": "Miracle Invoker",
+          "description": "Invokes miracles through the collective unconscious and mass belief. Can manifest phenomena that masses collectively desire or fear."
+        },
+        {
+          "number": 1,
+          "name": "Attendant of Mysteries",
+          "description": "Wields immense psychological authority over reality itself. The boundary between mind and matter dissolves at this level."
+        },
+        {
+          "number": 0,
+          "name": "The Fool",
+          "description": "True God level. Complete dominion over the minds and perceptions of all beings. Reality itself becomes a stage."
+        }
+      ]
+    },
+    {
+      "name": "Sailor",
+      "alsoKnownAs": "Marauder / Tyrant Pathway",
+      "members": ["The Hanged Man"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Sailor",
+          "description": "Gains enhanced physical strength, stamina, and an innate sense for navigation and weather. Can swim at superhuman speeds."
+        },
+        {
+          "number": 8,
+          "name": "Folk of Rage",
+          "description": "Can enter a controlled berserker rage, multiplying physical abilities. Gains resistance to pain and an intimidating aura."
+        },
+        {
+          "number": 7,
+          "name": "Siren",
+          "description": "Commands a captivating voice that can charm, confuse, or weaken listeners. Can communicate with aquatic creatures."
+        },
+        {
+          "number": 6,
+          "name": "Wind-blessed",
+          "description": "Controls wind and weather in their vicinity. Can summon gusts, fog, and rain, and can walk on air currents."
+        },
+        {
+          "number": 5,
+          "name": "Cyclone",
+          "description": "Generates powerful cyclones and storms. Can ride wind currents at incredible speed and devastate areas with localized hurricanes."
+        },
+        {
+          "number": 4,
+          "name": "Sea King",
+          "description": "Commands dominion over the ocean. Controls water itself, summons tidal waves, and rules over sea creatures. A demigod of the depths."
+        },
+        {
+          "number": 3,
+          "name": "Calamity of Courage",
+          "description": "Embodies the terror and awe of the sea at its most destructive. Commands earthquakes, tsunamis, and volcanic eruptions."
+        },
+        {
+          "number": 2,
+          "name": "Typhoon",
+          "description": "Becomes one with the storm. A walking natural disaster that can annihilate fleets and reshape coastlines."
+        },
+        {
+          "number": 1,
+          "name": "Thunder God",
+          "description": "Commands the fury of the heavens — lightning, thunder, and devastating storms of divine magnitude."
+        },
+        {
+          "number": 0,
+          "name": "Tyrant",
+          "description": "True God level. Absolute dominion over all storms, oceans, and natural forces. The world's weather bends to their will."
+        }
+      ]
+    },
+    {
+      "name": "Bard",
+      "alsoKnownAs": "Sun Pathway",
+      "members": ["The Sun"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Bard",
+          "description": "Uses music and poetry to inspire allies and demoralize enemies. Can detect lies through rhythmic sensitivity."
+        },
+        {
+          "number": 8,
+          "name": "Dancer",
+          "description": "Channels Beyonder power through dance and movement. Gains supernatural grace and evasion abilities."
+        },
+        {
+          "number": 7,
+          "name": "Minstrel",
+          "description": "Songs carry literal power — healing, strengthening, or weakening effects spread through melody."
+        },
+        {
+          "number": 6,
+          "name": "Solar High Priest",
+          "description": "Channels the power of light and the sun. Can purify corruption, create protective barriers, and emit blinding radiance."
+        },
+        {
+          "number": 5,
+          "name": "Notary",
+          "description": "Can formalize contracts and oaths with supernatural weight. Breaking a Notary's contract carries dire consequences."
+        },
+        {
+          "number": 4,
+          "name": "Sunbro / Demigod",
+          "description": "Embodies the purifying light of the sun. Radiates an aura of protection, heals allies, and burns corruption and evil."
+        },
+        {
+          "number": 3,
+          "name": "Splendor",
+          "description": "Radiates divine splendor that can blind enemies, purify entire areas, and inspire allies to heroic feats."
+        },
+        {
+          "number": 2,
+          "name": "Lightbringer",
+          "description": "Brings literal and metaphorical light to the world. Can banish darkness, corruption, and despair on a massive scale."
+        },
+        {
+          "number": 1,
+          "name": "White Angel",
+          "description": "An angelic being of pure radiance. Commands the full power of the sun and healing, nearly divine in scope."
+        },
+        {
+          "number": 0,
+          "name": "Sun",
+          "description": "True God level. Absolute authority over light, purification, and revelation. Darkness cannot exist in their presence."
+        }
+      ]
+    },
+    {
+      "name": "Vampire",
+      "alsoKnownAs": "Abyss / Moon Pathway",
+      "members": ["The Moon"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Vampire",
+          "description": "Gains enhanced senses, strength, and regeneration. Requires blood to sustain abilities. Can see perfectly in darkness."
+        },
+        {
+          "number": 8,
+          "name": "Barbarian",
+          "description": "Physical abilities are greatly amplified. Becomes nearly unstoppable in close combat with brutal strength."
+        },
+        {
+          "number": 7,
+          "name": "Blood Shaman",
+          "description": "Manipulates blood — their own and others'. Can coagulate wounds, weaponize blood, and sense the vitality of creatures."
+        },
+        {
+          "number": 6,
+          "name": "Warlock",
+          "description": "Commands dark magic and curses. Can place blood hexes, create vampiric servants, and draw power from the Abyss."
+        },
+        {
+          "number": 5,
+          "name": "Hexer",
+          "description": "Masters of curses and hexes that grow stronger over time. Can create lasting magical effects that slowly consume the target."
+        },
+        {
+          "number": 4,
+          "name": "Vampire Duke / Demigod",
+          "description": "A lord of the night with immense vampiric power. Commands shadows, controls lesser vampires, and rules the darkness."
+        },
+        {
+          "number": 3,
+          "name": "Bat Wings of the Abyss",
+          "description": "Gains mastery over the Abyss itself. Can open passages to the Abyss and command its denizens."
+        },
+        {
+          "number": 2,
+          "name": "Moonblood",
+          "description": "The blood itself becomes a divine substance. Immune to most corruption, and their blood can empower or destroy others."
+        },
+        {
+          "number": 1,
+          "name": "Lord of the Night",
+          "description": "Rules over all nocturnal creatures and shadows. The night itself is their domain and weapon."
+        },
+        {
+          "number": 0,
+          "name": "Moon",
+          "description": "True God level. Absolute authority over the night, blood, and the Abyss. The moon itself answers their call."
+        }
+      ]
+    },
+    {
+      "name": "Apprentice",
+      "alsoKnownAs": "Door Pathway",
+      "members": ["The Hermit"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Apprentice",
+          "description": "Learns quickly and can absorb skills from observation. Gains a supernatural ability to understand mechanisms and structures."
+        },
+        {
+          "number": 8,
+          "name": "Trickster",
+          "description": "Masters sleight of hand, escape artistry, and misdirection. Can slip free from any mundane restraint."
+        },
+        {
+          "number": 7,
+          "name": "Astronomer",
+          "description": "Reads the stars for navigation and prophecy. Understands spatial relationships at an intuitive level."
+        },
+        {
+          "number": 6,
+          "name": "Conjurer",
+          "description": "Can conjure small objects from distant locations. Begins to understand spatial manipulation."
+        },
+        {
+          "number": 5,
+          "name": "Traveler",
+          "description": "Can teleport short distances. Creates spatial shortcuts and warps local space for rapid movement."
+        },
+        {
+          "number": 4,
+          "name": "Door / Demigod",
+          "description": "Opens dimensional doors to anywhere. Can create stable portals across vast distances and pocket dimensions."
+        },
+        {
+          "number": 3,
+          "name": "Planetary Wanderer",
+          "description": "Traverses not just space but dimensions. Can visit mirrors, shadows, and other dimensional layers."
+        },
+        {
+          "number": 2,
+          "name": "Key of Stars",
+          "description": "The living key to any lock, barrier, or seal. No door in existence can remain closed to them."
+        },
+        {
+          "number": 1,
+          "name": "Door to Everything",
+          "description": "Can open passages between any two points in existence, including conceptual and abstract spaces."
+        },
+        {
+          "number": 0,
+          "name": "Door",
+          "description": "True God level. The concept of 'passage' and 'entry' itself. Nothing is beyond their reach."
+        }
+      ]
+    },
+    {
+      "name": "Darkness",
+      "alsoKnownAs": "Nighthawk Pathway",
+      "members": ["The Star"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Nighthawk",
+          "description": "Gains enhanced night vision and the ability to sense danger in darkness. Can move silently through shadows."
+        },
+        {
+          "number": 8,
+          "name": "Midnight Butcher",
+          "description": "Excels at combat in darkness. Can temporarily blind opponents and strikes with lethal precision in low light."
+        },
+        {
+          "number": 7,
+          "name": "Shadow Watcher",
+          "description": "Can blend into shadows and observe without detection. Gains the ability to move between connected shadows."
+        },
+        {
+          "number": 6,
+          "name": "Nightwatcher",
+          "description": "Commands shadows as weapons and shields. Can create zones of supernatural darkness that consume light."
+        },
+        {
+          "number": 5,
+          "name": "Watcher",
+          "description": "Sees through all deception and concealment. Can observe events from great distances through shadow networks."
+        },
+        {
+          "number": 4,
+          "name": "Fear of Darkness / Demigod",
+          "description": "Becomes the embodiment of the terrors lurking in darkness. Can induce primal fear and command shadows as living entities."
+        },
+        {
+          "number": 3,
+          "name": "Eternal Silence",
+          "description": "Can extinguish all sound, light, and sensation in an area — creating a void of perfect darkness and silence."
+        },
+        {
+          "number": 2,
+          "name": "Nightbringer",
+          "description": "Brings eternal night to any location. Can plunge entire regions into perpetual, unnatural darkness."
+        },
+        {
+          "number": 1,
+          "name": "Void Sovereign",
+          "description": "Rules the space between spaces. Commands the primordial darkness that existed before light."
+        },
+        {
+          "number": 0,
+          "name": "Darkness",
+          "description": "True God level. The concept of darkness itself. Where they walk, light ceases to exist."
+        }
+      ]
+    },
+    {
+      "name": "Arbiter",
+      "alsoKnownAs": "Judgment Pathway",
+      "members": ["The Emperor"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Arbiter",
+          "description": "Gains an innate sense of truth and falsehood. Can detect lies and enforce basic rules of conduct."
+        },
+        {
+          "number": 8,
+          "name": "Sheriff",
+          "description": "Enhanced authority presence that demands compliance. Can issue commands that weaker minds feel compelled to follow."
+        },
+        {
+          "number": 7,
+          "name": "Judge",
+          "description": "Can formally judge targets, declaring guilt or innocence with supernatural weight. Judged targets suffer debilitation."
+        },
+        {
+          "number": 6,
+          "name": "Magistrate",
+          "description": "Issues binding rulings that affect reality within their jurisdiction. Creates zones where their laws are physically enforced."
+        },
+        {
+          "number": 5,
+          "name": "Mind Calmer",
+          "description": "Can calm any mind, suppress emotions, and impose order on chaotic situations. Nullifies psychological effects in their presence."
+        },
+        {
+          "number": 4,
+          "name": "Imperator / Demigod",
+          "description": "Commands divine authority that bends the will of others. Can issue decrees that reshape local reality to enforce order."
+        },
+        {
+          "number": 3,
+          "name": "Chaos Hunter",
+          "description": "Hunts down and purges chaos and disorder wherever it exists. Their mere presence suppresses anomalous phenomena."
+        },
+        {
+          "number": 2,
+          "name": "Order",
+          "description": "Becomes the living embodiment of cosmic order. Can impose structure on any chaotic system — physical, mental, or metaphysical."
+        },
+        {
+          "number": 1,
+          "name": "Judge of All",
+          "description": "Their judgment holds weight over all existence. Can pass sentence on any being, concept, or phenomenon."
+        },
+        {
+          "number": 0,
+          "name": "Arbiter",
+          "description": "True God level. The concept of judgment and cosmic law itself. Their word is absolute."
+        }
+      ]
+    },
+    {
+      "name": "Mystery Pryer",
+      "alsoKnownAs": "Instigator Pathway",
+      "members": ["The Priestess"],
+      "sequences": [
+        {
+          "number": 9,
+          "name": "Mystery Pryer",
+          "description": "Gains a sixth sense for the mystical and hidden. Can detect supernatural presences and hidden truths."
+        },
+        {
+          "number": 8,
+          "name": "Instigator",
+          "description": "Can subtly provoke emotions and reactions in others. Plants seeds of discord, inspiration, or courage through words."
+        },
+        {
+          "number": 7,
+          "name": "Conspirator",
+          "description": "Masters manipulation and intrigue. Can orchestrate complex schemes and predict social dynamics with supernatural accuracy."
+        },
+        {
+          "number": 6,
+          "name": "Provocateur",
+          "description": "Can directly inflame emotions and provoke actions. Their words carry supernatural weight, compelling action from listeners."
+        },
+        {
+          "number": 5,
+          "name": "Prophet",
+          "description": "Receives genuine prophetic visions. Can see glimpses of possible futures and write predictions that may become reality."
+        },
+        {
+          "number": 4,
+          "name": "Counselor / Demigod",
+          "description": "Advises with supernatural wisdom. Their counsel reshapes the decisions of nations. Can foresee and manipulate grand events."
+        },
+        {
+          "number": 3,
+          "name": "Mysticologist",
+          "description": "Understands the deepest mysteries of the world. Can perceive hidden connections between seemingly unrelated events."
+        },
+        {
+          "number": 2,
+          "name": "Prophecy",
+          "description": "Their words become self-fulfilling prophecies. What they speak into existence has a supernatural tendency to come true."
+        },
+        {
+          "number": 1,
+          "name": "Oracle",
+          "description": "Speaks with divine authority. Their prophetic words reshape fate itself on a grand scale."
+        },
+        {
+          "number": 0,
+          "name": "Mystery",
+          "description": "True God level. The concept of mystery and prophecy itself. All secrets are revealed to them, and their word shapes destiny."
+        }
+      ]
+    }
+  ]
+}

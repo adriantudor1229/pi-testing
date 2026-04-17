@@ -1,0 +1,135 @@
+/* ============================================
+   ANIMATIONS.CSS — Fog, Card Flip, Transitions
+   ============================================ */
+
+/* --- Fog Drift Animation --- */
+@keyframes fogDrift {
+  0% {
+    opacity: 0.3;
+    transform: translateX(-5%) translateY(0);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(5%) translateY(-2%);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateX(-5%) translateY(0);
+  }
+}
+
+@keyframes fogDriftAlt {
+  0% {
+    opacity: 0.5;
+    transform: translateX(5%) translateY(0);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translateX(-5%) translateY(2%);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateX(5%) translateY(0);
+  }
+}
+
+@keyframes fogPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* --- Hero Fog Layers --- */
+.fog-overlay {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(164, 164, 174, 0.3) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(82, 82, 91, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(39, 39, 42, 0.5) 0%, transparent 70%);
+  animation: fogPulse 8s ease-in-out infinite;
+}
+
+.fog-layer-1,
+.fog-layer-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fog-layer-1 {
+  background: radial-gradient(ellipse at 30% 60%, rgba(164, 164, 174, 0.2) 0%, transparent 50%);
+  animation: fogDrift 12s ease-in-out infinite;
+}
+
+.fog-layer-2 {
+  background: radial-gradient(ellipse at 70% 40%, rgba(201, 168, 76, 0.05) 0%, transparent 50%);
+  animation: fogDriftAlt 15s ease-in-out infinite;
+}
+
+/* --- Scroll-Triggered Fade In --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Member Card Hover Glow --- */
+@keyframes cardGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(201, 168, 76, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.15);
+  }
+}
+
+.member-card:hover {
+  animation: cardGlow 2s ease-in-out infinite;
+}
+
+/* --- Quote Fade --- */
+@keyframes quoteFade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.quote-display {
+  animation: quoteFade 0.8s ease-in-out;
+}
+
+/* --- Modal Entrance --- */
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-content {
+  animation: modalIn 0.3s ease-out;
+}

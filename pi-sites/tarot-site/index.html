@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tarot Club — Lord of the Mysteries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/members.css">
+  <link rel="stylesheet" href="css/pathways.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ===================== HERO / LANDING SECTION ===================== -->
+  <section id="hero" class="hero-section">
+    <div class="fog-overlay"></div>
+    <canvas id="fog-canvas"></canvas>
+    <div class="fog-layer-1"></div>
+    <div class="fog-layer-2"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">The Tarot Club</h1>
+      <p class="hero-subtitle">Above the fog of secrecy, destiny is dealt in cards.</p>
+      <p class="hero-tagline">A fan site dedicated to the Tarot Club from <em>Lord of the Mysteries</em></p>
+      <a href="#members" class="scroll-cta">Descend into the Fog ↓</a>
+    </div>
+  </section>
+
+  <!-- ===================== TAROT CLUB MEMBERS SECTION ===================== -->
+  <section id="members" class="members-section">
+    <h2 class="section-title">Members of the Tarot Club</h2>
+    <div class="member-filter">
+      <!-- Filter controls populated by JS -->
+    </div>
+    <div class="members-grid">
+      <!-- Member cards populated by JS from data/members.json -->
+    </div>
+  </section>
+
+  <!-- ===================== MEMBER PROFILE MODAL ===================== -->
+  <div id="member-modal" class="modal-overlay" hidden>
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-body">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PATHWAYS & SEQUENCES SECTION ===================== -->
+  <section id="pathways" class="pathways-section">
+    <h2 class="section-title">Pathways &amp; Sequences</h2>
+    <div class="pathways-explorer">
+      <!-- Pathway items populated by JS from data/pathways.json -->
+    </div>
+  </section>
+
+  <!-- ===================== QUOTES SECTION ===================== -->
+  <section id="quotes" class="quotes-section">
+    <h2 class="section-title">Words from the Fog</h2>
+    <blockquote class="quote-display">
+      <!-- Random quote populated by JS -->
+    </blockquote>
+    <button class="quote-refresh">Another whisper from the fog…</button>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <p><em>Lord of the Mysteries</em> is written by Cuttlefish That Loves Diving (爱潜水的乌贼).</p>
+    <p>This is a fan-made site. All rights to the original work belong to the author.</p>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="js/fog.js"></script>
+  <script src="js/members.js"></script>
+  <script src="js/pathways.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

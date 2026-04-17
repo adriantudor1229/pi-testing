@@ -1,0 +1,155 @@
+{
+  "members": [
+    {
+      "codename": "The Fool",
+      "realName": "Klein Moretti",
+      "tagline": "\"Everyone has their own lucky number. Mine is 4.\"",
+      "pathway": "Seer",
+      "sequence": "Sequence 3 — Scholar of Yore",
+      "sequenceNumber": 3,
+      "background": "A former history graduate and Nighthawk who, after a series of extraordinary events, inherited the Seer pathway and the mysterious Sefirah Castle. He founded the Tarot Club under the alias of The Fool, gathering Beyonders from across the world to exchange knowledge and resources — all while unraveling the deeper conspiracies threatening humanity.",
+      "abilities": "Divination, Spirit Vision, Dream Investigation, Flaming Jump, Paper Substitutes, Historical Void traversal, Sefirah Castle projection. As a Scholar of Yore he can access the records of the Historical Void and borrow powers from history itself.",
+      "role": "Founder and leader of the Tarot Club. Operates under the identity of an ancient, mysterious being to command respect and secrecy among members.",
+      "quotes": [
+        "I am The Fool who does not belong to this era.",
+        "Everyone has their own lucky number.",
+        "In the face of the unknown, reverence is the best protection."
+      ]
+    },
+    {
+      "codename": "Justice",
+      "realName": "Audrey Hall",
+      "tagline": "\"A lady must always maintain her composure.\"",
+      "pathway": "Audience",
+      "sequence": "Sequence 3 — Scholar of Yore (via Manipulator path)",
+      "sequenceNumber": 3,
+      "background": "The youngest daughter of the noble Hall family, Audrey is a refined and intelligent young woman who became the first member recruited into the Tarot Club. She walks the Audience pathway, using psychological manipulation and hypnotism with elegance. Her noble bearing and social grace make her an invaluable intelligence gatherer.",
+      "abilities": "Psychological Suggestion, Hypnosis, Emotion Reading, Psychological Invisibility, Awe-provoking presence, Memory manipulation. As a high-sequence Audience, she can subtly reshape the minds of others.",
+      "role": "Intelligence gatherer and social operator. Uses her noble standing and Audience abilities to influence events in high society and gather information.",
+      "quotes": [
+        "A lady must always maintain her composure.",
+        "I want to help people — truly help them, from the inside out."
+      ]
+    },
+    {
+      "codename": "The Hanged Man",
+      "realName": "Alger Wilson",
+      "tagline": "\"The sea remembers everything.\"",
+      "pathway": "Sailor (Marauder pathway)",
+      "sequence": "Sequence 4 — Sea King",
+      "sequenceNumber": 4,
+      "background": "A seasoned and cunning ship captain, Alger Wilson is one of the earliest members of the Tarot Club. Walks the Sailor pathway, which grants him dominion over the seas and weather. He is pragmatic, experienced, and often serves as a voice of caution within the group. His knowledge of Beyonder lore and the ocean is vast.",
+      "abilities": "Sailing mastery, Weather manipulation, Water control, Enhanced physical strength, Siren song, Aquatic transformation, Avatar of the sea. As a Sea King he commands immense power over water and storms.",
+      "role": "Veteran adviser and resource provider. Often trades rare ingredients and Beyonder knowledge. His seafaring experience gives him access to information and materials others cannot reach.",
+      "quotes": [
+        "The sea remembers everything.",
+        "On the ocean, caution is the difference between life and death."
+      ]
+    },
+    {
+      "codename": "The Sun",
+      "realName": "Derrick Berg",
+      "tagline": "\"The City of Silver endures.\"",
+      "pathway": "Bard (via Sun pathway)",
+      "sequence": "Sequence 4 — Demigod (Notary)",
+      "sequenceNumber": 4,
+      "background": "A young man from the City of Silver, a secretive settlement trapped in a cursed mirror world where sunlight never reaches. Derrick walked the Bard pathway and possesses a pure, earnest nature. Despite the horrors his people endured, he remains hopeful and kind. His unique perspective from outside normal society makes him an important member.",
+      "abilities": "Light manipulation, Healing hymns, Protective barriers, Purification, Solar flare attacks, Sacred music. His Bard abilities can inspire allies and weaken corruption through song and light.",
+      "role": "Provider of rare materials and lore from the cursed mirror world. His connection to the City of Silver gives the Tarot Club access to unique Beyonder knowledge and artifacts.",
+      "quotes": [
+        "The City of Silver endures.",
+        "I believe that one day, we will see the real sun again."
+      ]
+    },
+    {
+      "codename": "The Moon",
+      "realName": "Emlyn White",
+      "tagline": "\"I am a vampire of culture and refinement.\"",
+      "pathway": "Vampire (Abyss pathway)",
+      "sequence": "Sequence 4 — Demigod",
+      "sequenceNumber": 4,
+      "background": "A vampire from the Neonite bloodline, Emlyn is a theatrical and eccentric member of the Tarot Club. He considers himself cultured and refined, often behaving dramatically. He walks the Vampire pathway, which connects to the darker Abyss. Despite his theatrics, he is a capable and reliable ally who deeply cares for his kind.",
+      "abilities": "Blood manipulation, Enhanced senses, Regeneration, Bat transformation, Hypnotic gaze, Shadow control, Life drain. His vampire abilities make him an exceptional scout and combatant.",
+      "role": "Scout and operative within vampire society. Provides the Tarot Club with intelligence about the supernatural underground and access to vampire networks.",
+      "quotes": [
+        "I am a vampire of culture and refinement.",
+        "Hmph. How could a mere human understand the elegance of my kind?"
+      ]
+    },
+    {
+      "codename": "The World",
+      "realName": "Klein Moretti (alternate persona)",
+      "tagline": "\"I am a messenger of the Fool.\"",
+      "pathway": "Seer (same as The Fool)",
+      "sequence": "Sequence 3 — Scholar of Yore",
+      "sequenceNumber": 3,
+      "background": "The World is Klein Moretti's alternate identity within the Tarot Club — a mercenary and adventurer persona used to handle tasks that would be beneath The Fool's dignity. Most members believe The World is a separate, powerful Beyonder who serves The Fool. This duality allows Klein to operate freely in ways his main identity cannot.",
+      "abilities": "Same as The Fool — Divination, Spirit Vision, Dream Investigation, Flaming Jump, Paper Substitutes, Historical Void traversal. Acts as The Fool's agent for direct intervention.",
+      "role": "The Fool's apparent subordinate — handles missions, trades, and direct action. In reality, allows Klein to participate more freely in Tarot Club affairs without breaking The Fool's mystique.",
+      "quotes": [
+        "I am merely a messenger carrying out The Fool's will.",
+        "Mr. Fool has instructed me to handle this matter."
+      ]
+    },
+    {
+      "codename": "The Star",
+      "realName": "Leonard Mitchell",
+      "tagline": "\"There is poetry in the darkness.\"",
+      "pathway": "Nighthawk (Darkness pathway)",
+      "sequence": "Sequence 5 — Watcher",
+      "sequenceNumber": 5,
+      "background": "A former Nighthawk and colleague of Klein's at the Red Moon Orphanage church, Leonard is a poet at heart who walks the Darkness pathway. He has a mysterious parasitic entity within him — an ancient being that whispers secrets and prophecies. Leonard is charming, perceptive, and one of the few who knew Klein before he became The Fool.",
+      "abilities": "Shadow manipulation, Darkness concealment, Dream reading, Soul perception, Ancient whispers (parasite visions), Shadow teleportation. His parasite grants him prophetic glimpses.",
+      "role": "Field operative and information gatherer within the Nighthawk and Mandated Punishers. His parasite provides unique prophetic intelligence to the Tarot Club.",
+      "quotes": [
+        "There is poetry in the darkness.",
+        "Heh, the old fellow in my head has something to say about that."
+      ]
+    },
+    {
+      "codename": "The Hermit",
+      "realName": "Cattleya",
+      "tagline": "\"Knowledge is the truest treasure.\"",
+      "pathway": "Apprentice (Door pathway)",
+      "sequence": "Sequence 4 — Demigod",
+      "sequenceNumber": 4,
+      "background": "A mysterious and reclusive Beyonder who walks the Door pathway. Cattleya is deeply knowledgeable about Beyonder lore, history, and the hidden structures of the world. She operates from the shadows, gathering and preserving knowledge that others have lost or hidden. Her Door abilities grant her unparalleled mobility.",
+      "abilities": "Spatial manipulation, Door creation (teleportation portals), Dimensional pockets, Spatial locking, Void traversal. As a high-sequence Door Beyonder she can open doorways across vast distances.",
+      "role": "Knowledge keeper and transportation specialist. Her ability to create dimensional doors makes her essential for moving people and objects. Preserves and shares rare Beyonder knowledge.",
+      "quotes": [
+        "Knowledge is the truest treasure.",
+        "Every door leads somewhere — you just need to know how to open it."
+      ]
+    },
+    {
+      "codename": "The Emperor",
+      "realName": "Xio Derecha",
+      "tagline": "\"Justice is a matter of law, not mercy.\"",
+      "pathway": "Arbiter",
+      "sequence": "Sequence 5 — Mind Calmer",
+      "sequenceNumber": 5,
+      "background": "A determined and principled woman who walks the Arbiter pathway. Xio is a private investigator and lawyer who fights for justice within the law. She joined the Tarot Club seeking strength to protect those she cares about. Her unwavering sense of justice and keen analytical mind make her a formidable ally.",
+      "abilities": "Psychological judgment, Order enforcement, Mental calming, Logical analysis enhancement, Command voice. Her Arbiter abilities allow her to impose order and calm on chaotic situations.",
+      "role": "Legal and investigative specialist. Uses her Arbiter abilities to resolve conflicts and her investigative skills to uncover hidden truths for the Tarot Club.",
+      "quotes": [
+        "Justice is a matter of law, not mercy.",
+        "The truth always comes to light — it just needs someone to find it."
+      ]
+    },
+    {
+      "codename": "The Priestess",
+      "realName": "Fors Wall",
+      "tagline": "\"Words carry power — I simply write them down.\"",
+      "pathway": "Mystery Pryer (Instigator pathway)",
+      "sequence": "Sequence 5 — Prophet",
+      "sequenceNumber": 5,
+      "background": "A talented novelist and Mystery Pryer who walks the Instigator pathway. Fors is a creative soul whose novels sometimes contain prophetic truths she doesn't consciously intend. She joined the Tarot Club seeking a cure for a mystical affliction and stayed for the camaraderie. Her wit and creativity are her greatest strengths.",
+      "abilities": "Prophetic writing, Inspiration channeling, Emotion instigation, Mass suggestion through words, Creative prophecy. Her novels can inadvertently predict or influence real events.",
+      "role": "Information disseminator and creative operative. Her writing abilities allow subtle influence on public perception, and her prophetic gifts provide unique insights to the Tarot Club.",
+      "quotes": [
+        "Words carry power — I simply write them down.",
+        "I'm just a novelist who happens to know a little magic."
+      ]
+    }
+  ]
+}

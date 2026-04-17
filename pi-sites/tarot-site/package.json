@@ -1,0 +1,12 @@
+{
+  "name": "tarot-club-site",
+  "version": "1.0.0",
+  "description": "A fan site dedicated to the Tarot Club from Lord of the Mysteries",
+  "private": true,
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
