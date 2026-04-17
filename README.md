@@ -54,3 +54,8 @@ Design constraints:
 - PI with 4 agents used 23 % of the Z.AI plan
 - Claude Code with Pro plan used 90%
 - The prompt used can be see here: https://github.com/adriantudor1229/pi-testing/blob/master/pi-sites/code-geass/tarot-plan/technologies.md#technologies-code-geass-fan-site 
+
+## Created a Dashboard using Tarot Club
+- Usage - around 30% -
+- One prompt, after he finished the site, I had like 1 nitpick, that he resolved in 3 prompts.
+- You can check it here https://github.com/adriantudor1229/pi-testing/tree/master/pi-sites/dashboard-4pi
