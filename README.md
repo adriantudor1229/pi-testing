@@ -34,3 +34,9 @@ Design constraints:
 - The usage of tokens is still very good.
 - The worst part: after creating the skills, I tried to see how will the site look. The output was awfull. The problem is 100% because of the prompt, that is generated from the index.html. I'm saying this because, even Claude Opus 4.6, made the same design mistakes.
 - The outputs can be seen in pi-sitese/pi-landing-page-with-skill/2 and claude-playground/claude-same-prompt
+
+## Created The Tarot Club
+- 4 tmux PI agents, they each have their own role
+- communicate with each other, and verify the work
+- created a good looking Lord Of The Mysteries site -- IF YOU PLAN TO READ LORD OF THE MYSTERIES DO NOT CHECK THE PATHWAYS --
+- 10% of usage using Z.AI
