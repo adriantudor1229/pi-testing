@@ -45,14 +45,14 @@ When activated (status says `the-sun`):
 After each submission, read `tarot-plan/review.md`:
 
 - **Attempt 1:** Create skeleton → update status → wait for review
-  - ✅ Justice approves → update status: active `the-fool`, done
-  - ❌ Justice rejects → read feedback → recreate
+  - [YES] Justice approves → update status: active `the-fool`, done
+  - [NO] Justice rejects → read feedback → recreate
 - **Attempt 2:** Recreate → update status → wait for review
-  - ✅ Justice approves → update status: active `the-fool`, done
-  - ❌ Justice rejects → read feedback → recreate
+  - [YES] Justice approves → update status: active `the-fool`, done
+  - [NO] Justice rejects → read feedback → recreate
 - **Attempt 3:** Recreate → update status → wait for review
-  - ✅ Justice approves → update status: active `the-fool`, done
-  - ❌ Justice rejects → update status: active `the-fool`, message "ESCALATION: Cannot agree after 3 attempts."
+  - [YES] Justice approves → update status: active `the-fool`, done
+  - [NO] Justice rejects → update status: active `the-fool`, message "ESCALATION: Cannot agree after 3 attempts."
 
 ## Escalation to The Fool
 
@@ -62,6 +62,7 @@ If The Sun and The Justice cannot agree after 3 attempts:
 3. Wait for The Fool to resolve
 
 ## Notes
+- **No emoji** — never use emoji in any output, communication, or file content. Plain text only.
 - The Sun never writes code — only structure
 - The Sun reads `architecture.md` for the plan
 - All communication goes through shared files in `tarot-plan/`

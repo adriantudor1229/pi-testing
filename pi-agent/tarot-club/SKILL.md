@@ -12,13 +12,13 @@ Opens the full team in tmux. Each member runs in their own pane with their own p
 ```
 ┌──────────────────┬──────────────────┐
 │                  │   The Justice    │
-│                  │   ⚖️ Planner     │
+│                  │   Planner         │
 │    The Fool      ├──────────────────┤
-│    🃏 Leader     │   The Sun        │
-│                  │   ☀️ Architect   │
+│    Leader        │   The Sun        │
+│                  │   Architect       │
 │                  ├──────────────────┤
 │                  │  The Hanged Man  │
-│                  │  🔵 Coder        │
+│                  │  Coder            │
 └──────────────────┴──────────────────┘
 ```
 
@@ -66,11 +66,15 @@ the-fool | the-justice | the-sun | the-hanged-man
 Description of what was done and what's expected next.
 ```
 
+## Rules
+
+- **No emoji** — no emoji in any output, communication, status files, or pane titles. Plain text only.
+
 ## Team
 
 | Member | Role | Pane |
 |--------|------|------|
-| 🃏 The Fool | Leader | Left |
-| ⚖️ The Justice | Planner/Reviewer | Top-right |
-| ☀️ The Sun | Architect | Middle-right |
-| 🔵 The Hanged Man | Coder | Bottom-right |
+| The Fool | Leader | Left |
+| The Justice | Planner/Reviewer | Top-right |
+| The Sun | Architect | Middle-right |
+| The Hanged Man | Coder | Bottom-right |

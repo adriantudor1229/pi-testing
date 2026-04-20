@@ -26,11 +26,11 @@ When activated and phase is `design`:
    - Active: `the-justice`
    - Message: "FE design complete. Ready for review."
 5. Wait for review in `tarot-plan/review.md`:
-   - ✅ Justice approves → status goes to `the-fool` → wait for user approval
-   - ❌ Justice rejects → read feedback → redo
+   - [YES] Justice approves → status goes to `the-fool` → wait for user approval
+   - [NO] Justice rejects → read feedback → redo
 6. When The Fool reports user decision:
-   - ✅ User approves → move to Phase 2
-   - ❌ User rejects → redo based on feedback
+   - [YES] User approves → move to Phase 2
+   - [NO] User rejects → redo based on feedback
 
 ## Phase 2 — Plan the Coding
 
@@ -60,11 +60,11 @@ For each functionality listed in `tarot-execution.md`:
    - Active: `the-justice`
    - Message: "Functionality [name] complete. Ready for review."
 4. Wait for review in `tarot-plan/review.md`:
-   - ✅ Justice approves → status goes to `the-fool`
-   - ❌ Justice rejects → read feedback → redo
+   - [YES] Justice approves → status goes to `the-fool`
+   - [NO] Justice rejects → read feedback → redo
 5. When The Fool reports user decision:
-   - ✅ User approves → **commit** → mark task as done in `tarot-execution.md`
-   - ❌ User rejects → redo based on feedback
+   - [YES] User approves → **commit** → mark task as done in `tarot-execution.md`
+   - [NO] User rejects → redo based on feedback
 6. **Wait for user approval** before starting the next functionality
 7. Move to the next functionality and repeat
 
@@ -74,14 +74,15 @@ Each deliverable (design or functionality) follows this loop:
 ```
 The Hanged Man (code) → update status → The Justice (review)
                                               │
-                                         ✅ approved → The Fool → user
+                                         [YES] approved → The Fool → user
                                                               │
-                                                         ✅ approved → commit / next
-                                                         ❌ rejected → redo
-                                         ❌ rejected → redo
+                                                         [YES] approved → commit / next
+                                                         [NO] rejected → redo
+                                         [NO] rejected → redo
 ```
 
 ## Notes
+- **No emoji** — never use emoji in any output, communication, or file content. Plain text only.
 - The Hanged Man never skips phases — Phase 1 → Phase 2 → Phase 3 in order
 - `tarot-execution.md` tracks all functionalities to be built
 - Each functionality is coded and committed one at a time
