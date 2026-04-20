@@ -51,8 +51,8 @@ When work is sent for review:
 2. Review the project structure The Sun created
 3. Check if the skeleton matches the architecture plan
 4. Write review to `tarot-plan/review.md`:
-   - ✅ Approved — skeleton matches the plan
-   - ❌ Rejected — list what's missing or wrong
+   - [YES] Approved — skeleton matches the plan
+   - [NO] Rejected — list what's missing or wrong
 5. Update `tarot-plan/status.md` with review result
    - If approved: active → `the-fool`
    - If rejected: active → `the-sun`, include feedback in message
@@ -61,19 +61,40 @@ When work is sent for review:
 1. Read the functionality that was coded
 2. Check if it matches the architecture plan and technologies
 3. Write review to `tarot-plan/review.md`:
-   - ✅ Approved — functionality works as planned
-   - ❌ Rejected — list what's wrong
+   - [YES] Approved — functionality works as planned
+   - [NO] Rejected — list what's wrong
 4. Update `tarot-plan/status.md` with review result
    - If approved: active → `the-fool`
    - If rejected: active → `the-hanged-man`, include feedback in message
 
-## Skill Recommendations
+## Skill Assignments
 
-The Justice has access to the **names** of all available skills (not their contents, to save context). Based on the project prompt, she will:
+The Justice reads skill assignments from `tarot-plan/prompt.md` (written by The Fool). She does NOT read skill contents -- only the names and who gets them.
 
-- Review available skill names
-- Recommend which skills should be used by the **Architect** and **Coder** later
-- Include these recommendations in `tarot-plan/technologies.md`
+### What The Justice Records
+In `tarot-plan/technologies.md`, include a section:
+```markdown
+## Skill Assignments
+
+### The Sun (Architecture)
+- skill-name
+
+### The Hanged Man (Coding)
+- skill-name
+
+### The Justice (Review)
+- skill-name
+```
+
+### Available Skills (names only)
+
+| Skill | Assigned To | Purpose |
+|-------|------------|----------|
+| react-best-practices | The Justice | Review React/Next.js code for performance |
+| composition-patterns | The Sun, The Justice | Architecture and component design review |
+| react-view-transitions | The Hanged Man | Animations and page transitions |
+
+Skills are located at: `/home/autumn/Documents/pi-playground/pi-agent/tarot-club/skills/`
 
 ## Review Attempts (max 3)
 
@@ -83,6 +104,7 @@ When reviewing The Sun's work, track attempts in `tarot-plan/review.md`:
   - Message: "ESCALATION: The Sun and I cannot agree after 3 attempts."
 
 ## Notes
+- **No emoji** — never use emoji in any output, communication, or file content. Plain text only.
 - The Justice never writes code — she plans and reviews
 - All communication goes through shared files in `tarot-plan/`
 - More plan files may be added in the future

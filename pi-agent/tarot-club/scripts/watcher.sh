@@ -22,11 +22,11 @@ get_pane() {
 # Map member name to emoji label
 get_label() {
     case "$1" in
-        the-fool)        echo "🃏" ;;
-        the-justice)     echo "⚖️" ;;
-        the-sun)         echo "☀️" ;;
-        the-hanged-man)  echo "🔵" ;;
-        *)               echo "❓" ;;
+        the-fool)        echo "[Fool]" ;;
+        the-justice)     echo "[Justice]" ;;
+        the-sun)         echo "[Sun]" ;;
+        the-hanged-man)  echo "[Hanged Man]" ;;
+        *)               echo "[?]" ;;
     esac
 }
 
@@ -98,7 +98,7 @@ check_and_nudge() {
     fi
 }
 
-echo "🃏 Tarot Club Watcher started"
+echo "Tarot Club Watcher started"
 echo "   Watching: $STATUS_FILE"
 echo "   Session:  $SESSION"
 echo "   Press Ctrl+C to stop"
